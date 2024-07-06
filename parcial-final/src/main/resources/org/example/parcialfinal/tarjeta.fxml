@@ -12,33 +12,33 @@
       <VBox spacing="10.0">
          <children>
             <Label text="id" />
-            <TextField />
+            <TextField fx:id="txtTarjetaId" />
          </children>
       </VBox>
       <VBox spacing="10.0">
          <children>
             <Label text="numero de tarjeta" />
-            <TextField />
+            <TextField fx:id="txtTajertaNum" />
          </children>
       </VBox>
       <VBox spacing="10.0">
          <children>
             <Label text="fecha expiracion" />
-            <TextField />
+            <TextField fx:id="idTarjetaFechaExp" />
          </children>
       </VBox>
       <VBox spacing="10.0">
          <children>
             <Label text="tipo" />
-            <TextField />
+            <TextField fx:id="txtTarjetaTipo" />
          </children>
       </VBox>
       <ButtonBar maxWidth="-Infinity">
         <buttons>
-          <Button mnemonicParsing="false" text="Create" />
-            <Button mnemonicParsing="false" text="Search" />
-            <Button mnemonicParsing="false" text="Update" />
-            <Button mnemonicParsing="false" text="Delete" />
+          <Button mnemonicParsing="false" onAction="#btnCrearTarjetaClick" text="Create" />
+            <Button mnemonicParsing="false" onAction="#btnBuscarTarjetaClick" text="Search" />
+            <Button mnemonicParsing="false" onAction="#btnActualizarTarjetaClick" text="Update" />
+            <Button mnemonicParsing="false" onAction="#btnEliminarTarjetaClick" text="Delete" />
         </buttons>
          <padding>
             <Insets right="20.0" />

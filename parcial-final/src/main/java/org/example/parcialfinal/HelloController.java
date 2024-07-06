@@ -1,4 +1,4 @@
-package org.example.parcialfinal;
+package org.example.parcialfinal.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
