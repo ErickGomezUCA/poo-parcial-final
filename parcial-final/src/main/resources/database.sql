@@ -44,6 +44,6 @@ CREATE TABLE Compra(
  monto DECIMAL(10,2) NOT NULL,
  descripcion VARCHAR(100) NOT NULL,
  id_tarjeta_C INT NOT NULL,
- INDEX(id_tarjeta),
+ INDEX(id_tarjeta_C),
  FOREIGN KEY (id_tarjeta_C) REFERENCES Tarjeta(id) ON DELETE CASCADE
 );

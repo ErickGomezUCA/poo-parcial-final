@@ -178,10 +178,10 @@ public class ClienteController {
 
             int filas = st.executeUpdate();
             if (filas > 0) {
-                txtMensajeEliminarCliente.setText("Libro eliminado con exito");
+                txtMensajeEliminarCliente.setText("Cliente eliminado con exito");
                 cargarClientes();
             } else {
-                txtMensajeEliminarCliente.setText("Libro no encontrado en base de datos");
+                txtMensajeEliminarCliente.setText("Cliente no encontrado en base de datos");
             }
 
             conn.close();
@@ -208,10 +208,10 @@ public class ClienteController {
 
             int filas = st.executeUpdate();
             if (filas > 0) {
-                txtMensajeActualizarCliente.setText("Libro eliminado con exito");
+                txtMensajeActualizarCliente.setText("Cliente eliminado con exito");
                 cargarClientes();
             } else {
-                txtMensajeActualizarCliente.setText("Libro no encontrado en base de datos");
+                txtMensajeActualizarCliente.setText("Cliente no encontrado en base de datos");
             }
             conn.close();
         } catch (Exception e) {
