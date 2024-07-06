@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="30.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox spacing="10.0">
+         <children>
+            <Label text="id" />
+            <TextField />
+         </children>
+      </VBox>
+      <VBox spacing="10.0">
+         <children>
+            <Label text="numero de tarjeta" />
+            <TextField />
+         </children>
+      </VBox>
+      <VBox spacing="10.0">
+         <children>
+            <Label text="fecha expiracion" />
+            <TextField />
+         </children>
+      </VBox>
+      <VBox spacing="10.0">
+         <children>
+            <Label text="tipo" />
+            <TextField />
+         </children>
+      </VBox>
+      <ButtonBar maxWidth="-Infinity">
+        <buttons>
+          <Button mnemonicParsing="false" text="Create" />
+            <Button mnemonicParsing="false" text="Search" />
+            <Button mnemonicParsing="false" text="Update" />
+            <Button mnemonicParsing="false" text="Delete" />
+        </buttons>
+         <padding>
+            <Insets right="20.0" />
+         </padding>
+      </ButtonBar>
+   </children>
+   <padding>
+      <Insets left="100.0" right="100.0" />
+   </padding>
+</VBox>
