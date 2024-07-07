@@ -4,11 +4,39 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b460e602-73b7-4355-9847-e7060b779f1b" name="Changes" comment="" />
+    <list default="true" id="4c955963-33d8-42a7-bfae-91e0e445f201" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/poo-parcial-final.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/parcialfinal/backend/database/DBConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/parcialfinal/controllers/TarjetaController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/LogoBanco.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/icons/SearchIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/icons/iconpersonblue.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/parcialfinal/Lobby.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/parcialfinal/compras.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/parcialfinal/tarjeta.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sql/mysql-connector-j-9.0.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/parcialfinal/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/parcialfinal/applications/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql/database.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/parcialfinal/DisenioParcialFinal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/parcialfinal/DisenioParcialFinal.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
   </component>
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
@@ -27,13 +55,25 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="LuisMartinez" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
-  <component name="ProjectId" id="2ir7rTu0xchDnG8Q6hDQ0ru7uCP" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2ireIysU4MbCFTw07xycOLeL8iC" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -42,7 +82,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "LuisMartinez",
+    "git-widget-placeholder": "Merging LuisMartinez",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -54,12 +94,13 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b460e602-73b7-4355-9847-e7060b779f1b" name="Changes" comment="" />
-      <created>1720237049912</created>
+      <changelist id="4c955963-33d8-42a7-bfae-91e0e445f201" name="Changes" comment="" />
+      <created>1720253055898</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1720237049912</updated>
-      <workItem from="1720237054579" duration="1911000" />
+      <updated>1720253055898</updated>
+      <workItem from="1720253060358" duration="769000" />
+      <workItem from="1720253858128" duration="251000" />
     </task>
     <servers />
   </component>
