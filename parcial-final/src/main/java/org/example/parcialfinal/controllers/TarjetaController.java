@@ -63,10 +63,7 @@ public class TarjetaController {
         try {
             PreparedStatement ps = connection.getConnection().prepareStatement("INSERT INTO Tarjeta(num_tarjeta, fecha_expiracion, tipo_tarjeta) VALUES(?, ?, ?)");
             ps.setString(1 , txtTarjetaNum.getText());
-
-            Date sqlDate = Date.valueOf(txtTarjetaFechaExp.getValue());
-            ps.setDate(2 , sqlDate);
-
+            ps.setDate(2 , Date.valueOf(txtTarjetaFechaExp.getValue()));
             ps.setString(3 , txtTarjetaTipo.getText());
             ps.executeUpdate();
             System.out.println("Tarjeta creada en el sistema");
