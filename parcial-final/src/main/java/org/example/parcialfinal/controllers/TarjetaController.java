@@ -77,7 +77,14 @@ public class TarjetaController {
 
     @FXML
     void btnEliminarTarjetaClick(ActionEvent event) {
-
+        try {
+            PreparedStatement ps = connection.getConnection().prepareStatement("DELETE FROM Tarjeta WHERE id = ?");
+            ps.setInt(1, Integer.parseInt(txtTarjetaId.getText()));
+            ps.executeUpdate();
+            System.out.println("Tarjeta eliminada en el sistema");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }
