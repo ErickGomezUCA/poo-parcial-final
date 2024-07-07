@@ -6,15 +6,13 @@ import javafx.scene.control.TextField;
 import org.example.parcialfinal.backend.database.DBConnection;
 
 import java.sql.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 public class TarjetaController {
 
     DBConnection connection = DBConnection.getInstance();
 
     @FXML
-    private DatePicker txtTarjetaFechaExp;
+    private DatePicker dateFechaExp;
 
     @FXML
     private TextField txtTarjetaNum;
@@ -30,7 +28,7 @@ public class TarjetaController {
         try {
             PreparedStatement ps = connection.getConnection().prepareStatement("UPDATE Tarjeta SET num_tarjeta = ?, fecha_expiracion = ?, tipo_tarjeta = ? WHERE id = ?");
             ps.setString(1, txtTarjetaNum.getText());
-            ps.setDate(2, Date.valueOf(txtTarjetaFechaExp.getValue()));
+            ps.setDate(2, Date.valueOf(dateFechaExp.getValue()));
             ps.setString(3, txtTarjetaTipo.getText());
             ps.setInt(4, Integer.parseInt(txtTarjetaId.getText()));
             ps.executeUpdate();
@@ -63,7 +61,7 @@ public class TarjetaController {
         try {
             PreparedStatement ps = connection.getConnection().prepareStatement("INSERT INTO Tarjeta(num_tarjeta, fecha_expiracion, tipo_tarjeta) VALUES(?, ?, ?)");
             ps.setString(1 , txtTarjetaNum.getText());
-            ps.setDate(2 , Date.valueOf(txtTarjetaFechaExp.getValue()));
+            ps.setDate(2 , Date.valueOf(dateFechaExp.getValue()));
             ps.setString(3 , txtTarjetaTipo.getText());
             ps.executeUpdate();
             System.out.println("Tarjeta creada en el sistema");

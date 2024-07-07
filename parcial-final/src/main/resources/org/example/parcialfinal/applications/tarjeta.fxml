@@ -25,7 +25,7 @@
       <VBox spacing="10.0">
          <children>
             <Label text="fecha expiracion" />
-            <DatePicker fx:id="txtTarjetaFechaExp" prefWidth="10000.0" />
+            <DatePicker fx:id="dateFechaExp" prefWidth="10000.0" />
          </children>
       </VBox>
       <VBox spacing="10.0">
