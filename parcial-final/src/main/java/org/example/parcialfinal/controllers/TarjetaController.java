@@ -97,7 +97,7 @@ public class TarjetaController implements Initializable {
                 lastIdInserted = rs.getInt(1);
             }
 
-            PreparedStatement psComprasInteligentes = connection.getConnection().prepareStatement("INSERT INTO Compras_Inteligentes(id_tarjeta_CI, id_cliente_CI, id_facilitador_CI) VALUES(?, ?, ?,)");
+            PreparedStatement psComprasInteligentes = connection.getConnection().prepareStatement("INSERT INTO Compras_Inteligentes(id_tarjeta_CI, id_cliente_CI, id_facilitador_CI) VALUES(?, ?, ?)");
             psComprasInteligentes.setInt(1, lastIdInserted);
             psComprasInteligentes.setInt(2, Integer.parseInt(txtIdCliente.getText()));
             psComprasInteligentes.setInt(3, selectFacilitador.getValue().getId());
