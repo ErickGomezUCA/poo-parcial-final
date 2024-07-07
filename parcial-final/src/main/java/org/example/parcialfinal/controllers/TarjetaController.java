@@ -1,13 +1,20 @@
 package org.example.parcialfinal.controllers;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableArray;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import org.example.parcialfinal.backend.database.DBConnection;
 
+import java.net.URL;
 import java.sql.*;
+import java.util.ResourceBundle;
 
-public class TarjetaController {
+public class TarjetaController implements Initializable {
 
     DBConnection connection = DBConnection.getInstance();
 
@@ -21,7 +28,13 @@ public class TarjetaController {
     private TextField txtTarjetaId;
 
     @FXML
-    private TextField txtTarjetaTipo;
+    private ComboBox<String> selectTarjetaTipo;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        ObservableList<String> tipoTarjetaValues = FXCollections.observableArrayList("Credito", "Debito");
+        selectTarjetaTipo.setItems(tipoTarjetaValues);
+    }
 
     @FXML
     void btnActualizarTarjetaClick(ActionEvent event) {
@@ -29,7 +42,7 @@ public class TarjetaController {
             PreparedStatement ps = connection.getConnection().prepareStatement("UPDATE Tarjeta SET num_tarjeta = ?, fecha_expiracion = ?, tipo_tarjeta = ? WHERE id = ?");
             ps.setString(1, txtTarjetaNum.getText());
             ps.setDate(2, Date.valueOf(dateFechaExp.getValue()));
-            ps.setString(3, txtTarjetaTipo.getText());
+            ps.setString(3, selectTarjetaTipo.getValue());
             ps.setInt(4, Integer.parseInt(txtTarjetaId.getText()));
             ps.executeUpdate();
             System.out.println("Registro actualizado");
@@ -62,7 +75,7 @@ public class TarjetaController {
             PreparedStatement ps = connection.getConnection().prepareStatement("INSERT INTO Tarjeta(num_tarjeta, fecha_expiracion, tipo_tarjeta) VALUES(?, ?, ?)");
             ps.setString(1 , txtTarjetaNum.getText());
             ps.setDate(2 , Date.valueOf(dateFechaExp.getValue()));
-            ps.setString(3 , txtTarjetaTipo.getText());
+            ps.setString(3 , selectTarjetaTipo.getValue());
             ps.executeUpdate();
             System.out.println("Tarjeta creada en el sistema");
         } catch (SQLException e) {
