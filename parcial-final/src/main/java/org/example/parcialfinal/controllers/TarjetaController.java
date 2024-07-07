@@ -27,7 +27,17 @@ public class TarjetaController {
 
     @FXML
     void btnActualizarTarjetaClick(ActionEvent event) {
-
+        try {
+            PreparedStatement ps = connection.getConnection().prepareStatement("UPDATE Tarjeta SET num_tarjeta = ?, fecha_expiracion = ?, tipo_tarjeta = ? WHERE id = ?");
+            ps.setString(1, txtTarjetaNum.getText());
+            ps.setDate(2, Date.valueOf(txtTarjetaFechaExp.getValue()));
+            ps.setString(3, txtTarjetaTipo.getText());
+            ps.setInt(4, Integer.parseInt(txtTarjetaId.getText()));
+            ps.executeUpdate();
+            System.out.println("Registro actualizado");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
