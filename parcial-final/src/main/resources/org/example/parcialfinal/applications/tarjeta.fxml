@@ -38,7 +38,7 @@
       <VBox spacing="10.0">
          <children>
             <Label text="id cliente" />
-            <TextField fx:id="txtTarjetaTipo1" />
+            <TextField fx:id="txtIdCliente" />
          </children>
       </VBox>
       <VBox spacing="10.0">
