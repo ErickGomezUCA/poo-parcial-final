@@ -10,6 +10,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import org.example.parcialfinal.backend.Facilitador;
 import org.example.parcialfinal.backend.database.DBConnection;
+import org.example.parcialfinal.backend.database.DatabaseUtils;
 
 import java.net.URL;
 import java.sql.*;
@@ -43,7 +44,7 @@ public class TarjetaController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObservableList<String> tipoTarjetaValues = FXCollections.observableArrayList("Credito", "Debito");
         selectTarjetaTipo.setItems(tipoTarjetaValues);
-        ObservableList<Facilitador> facilitadoresValues = FXCollections.observableArrayList(obtenerFacilitadores());
+        ObservableList<Facilitador> facilitadoresValues = FXCollections.observableArrayList(DatabaseUtils.obtenerFacilitadores());
         selectFacilitador.setItems(facilitadoresValues);
     }
 
@@ -118,20 +119,5 @@ public class TarjetaController implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-    }
-
-
-    private List<Facilitador> obtenerFacilitadores() {
-        List<Facilitador> facilitadores = new ArrayList<>();
-        try {
-            ResultSet rs = connection.getConnection().createStatement().executeQuery("SELECT * FROM Facilitador");
-            while (rs.next()) {
-                facilitadores.add(new Facilitador(rs.getInt("id"), rs.getString("facilitador")));
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
-        return facilitadores;
     }
 }
