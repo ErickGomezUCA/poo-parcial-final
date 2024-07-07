@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1000.0" style="-fx-background-color: #004AAD;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1000.0" style="-fx-background-color: #004AAD;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="150.0" fitWidth="553.0" pickOnBounds="true" preserveRatio="true">
          <VBox.margin>
@@ -35,12 +30,15 @@
                <children>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="87.0" text="UserName" textFill="#004aad" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="118.0" text="UserName" textFill="#004aad">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="14.0" />
+                           </font></Label>
                      </children>
                   </VBox>
                   <VBox prefHeight="30.0" prefWidth="250.0">
                      <children>
-                        <TextField fx:id="txtUserName" alignment="TOP_CENTER" onAction="#inputUserName" />
+                        <TextField fx:id="txtUserName" alignment="TOP_CENTER" onAction="#inputUserName" prefHeight="0.0" prefWidth="168.0" />
                      </children>
                   </VBox>
                </children>
@@ -50,7 +48,10 @@
                <children>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <Label alignment="CENTER" prefHeight="42.0" prefWidth="92.0" text="Password" textFill="#004aad" />
+                        <Label alignment="CENTER" prefHeight="42.0" prefWidth="92.0" text="Password" textFill="#004aad">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="14.0" />
+                           </font></Label>
                      </children>
                   </VBox>
                   <VBox prefHeight="43.0" prefWidth="256.0">
@@ -60,10 +61,16 @@
                   </VBox>
                </children>
             </HBox>
-            <ButtonBar maxWidth="-Infinity" prefHeight="26.0" prefWidth="154.0">
+            <ButtonBar maxWidth="-Infinity" prefHeight="134.0" prefWidth="278.0">
                <buttons>
-                  <Button fx:id="btnIngresar" mnemonicParsing="false" onAction="#onGetIntoButtonClick" text="Ingresar" />
-                  <Button fx:id="btnSalir" mnemonicParsing="false" onAction="#onGoOutButtonClick" text="Salir" />
+                  <Button fx:id="btnIngresar" mnemonicParsing="false" onAction="#onGetIntoButtonClick" prefHeight="82.0" style="-fx-background-radius: 15px; -fx-background-color: #004AAD;" text="Ingresar" textFill="#f5f5fa" textOverrun="CENTER_WORD_ELLIPSIS">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="12.0" />
+                     </font></Button>
+                  <Button fx:id="btnSalir" mnemonicParsing="false" onAction="#onGoOutButtonClick" prefHeight="191.0" prefWidth="211.0" style="-fx-background-radius: 15px; -fx-background-color: #004AAD;" text="Salir" textFill="#edeef2">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="12.0" />
+                     </font></Button>
                </buttons>
                <padding>
                   <Insets right="20.0" />
