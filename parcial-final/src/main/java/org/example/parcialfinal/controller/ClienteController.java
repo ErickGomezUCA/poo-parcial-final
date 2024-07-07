@@ -79,6 +79,8 @@ public class ClienteController {
 
     @FXML
     public void agregarCliente() {
+        txtMensajeAgregarCliente.clear();
+
         String nombreCompleto = txtNombreCompletoAgregarCliente.getText();
         String direccion = txtDireccionAgregarCliente.getText();
         String numTelefono = txtNumTelefonoAgregarCliente.getText();
@@ -208,7 +210,13 @@ public class ClienteController {
 
             int filas = st.executeUpdate();
             if (filas > 0) {
-                txtMensajeActualizarCliente.setText("Cliente eliminado con exito");
+                txtMensajeActualizarCliente.setText("Cliente actualizado con exito");
+
+                txtIdActualizarCliente.clear();
+                txtNombreCompletoActualizarCliente.clear();
+                txtDireccionActualizarCliente.clear();
+                txtNumTelefonoActualizarCliente.clear();
+
                 cargarClientes();
             } else {
                 txtMensajeActualizarCliente.setText("Cliente no encontrado en base de datos");
