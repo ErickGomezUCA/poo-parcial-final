@@ -20,7 +20,7 @@ public class DBConnection {
         driver = "com.mysql.jdbc.Driver";
     }
 
-    private static DBConnection getInstance() { // 00300723 Se devuelve la instancia del Singleton de la conexion a la base de datos
+    public static DBConnection getInstance() { // 00300723 Se devuelve la instancia del Singleton de la conexion a la base de datos
         if (instance == null) {
             instance = new DBConnection();
         }
