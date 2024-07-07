@@ -49,3 +49,5 @@ CREATE TABLE Compra(
  INDEX(id_tarjeta),
  FOREIGN KEY (id_tarjeta_C) REFERENCES Tarjeta(id) ON DELETE CASCADE
 );
+
+INSERT INTO Facilitador(facilitador) VALUES ('Visa'), ('Master Card'), ('American Express');
