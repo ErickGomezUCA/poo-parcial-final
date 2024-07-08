@@ -32,19 +32,19 @@
       <VBox spacing="10.0">
          <children>
             <Label text="tipo" />
-            <ComboBox fx:id="selectTarjetaTipo" prefWidth="1000.0" promptText="Selecciona una opcion" />
+            <ComboBox fx:id="selectTarjetaTipo" prefWidth="1000.0" promptText="Selecciona un tipo de tarjeta" />
          </children>
       </VBox>
       <VBox spacing="10.0">
          <children>
-            <Label text="id cliente" />
-            <TextField fx:id="txtIdCliente" />
+            <Label text="cliente" />
+            <ComboBox fx:id="selectCliente" prefWidth="1000.0" promptText="Selecciona un cliente" />
          </children>
       </VBox>
       <VBox spacing="10.0">
          <children>
             <Label text="facilitador" />
-            <ComboBox fx:id="selectFacilitador" prefWidth="1000.0" promptText="Selecciona una opcion" />
+            <ComboBox fx:id="selectFacilitador" prefWidth="1000.0" promptText="Selecciona un facilitador" />
          </children>
       </VBox>
       <ButtonBar maxWidth="-Infinity">
