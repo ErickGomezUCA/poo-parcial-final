@@ -26,11 +26,13 @@ CREATE TABLE Tarjeta (
 CREATE TABLE Compras_Inteligentes(
  id_tarjeta_CI INT PRIMARY KEY,
  id_cliente_CI INT NOT NULL,
+ id_facilitador_CI INT NOT NULL,
  INDEX(id_tarjeta_CI),
  FOREIGN KEY (id_tarjeta_CI) REFERENCES Tarjeta(id) ON DELETE CASCADE,
  INDEX(id_cliente_CI),
- FOREIGN KEY (id_cliente_CI) REFERENCES Cliente(id) ON DELETE CASCADE
-
+ FOREIGN KEY (id_cliente_CI) REFERENCES Cliente(id) ON DELETE CASCADE,
+ INDEX(id_facilitador_CI),
+ FOREIGN KEY (id_facilitador_CI) REFERENCES Facilitador(id) ON DELETE CASCADE
 );
 
 CREATE TABLE Facilitador(
@@ -47,3 +49,5 @@ CREATE TABLE Compra(
  INDEX(id_tarjeta_C),
  FOREIGN KEY (id_tarjeta_C) REFERENCES Tarjeta(id) ON DELETE CASCADE
 );
+
+INSERT INTO Facilitador(facilitador) VALUES ('Visa'), ('Master Card'), ('American Express');

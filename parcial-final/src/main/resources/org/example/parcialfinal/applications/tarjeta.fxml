@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" spacing="30.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.parcialfinal.controllers.TarjetaController">
+   <children>
+      <VBox spacing="10.0">
+         <children>
+            <Label text="id" />
+            <TextField fx:id="txtTarjetaId" />
+         </children>
+      </VBox>
+      <VBox spacing="10.0">
+         <children>
+            <Label text="numero de tarjeta" />
+            <TextField fx:id="txtTarjetaNum" />
+         </children>
+      </VBox>
+      <VBox spacing="10.0">
+         <children>
+            <Label text="fecha expiracion" />
+            <DatePicker fx:id="dateFechaExp" prefWidth="10000.0" />
+         </children>
+      </VBox>
+      <VBox spacing="10.0">
+         <children>
+            <Label text="tipo" />
+            <ComboBox fx:id="selectTarjetaTipo" prefWidth="1000.0" promptText="Selecciona un tipo de tarjeta" />
+         </children>
+      </VBox>
+      <VBox spacing="10.0">
+         <children>
+            <Label text="cliente" />
+            <ComboBox fx:id="selectCliente" prefWidth="1000.0" promptText="Selecciona un cliente" />
+         </children>
+      </VBox>
+      <VBox spacing="10.0">
+         <children>
+            <Label text="facilitador" />
+            <ComboBox fx:id="selectFacilitador" prefWidth="1000.0" promptText="Selecciona un facilitador" />
+         </children>
+      </VBox>
+      <ButtonBar maxWidth="-Infinity">
+        <buttons>
+          <Button mnemonicParsing="false" onAction="#btnCrearTarjetaClick" text="Create" />
+            <Button mnemonicParsing="false" onAction="#btnBuscarTarjetaClick" text="Search" />
+            <Button mnemonicParsing="false" onAction="#btnActualizarTarjetaClick" text="Update" />
+            <Button mnemonicParsing="false" onAction="#btnEliminarTarjetaClick" text="Delete" />
+        </buttons>
+         <padding>
+            <Insets right="20.0" />
+         </padding>
+      </ButtonBar>
+   </children>
+   <padding>
+      <Insets left="100.0" right="100.0" />
+   </padding>
+</VBox>

@@ -44,4 +44,9 @@ public class Cliente { // 00300723 Clase para guardar los registros de la tabla 
     public void setNumeroTelefono(String numeroTelefono) {
         this.numeroTelefono = numeroTelefono;
     }
+
+    @Override
+    public String toString() {
+        return "ID: " + id + ", Nombre: " + nombreCompleto;
+    }
 }
