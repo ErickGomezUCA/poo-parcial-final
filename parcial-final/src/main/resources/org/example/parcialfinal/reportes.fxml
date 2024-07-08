@@ -28,7 +28,7 @@
                                  <children>
                                     <HBox prefHeight="694.0" prefWidth="769.0">
                                        <children>
-                                          <VBox prefHeight="674.0" prefWidth="426.0" spacing="13.0">
+                                          <VBox prefHeight="674.0" prefWidth="397.0" spacing="13.0">
                                              <children>
                                                 <Label text="ID Cliente" />
                                                 <TextField>
@@ -55,7 +55,7 @@
                                                 </Button>
                                              </children>
                                              <HBox.margin>
-                                                <Insets bottom="10.0" left="80.0" right="10.0" top="10.0" />
+                                                <Insets bottom="10.0" left="100.0" right="10.0" top="10.0" />
                                              </HBox.margin>
                                              <padding>
                                                 <Insets top="80.0" />
@@ -181,7 +181,31 @@
                            <children>
                               <HBox layoutY="3.0" prefHeight="686.0" prefWidth="1278.0">
                                  <children>
-                                    <HBox prefHeight="686.0" prefWidth="630.0" />
+                                    <HBox prefHeight="686.0" prefWidth="630.0">
+                                       <children>
+                                          <VBox prefHeight="674.0" prefWidth="426.0" spacing="13.0">
+                                             <children>
+                                                <Label text="Facilitador" />
+                                                <TextField>
+                                                   <VBox.margin>
+                                                      <Insets />
+                                                   </VBox.margin>
+                                                </TextField>
+                                                <Button mnemonicParsing="false" text="Mostrar clientes">
+                                                   <VBox.margin>
+                                                      <Insets top="430.0" />
+                                                   </VBox.margin>
+                                                </Button>
+                                             </children>
+                                             <padding>
+                                                <Insets top="80.0" />
+                                             </padding>
+                                             <HBox.margin>
+                                                <Insets left="100.0" />
+                                             </HBox.margin>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
                                     <HBox prefHeight="686.0" prefWidth="648.0">
                                        <children>
                                           <TableView prefHeight="686.0" prefWidth="649.0">
