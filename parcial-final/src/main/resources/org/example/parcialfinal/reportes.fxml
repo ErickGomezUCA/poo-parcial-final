@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -18,7 +19,7 @@
    <children>
       <HBox prefHeight="720.0" prefWidth="1280.0">
          <children>
-            <TabPane prefHeight="720.0" prefWidth="1282.0" tabClosingPolicy="UNAVAILABLE">
+            <TabPane prefHeight="720.0" prefWidth="1282.0" stylesheets="@styles/inputs.css" tabClosingPolicy="UNAVAILABLE">
               <tabs>
                 <Tab text="Reporte A">
                   <content>
@@ -28,27 +29,27 @@
                                  <children>
                                     <HBox prefHeight="694.0" prefWidth="769.0">
                                        <children>
-                                          <VBox prefHeight="674.0" prefWidth="397.0" spacing="13.0">
+                                          <VBox prefHeight="674.0" prefWidth="397.0" spacing="13.0" stylesheets="@styles/inputs.css">
                                              <children>
-                                                <Label text="ID Cliente" />
+                                                <Label id="lblID" text="ID Cliente" />
                                                 <TextField>
                                                    <VBox.margin>
                                                       <Insets />
                                                    </VBox.margin>
                                                 </TextField>
-                                                <Label text="Fecha Inicio" />
+                                                <Label id="Labels" text="Fecha Inicio" />
                                                 <TextField>
                                                    <VBox.margin>
                                                       <Insets />
                                                    </VBox.margin>
                                                 </TextField>
-                                                <Label text="Fecha Final" />
+                                                <Label id="Labels" text="Fecha Final" />
                                                 <TextField>
                                                    <VBox.margin>
                                                       <Insets />
                                                    </VBox.margin>
                                                 </TextField>
-                                                <Button mnemonicParsing="false" text="Mostrar Compras">
+                                                <Button mnemonicParsing="false" prefWidth="169.0" text="Mostrar Compras">
                                                    <VBox.margin>
                                                       <Insets top="300.0" />
                                                    </VBox.margin>
@@ -89,19 +90,19 @@
                                        <children>
                                           <VBox prefHeight="674.0" prefWidth="426.0" spacing="13.0">
                                              <children>
-                                                <Label text="ID Cliente" />
+                                                <Label id="Labels" text="ID Cliente" />
                                                 <TextField>
                                                    <VBox.margin>
                                                       <Insets />
                                                    </VBox.margin>
                                                 </TextField>
-                                                <Label text="Mes" />
+                                                <Label id="Labels" text="Mes" />
                                                 <TextField>
                                                    <VBox.margin>
                                                       <Insets />
                                                    </VBox.margin>
                                                 </TextField>
-                                                <Label text="Año" />
+                                                <Label id="Labels" text="Año" />
                                                 <TextField>
                                                    <VBox.margin>
                                                       <Insets />
@@ -143,7 +144,7 @@
                                        <children>
                                           <VBox prefHeight="674.0" prefWidth="426.0" spacing="13.0">
                                              <children>
-                                                <Label text="ID Cliente" />
+                                                <Label id="Labels" text="ID Cliente" />
                                                 <TextField>
                                                    <VBox.margin>
                                                       <Insets />
@@ -185,12 +186,8 @@
                                        <children>
                                           <VBox prefHeight="674.0" prefWidth="426.0" spacing="13.0">
                                              <children>
-                                                <Label text="Facilitador" />
-                                                <TextField>
-                                                   <VBox.margin>
-                                                      <Insets />
-                                                   </VBox.margin>
-                                                </TextField>
+                                                <Label id="Labels" text="Facilitador" />
+                                                <ComboBox prefHeight="24.0" prefWidth="386.0" />
                                                 <Button mnemonicParsing="false" text="Mostrar clientes">
                                                    <VBox.margin>
                                                       <Insets top="430.0" />
