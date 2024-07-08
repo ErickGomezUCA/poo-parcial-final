@@ -51,13 +51,20 @@ public class TarjetaController implements Initializable {
     @FXML
     void btnActualizarTarjetaClick(ActionEvent event) {
         try {
-            PreparedStatement ps = connection.getConnection().prepareStatement("UPDATE Tarjeta SET num_tarjeta = ?, fecha_expiracion = ?, tipo_tarjeta = ? WHERE id = ?");
-            ps.setString(1, txtTarjetaNum.getText());
-            ps.setDate(2, Date.valueOf(dateFechaExp.getValue()));
-            ps.setString(3, selectTarjetaTipo.getValue());
-            ps.setInt(4, Integer.parseInt(txtTarjetaId.getText()));
-            ps.executeUpdate();
-            System.out.println("Registro actualizado");
+            PreparedStatement psTarjeta = connection.getConnection().prepareStatement("UPDATE Tarjeta SET num_tarjeta = ?, fecha_expiracion = ?, tipo_tarjeta = ? WHERE id = ?");
+            psTarjeta.setString(1, txtTarjetaNum.getText());
+            psTarjeta.setDate(2, Date.valueOf(dateFechaExp.getValue()));
+            psTarjeta.setString(3, selectTarjetaTipo.getValue());
+            psTarjeta.setInt(4, Integer.parseInt(txtTarjetaId.getText()));
+            psTarjeta.executeUpdate();
+            System.out.println("Registro de tarjeta actualizado");
+
+            PreparedStatement psComprasInteligentes = connection.getConnection().prepareStatement("UPDATE Compras_Inteligentes SET id_cliente_CI = ?, id_facilitador_CI = ? WHERE id_tarjeta_CI = ?");
+            psComprasInteligentes.setInt(1, Integer.parseInt(txtIdCliente.getText()));
+            psComprasInteligentes.setInt(2, selectFacilitador.getValue().getId());
+            psComprasInteligentes.setInt(3, Integer.parseInt(txtTarjetaId.getText()));
+            psComprasInteligentes.executeUpdate();
+            System.out.println("Registro de compras inteligentes actualizado");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
