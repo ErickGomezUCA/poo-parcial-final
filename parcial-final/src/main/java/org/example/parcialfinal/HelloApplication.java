@@ -1,4 +1,4 @@
-package org.example.parcialfinal.applications;
+package org.example.parcialfinal;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
