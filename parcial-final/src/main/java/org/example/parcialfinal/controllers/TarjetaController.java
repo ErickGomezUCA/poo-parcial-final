@@ -1,6 +1,5 @@
 package org.example.parcialfinal.controllers;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,13 +7,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import org.example.parcialfinal.backend.Cliente;
 import org.example.parcialfinal.backend.Facilitador;
 import org.example.parcialfinal.backend.database.DBConnection;
+import org.example.parcialfinal.backend.database.DatabaseUtils;
 
 import java.net.URL;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class TarjetaController implements Initializable {
@@ -34,7 +33,7 @@ public class TarjetaController implements Initializable {
     private ComboBox<String> selectTarjetaTipo;
 
     @FXML
-    private TextField txtIdCliente;
+    private ComboBox<Cliente> selectCliente;
 
     @FXML
     private ComboBox<Facilitador> selectFacilitador;
@@ -43,20 +42,31 @@ public class TarjetaController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObservableList<String> tipoTarjetaValues = FXCollections.observableArrayList("Credito", "Debito");
         selectTarjetaTipo.setItems(tipoTarjetaValues);
-        ObservableList<Facilitador> facilitadoresValues = FXCollections.observableArrayList(obtenerFacilitadores());
+
+        ObservableList<Cliente> clienteValues = FXCollections.observableArrayList(DatabaseUtils.obtenerClientes());
+        selectCliente.setItems(clienteValues);
+
+        ObservableList<Facilitador> facilitadoresValues = FXCollections.observableArrayList(DatabaseUtils.obtenerFacilitadores());
         selectFacilitador.setItems(facilitadoresValues);
     }
 
     @FXML
     void btnActualizarTarjetaClick(ActionEvent event) {
         try {
-            PreparedStatement ps = connection.getConnection().prepareStatement("UPDATE Tarjeta SET num_tarjeta = ?, fecha_expiracion = ?, tipo_tarjeta = ? WHERE id = ?");
-            ps.setString(1, txtTarjetaNum.getText());
-            ps.setDate(2, Date.valueOf(dateFechaExp.getValue()));
-            ps.setString(3, selectTarjetaTipo.getValue());
-            ps.setInt(4, Integer.parseInt(txtTarjetaId.getText()));
-            ps.executeUpdate();
-            System.out.println("Registro actualizado");
+            PreparedStatement psTarjeta = connection.getConnection().prepareStatement("UPDATE Tarjeta SET num_tarjeta = ?, fecha_expiracion = ?, tipo_tarjeta = ? WHERE id = ?");
+            psTarjeta.setString(1, txtTarjetaNum.getText());
+            psTarjeta.setDate(2, Date.valueOf(dateFechaExp.getValue()));
+            psTarjeta.setString(3, selectTarjetaTipo.getValue());
+            psTarjeta.setInt(4, Integer.parseInt(txtTarjetaId.getText()));
+            psTarjeta.executeUpdate();
+            System.out.println("Registro de tarjeta actualizado");
+
+            PreparedStatement psComprasInteligentes = connection.getConnection().prepareStatement("UPDATE Compras_Inteligentes SET id_cliente_CI = ?, id_facilitador_CI = ? WHERE id_tarjeta_CI = ?");
+            psComprasInteligentes.setInt(1, selectCliente.getValue().getId());
+            psComprasInteligentes.setInt(2, selectFacilitador.getValue().getId());
+            psComprasInteligentes.setInt(3, Integer.parseInt(txtTarjetaId.getText()));
+            psComprasInteligentes.executeUpdate();
+            System.out.println("Registro de compras inteligentes actualizado");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -99,7 +109,7 @@ public class TarjetaController implements Initializable {
 
             PreparedStatement psComprasInteligentes = connection.getConnection().prepareStatement("INSERT INTO Compras_Inteligentes(id_tarjeta_CI, id_cliente_CI, id_facilitador_CI) VALUES(?, ?, ?)");
             psComprasInteligentes.setInt(1, lastIdInserted);
-            psComprasInteligentes.setInt(2, Integer.parseInt(txtIdCliente.getText()));
+            psComprasInteligentes.setInt(2, selectCliente.getValue().getId());
             psComprasInteligentes.setInt(3, selectFacilitador.getValue().getId());
             psComprasInteligentes.executeUpdate();
             System.out.println("Compras inteligentes registrada");
@@ -118,20 +128,5 @@ public class TarjetaController implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-    }
-
-
-    private List<Facilitador> obtenerFacilitadores() {
-        List<Facilitador> facilitadores = new ArrayList<>();
-        try {
-            ResultSet rs = connection.getConnection().createStatement().executeQuery("SELECT * FROM Facilitador");
-            while (rs.next()) {
-                facilitadores.add(new Facilitador(rs.getInt("id"), rs.getString("facilitador")));
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
-        return facilitadores;
     }
 }
