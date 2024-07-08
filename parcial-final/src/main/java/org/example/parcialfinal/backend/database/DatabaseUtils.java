@@ -30,7 +30,7 @@ public class DatabaseUtils {
         try {
             ResultSet rs = connection.getConnection().createStatement().executeQuery("SELECT * FROM Cliente");
             while (rs.next()) {
-                clientes.add(new Cliente(rs.getInt("id"), rs.getString("nombre_completo"), rs.getString("direccion"), rs.getString("telefono")));
+                clientes.add(new Cliente(rs.getInt("id"), rs.getString("nombre_completo"), rs.getString("direccion"), rs.getString("num_telefono")));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
