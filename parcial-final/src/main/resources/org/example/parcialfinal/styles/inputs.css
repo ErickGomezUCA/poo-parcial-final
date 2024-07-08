@@ -1,0 +1,5 @@
+Button{
+    -fx-border-radius: 15;
+    -fx-background-radius: 15;
+    -fx-text-fill: bold;
+}
