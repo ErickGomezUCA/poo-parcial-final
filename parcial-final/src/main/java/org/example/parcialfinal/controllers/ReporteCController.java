@@ -11,6 +11,7 @@ import org.example.parcialfinal.backend.Cliente;
 import org.example.parcialfinal.backend.Tarjeta;
 import org.example.parcialfinal.backend.database.DBConnection;
 import org.example.parcialfinal.backend.database.DatabaseUtils;
+import org.example.parcialfinal.backend.reportes.ReporteUtils;
 
 import java.net.URL;
 import java.sql.ResultSet;
@@ -64,23 +65,26 @@ public class ReporteCController implements Initializable {
                 }
             }
 
-            System.out.println("Tarjetas de credito: ");
+            contenidoReporte += "Tarjetas de crédito:\n";
             if (!tarjetasCredito.isEmpty()) {
                 for (String cred : tarjetasCredito) {
-                    System.out.println("\t" + cred);
+                    contenidoReporte += "\t" + cred + "\n";
                 }
             } else {
-                System.out.println("\tN/A");
+                contenidoReporte += "\tN/A\n";
             }
 
-            System.out.println("Tarjetas de debito: ");
+            contenidoReporte += "Tarjetas de débito:\n";
             if (!tarjetasDebito.isEmpty()) {
                 for (String deb : tarjetasDebito) {
-                    System.out.println("\t" + deb);
+                    contenidoReporte += "\t" + deb + "\n";
                 }
             } else {
-                System.out.println("\tN/A");
+                contenidoReporte += "\tN/A\n";
             }
+
+            System.out.println(contenidoReporte);
+            ReporteUtils.generarReporte('C', contenidoReporte);
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
