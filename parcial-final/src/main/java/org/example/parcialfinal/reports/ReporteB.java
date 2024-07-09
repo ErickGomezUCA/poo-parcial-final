@@ -17,7 +17,7 @@ public class ReporteB extends Reporte{
     public void generarReporte(ComboBox<Cliente> selectCliente, ComboBox<Mes> selectMes, Spinner<Integer> anio) {
         String contenidoReporte = "";
         try {
-            PreparedStatement st = connection.getConnection().prepareStatement("SELECT c.nombre_completo, SUM(com.monto) AS monto_total " +
+            PreparedStatement st = connection.getConnection().prepareStatement("SELECT c.id, c.nombre_completo, SUM(com.monto) AS monto_total " +
                     "FROM Cliente c " +
                     "JOIN Compras_Inteligentes ci " +
                     "ON c.id = ci.id_cliente_CI " +
@@ -32,12 +32,14 @@ public class ReporteB extends Reporte{
 
             ResultSet rs = st.executeQuery();
             if (rs.next()) {
+                int id = rs.getInt("id");
                 String nombreCompleto = rs.getString("nombre_completo");
                 double montoTotal = rs.getDouble("monto_total");
 
-                contenidoReporte += ("nombre completo : " + nombreCompleto
-                        + "\nnombre completo: " + nombreCompleto
-                        + "\nmonto total: " + montoTotal + "\n");
+                contenidoReporte += (
+                        "ID: " + id
+                        + "\nNombre completo: " + nombreCompleto
+                        + "\nMonto total: $" + montoTotal + "\n");
             }
 
             ((TextArea)controlResultado).setText(contenidoReporte);
