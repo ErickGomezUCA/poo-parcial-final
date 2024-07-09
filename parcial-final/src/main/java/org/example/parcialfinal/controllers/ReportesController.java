@@ -24,6 +24,8 @@ public class ReportesController implements Initializable {
     private DatePicker dateFechaInicio_RA;
     @FXML
     private DatePicker dateFechaFinal_RA;
+    @FXML
+    private TextArea txtAreaRes_RA;
 
     @FXML
     private ComboBox<Cliente> selectCliente_RB;
@@ -43,7 +45,7 @@ public class ReportesController implements Initializable {
     @FXML
     private ComboBox<Facilitador> selectFacilitador_RD;
     @FXML
-    private TableView<String> tbRes_RD;
+    private TextArea txtAreaRes_RD;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -77,7 +79,7 @@ public class ReportesController implements Initializable {
 
     @FXML
     void clickGenerarReporteD(ActionEvent event) {
-        ReporteD reporteD = new ReporteD(tbRes_RD);
+        ReporteD reporteD = new ReporteD(txtAreaRes_RD);
         reporteD.generarReporte(selectFacilitador_RD);
     }
 }
