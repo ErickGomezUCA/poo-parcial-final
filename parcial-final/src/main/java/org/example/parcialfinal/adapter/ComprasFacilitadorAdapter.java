@@ -9,9 +9,23 @@ public class ComprasFacilitadorAdapter implements ComprasFacilitadorValorTabla {
     private Cliente cliente;
     private Tarjeta tarjeta;
     private Facilitador facilitador;
-    private Compra compra;
+    int cantidad;
+    double montoTotal;
 
+    public ComprasFacilitadorAdapter(int clienteId, String nombreCliente, String numTarjeta, String nombreFacilitador, int cantidad, double montoTotal) {
+        cliente = new Cliente();
+        tarjeta = new Tarjeta();
+        facilitador = new Facilitador();
 
+        cliente.setId(clienteId);
+        cliente.setNombreCompleto(nombreCliente);
+
+        tarjeta.setNumeroTarjeta(numTarjeta);
+        facilitador.setFacilitador(nombreFacilitador);
+
+        this.cantidad = cantidad;
+        this.montoTotal = montoTotal;
+    }
 
     @Override
     public int obtenerIdCliente() {
@@ -20,26 +34,26 @@ public class ComprasFacilitadorAdapter implements ComprasFacilitadorValorTabla {
 
     @Override
     public String obtenerNombre() {
-        return "";
+        return cliente.getNombreCompleto();
     }
 
     @Override
     public String obtenerNumTarjeta() {
-        return "";
+        return tarjeta.getNumeroTarjeta();
     }
 
     @Override
     public String obtenerFacilitador() {
-        return "";
+        return facilitador.getFacilitador();
     }
 
     @Override
     public int obtenerCantidad() {
-        return 0;
+        return cantidad;
     }
 
     @Override
     public double obtenerMontoTotal() {
-        return 0;
+        return montoTotal;
     }
 }
