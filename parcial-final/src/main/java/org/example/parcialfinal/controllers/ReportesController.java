@@ -52,15 +52,15 @@ public class ReportesController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        clientes = FXCollections.observableArrayList();
+        clientes = FXCollections.observableArrayList(DatabaseUtils.obtenerClientes());
         facilitadores = FXCollections.observableArrayList(DatabaseUtils.obtenerFacilitadores());
 
-        prepararInputsReporteB();
-        prepararInputsReporteC();
-        prepararInputsReporteD();
+        prepararInputsReporteB(clientes);
+        prepararInputsReporteC(clientes);
+        prepararInputsReporteD(facilitadores);
     }
 
-    private void prepararInputsReporteB() {
+    private void prepararInputsReporteB(ObservableList<Cliente> clientes) {
         selectCliente_RB.setItems(clientes);
 
         selectMes_RB.setItems(FXCollections.observableArrayList(Mes.values()));
@@ -72,11 +72,11 @@ public class ReportesController implements Initializable {
         spinnerYear_RB.setEditable(true);
     }
 
-    private void prepararInputsReporteC() {
+    private void prepararInputsReporteC(ObservableList<Cliente> clientes) {
         selectCliente_RC.setItems(clientes);
     }
 
-    private void prepararInputsReporteD() {
+    private void prepararInputsReporteD(ObservableList<Facilitador> facilitadores) {
         selectFacilitador_RD.setItems(facilitadores);
     }
 
