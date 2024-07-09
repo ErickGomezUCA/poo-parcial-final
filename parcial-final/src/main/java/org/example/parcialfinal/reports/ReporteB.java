@@ -27,7 +27,7 @@ public class ReporteB extends Reporte{
                     "ON t.id = com.id_tarjeta_C " +
                     "WHERE c.id = " + selectCliente.getValue().getId() + " " +
                     "AND YEAR(com.fecha_compra) = " + anio.getValue() + " " +
-                    "AND MONTH(com.fecha_compra) = " + selectMes.getValue() + " " +
+                    "AND MONTH(com.fecha_compra) = " + selectMes.getValue().getValue() + " " +
                     "GROUP BY c.nombre_completo");
 
             ResultSet rs = st.executeQuery();
