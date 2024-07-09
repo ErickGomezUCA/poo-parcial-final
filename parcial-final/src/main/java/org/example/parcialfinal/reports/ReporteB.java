@@ -1,9 +1,6 @@
 package org.example.parcialfinal.reports;
 
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Control;
-import javafx.scene.control.Spinner;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import org.example.parcialfinal.backend.Cliente;
 import org.example.parcialfinal.backend.Mes;
 import org.example.parcialfinal.backend.reportes.ReporteUtils;
@@ -28,9 +25,9 @@ public class ReporteB extends Reporte{
                     "ON ci.id_tarjeta_CI = t.id " +
                     "JOIN Compra com " +
                     "ON t.id = com.id_tarjeta_C " +
-                    "WHERE c.id = " + selectCliente.getValue().getId() +
-                    "AND YEAR(com.fecha_compra) = " + anio.getValue() +
-                    "AND MONTH(com.fecha_compra) = " + selectMes.getValue() +
+                    "WHERE c.id = " + selectCliente.getValue().getId() + " " +
+                    "AND YEAR(com.fecha_compra) = " + anio.getValue() + " " +
+                    "AND MONTH(com.fecha_compra) = " + selectMes.getValue() + " " +
                     "GROUP BY c.nombre_completo");
 
             ResultSet rs = st.executeQuery();
@@ -42,6 +39,8 @@ public class ReporteB extends Reporte{
                         + "\nnombre completo: " + nombreCompleto
                         + "\nmonto total: " + montoTotal + "\n");
             }
+
+            ((TextArea)controlResultado).setText(contenidoReporte);
             ReporteUtils.generarReporte('B', contenidoReporte);
             connection.closeConnection();
         } catch (SQLException e) {
