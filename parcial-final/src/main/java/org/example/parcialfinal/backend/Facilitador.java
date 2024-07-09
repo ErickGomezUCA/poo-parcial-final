@@ -24,4 +24,9 @@ public class Facilitador {
     public void setFacilitador(String facilitador) {
         this.facilitador = facilitador;
     }
+
+    @Override
+    public String toString() {
+        return facilitador;
+    }
 }
