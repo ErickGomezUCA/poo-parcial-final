@@ -1,30 +1,34 @@
 package org.example.parcialfinal.controllers;
 
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import org.example.parcialfinal.backend.Cliente;
-import org.example.parcialfinal.backend.Tarjeta;
 import org.example.parcialfinal.backend.database.DBConnection;
 import org.example.parcialfinal.backend.database.DatabaseUtils;
-import org.example.parcialfinal.backend.reportes.ReporteUtils;
+import org.example.parcialfinal.reports.ReporteA;
 import org.example.parcialfinal.reports.ReporteC;
 
 import java.net.URL;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.*;
 import java.util.ResourceBundle;
 
-public class ReporteCController implements Initializable {
+public class ReporteAController implements Initializable {
 
     @FXML
     private ComboBox<Cliente> selectCliente;
+
+    @FXML
+    private DatePicker fechaInicio;
+
+    @FXML
+    private DatePicker fechaFin;
 
     DBConnection connection;
 
@@ -37,9 +41,8 @@ public class ReporteCController implements Initializable {
     }
 
     @FXML
-    void generarReporteC(ActionEvent event) {
-//        ReporteC reporteC = new ReporteC();
-//        reporteC.generarReporte(selectCliente);
+    void generarReporteA(ActionEvent event) {
+//        ReporteA reporteA = new ReporteA();
+//        reporteA.generarReporte(selectCliente, fechaInicio, fechaFin);
     }
 }
-

@@ -5,19 +5,19 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import org.example.parcialfinal.backend.Cliente;
+import org.example.parcialfinal.backend.database.DBConnection;
 
 import java.sql.*;
 import java.util.ArrayList;
 
 public class ClienteController {
+    DBConnection connection = DBConnection.getInstance();
+
     @FXML
     private Button btnAgregarCliente;
 
     @FXML
     private Button btnBuscarCliente;
-
-    @FXML
-    private Button btnMostrarTodosCliente;
 
     @FXML
     private Button btnEliminarCliente;
@@ -49,19 +49,7 @@ public class ClienteController {
 
 
     @FXML
-    private TextArea txtMensajeAgregarCliente;
-
-    @FXML
-    private TextArea txtMensajeBuscarCliente;
-
-    @FXML
-    private TextArea txtMensajeEliminarCliente;
-
-    @FXML
-    private TextArea txtMensajeMostrarTodosCliente;
-
-    @FXML
-    private TextArea txtMensajeActualizarCliente;
+    private TextArea txtMensajeError;
 
 
     @FXML
@@ -79,7 +67,7 @@ public class ClienteController {
 
     @FXML
     public void agregarCliente() {
-        txtMensajeAgregarCliente.clear();
+        txtMensajeError.clear();
 
         String nombreCompleto = txtNombreCompletoAgregarCliente.getText();
         String direccion = txtDireccionAgregarCliente.getText();
@@ -96,15 +84,14 @@ public class ClienteController {
         }
 
         try {
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Biblioteca", "pooUser", "pooUser");
-            PreparedStatement st = conn.prepareStatement("INSERT INTO Cliente VALUES (?, ?, ?)");
+            PreparedStatement st = connection.getConnection().prepareStatement("INSERT INTO Cliente VALUES (?, ?, ?)");
             st.setString(1, nombreCompleto);
             st.setString(2, direccion);
             st.setString(3, numTelefono);
 
             int filas = st.executeUpdate();
             if (filas > 0) {
-                txtMensajeAgregarCliente.setText("Cliente agregado con exito");
+                txtMensajeError.setText("Cliente agregado con exito");
 
                 txtNombreCompletoAgregarCliente.clear();
                 txtDireccionAgregarCliente.clear();
@@ -112,7 +99,7 @@ public class ClienteController {
 
                 cargarClientes();
             }
-            conn.close();
+            connection.closeConnection();
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
@@ -120,12 +107,11 @@ public class ClienteController {
 
     @FXML
     public void buscarCliente() {
-        txtMensajeBuscarCliente.clear();
+        txtMensajeError.clear();
         int id = Integer.parseInt(txtIdBuscarCliente.getText());
 
         try {
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Biblioteca", "pooUser", "pooUser");
-            PreparedStatement st = conn.prepareStatement("SELECT * FROM Cliente WHERE id = ?");
+            PreparedStatement st = connection.getConnection().prepareStatement("SELECT * FROM Cliente WHERE id = ?");
             st.setInt(1, id);
             ResultSet rs = st.executeQuery();
 
@@ -135,74 +121,49 @@ public class ClienteController {
                 String direccion = rs.getString("direccion");
                 String numTelefono = rs.getString("num_telefono");
 
-                txtMensajeBuscarCliente.appendText("CLIENTE ENCONTRADO:\n" + idString + ", " + nombreCompleto + ", " + direccion + ", " + numTelefono + ".");
+                txtMensajeError.appendText("CLIENTE ENCONTRADO:\n" + idString + ", " + nombreCompleto + ", " + direccion + ", " + numTelefono + ".");
             } else {
-                txtMensajeBuscarCliente.setText("Cliente no encontrado en base de datos");
+                txtMensajeError.setText("Cliente no encontrado en base de datos");
             }
-            conn.close();
+            connection.closeConnection();
         } catch (Exception e) {
-            txtMensajeBuscarCliente.setText("Error: " + e.getMessage());
-        }
-    }
-
-    @FXML
-    public void mostrarTodosCliente() {
-        txtMensajeMostrarTodosCliente.clear();
-
-        try {
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Biblioteca", "pooUser", "pooUser");
-            Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM Cliente");
-
-            while (rs.next()) {
-                int id = rs.getInt("id");
-                String nombreCompleto = rs.getString("nombre_completo");
-                String direccion = rs.getString("direccion");
-                String numTelefono = rs.getString("num_telefono");
-
-                txtMensajeMostrarTodosCliente.appendText("CLIENTE:\n" + id + ", " + nombreCompleto + ", " + direccion + ", " + numTelefono + ".");
-            }
-            conn.close();
-        } catch (Exception e) {
-            txtMensajeMostrarTodosCliente.setText("Error: " + e.getMessage());
+            txtMensajeError.setText("Error: " + e.getMessage());
         }
     }
 
     @FXML
     public void eliminarCliente() {
-        txtMensajeEliminarCliente.clear();
+        txtMensajeError.clear();
         int id = Integer.parseInt(txtIdEliminarCliente.getText());
 
         try {
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Biblioteca", "pooUser", "pooUser");
-            PreparedStatement st = conn.prepareStatement("DELETE FROM Cliente WHERE id = ?");
+            PreparedStatement st = connection.getConnection().prepareStatement("DELETE FROM Cliente WHERE id = ?");
             st.setInt(1, id);
 
             int filas = st.executeUpdate();
             if (filas > 0) {
-                txtMensajeEliminarCliente.setText("Cliente eliminado con exito");
+                txtMensajeError.setText("Cliente eliminado con exito");
                 cargarClientes();
             } else {
-                txtMensajeEliminarCliente.setText("Cliente no encontrado en base de datos");
+                txtMensajeError.setText("Cliente no encontrado en base de datos");
             }
 
-            conn.close();
+            connection.closeConnection();
         } catch (Exception e) {
-            txtMensajeBuscarCliente.setText("Error: " + e.getMessage());
+            txtMensajeError.setText("Error: " + e.getMessage());
         }
     }
 
     @FXML
     public void actualizarCliente() {
-        txtMensajeActualizarCliente.clear();
+        txtMensajeError.clear();
         int id = Integer.parseInt(txtIdActualizarCliente.getText());
         String nombreCompleto = txtNombreCompletoActualizarCliente.getText();
         String direccion = txtDireccionActualizarCliente.getText();
         String numTelefono = txtNumTelefonoActualizarCliente.getText();
 
         try {
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Biblioteca", "pooUser", "pooUser");
-            PreparedStatement st = conn.prepareStatement("UPDATE Cliente SET ?, ?, ? WHERE id = ?");
+            PreparedStatement st = connection.getConnection().prepareStatement("UPDATE Cliente SET ?, ?, ? WHERE id = ?");
             st.setString(1, nombreCompleto);
             st.setString(2, direccion);
             st.setString(3, numTelefono);
@@ -210,7 +171,7 @@ public class ClienteController {
 
             int filas = st.executeUpdate();
             if (filas > 0) {
-                txtMensajeActualizarCliente.setText("Cliente actualizado con exito");
+                txtMensajeError.setText("Cliente actualizado con exito");
 
                 txtIdActualizarCliente.clear();
                 txtNombreCompletoActualizarCliente.clear();
@@ -219,11 +180,11 @@ public class ClienteController {
 
                 cargarClientes();
             } else {
-                txtMensajeActualizarCliente.setText("Cliente no encontrado en base de datos");
+                txtMensajeError.setText("Cliente no encontrado en base de datos");
             }
-            conn.close();
+            connection.closeConnection();
         } catch (Exception e) {
-            txtMensajeActualizarCliente.setText("Error: " + e.getMessage());
+            txtMensajeError.setText("Error: " + e.getMessage());
         }
     }
 
@@ -232,8 +193,7 @@ public class ClienteController {
     private void cargarClientes() {
         clientes = new ArrayList<>();
         try {
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Biblioteca", "pooUser", "pooUser");
-            Statement st = conn.createStatement();
+            Statement st = connection.getConnection().createStatement();
             ResultSet rs = st.executeQuery("SELECT * FROM Cliente");
 
             while (rs.next()) {
@@ -245,7 +205,7 @@ public class ClienteController {
                 Cliente cliente = new Cliente(id, nombreCompleto, direccion, numTelefono);
                 clientes.add(cliente);
             }
-            conn.close();
+            connection.closeConnection();
         } catch (SQLException e) {
             System.out.println("Error: " + e.getMessage());
         }
