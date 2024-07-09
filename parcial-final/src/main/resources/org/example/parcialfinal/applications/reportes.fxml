@@ -5,12 +5,12 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -36,12 +36,8 @@
                                        <children>
                                           <VBox prefHeight="674.0" prefWidth="397.0" spacing="13.0" stylesheets="@../styles/inputs.css">
                                              <children>
-                                                <Label id="lblID" styleClass="Labelstext" text="ID Cliente" />
-                                                <TextField>
-                                                   <VBox.margin>
-                                                      <Insets />
-                                                   </VBox.margin>
-                                                </TextField>
+                                                <Label id="lblID" styleClass="Labelstext" text="Cliente" />
+                                                <ComboBox prefWidth="1000.0" />
                                                 <Label id="Labels" styleClass="Labelstext" text="Fecha Inicio" />
                                                 <DatePicker prefHeight="24.0" prefWidth="403.0" />
                                                 <Label id="Labels" styleClass="Labelstext" text="Fecha Final" />
@@ -90,20 +86,12 @@
                                        <children>
                                           <VBox prefHeight="674.0" prefWidth="426.0" spacing="13.0">
                                              <children>
-                                                <Label id="Labels" styleClass="Labelstext" text="ID Cliente" />
-                                                <TextField>
-                                                   <VBox.margin>
-                                                      <Insets />
-                                                   </VBox.margin>
-                                                </TextField>
+                                                <Label id="Labels" styleClass="Labelstext" text="Cliente" />
+                                                <ComboBox prefWidth="1000.0" />
                                                 <Label id="Labels" styleClass="Labelstext" text="Mes" />
                                                 <ComboBox prefHeight="24.0" prefWidth="447.0" />
                                                 <Label id="Labels" styleClass="Labelstext" text="Año" />
-                                                <TextField>
-                                                   <VBox.margin>
-                                                      <Insets />
-                                                   </VBox.margin>
-                                                </TextField>
+                                                <Spinner prefWidth="1000.0" />
                                                 <Button mnemonicParsing="false" text="Calcular total">
                                                    <VBox.margin>
                                                       <Insets top="260.0" />
@@ -143,12 +131,8 @@
                                        <children>
                                           <VBox prefHeight="674.0" prefWidth="426.0" spacing="13.0">
                                              <children>
-                                                <Label id="Labels" styleClass="Labelstext" text="ID Cliente" />
-                                                <TextField prefHeight="24.0" prefWidth="403.0">
-                                                   <VBox.margin>
-                                                      <Insets />
-                                                   </VBox.margin>
-                                                </TextField>
+                                                <Label id="Labels" styleClass="Labelstext" text="Cliente" />
+                                                <ComboBox prefWidth="1000.0" />
                                                 <Button mnemonicParsing="false" text="Mostrar tarjetas">
                                                    <VBox.margin>
                                                       <Insets top="410.0" />
