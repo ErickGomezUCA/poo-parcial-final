@@ -5,9 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c955963-33d8-42a7-bfae-91e0e445f201" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/parcialfinal/applications/ClienteApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/parcialfinal/controllers/ReporteBController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/parcialfinal/applications/cliente.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/parcialfinal/backend/database/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/parcialfinal/backend/database/DBConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/parcialfinal/controllers/TarjetaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/parcialfinal/controllers/TarjetaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/parcialfinal/controllers/ClienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/parcialfinal/controllers/ClienteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/parcialfinal/controllers/CompraController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/parcialfinal/controllers/CompraController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/parcialfinal/controllers/ReporteA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/parcialfinal/controllers/ReporteAController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +44,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -61,9 +66,11 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Gradle.parcial-final [:ClienteApplication.main()].executor": "Run",
+    "Gradle.parcial-final [:HelloApplication.main()].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "ErickGomez",
+    "git-widget-placeholder": "PaolaLopez",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -75,8 +82,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
-        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
       </set>
     </attachedChunks>
   </component>
@@ -90,6 +97,7 @@
       <updated>1720253055898</updated>
       <workItem from="1720253060358" duration="769000" />
       <workItem from="1720253858128" duration="251000" />
+      <workItem from="1720492823596" duration="2327000" />
     </task>
     <servers />
   </component>
