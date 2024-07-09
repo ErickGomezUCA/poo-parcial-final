@@ -45,7 +45,7 @@ public class DatabaseUtils {
     public static List<Tarjeta> obtenerTarjetas() {
         List<Tarjeta> tarjetas = new ArrayList<>();
         try {
-            ResultSet rs = connection.getConnection().createStatement().executeQuery("SELECT * FROM Tarjera");
+            ResultSet rs = connection.getConnection().createStatement().executeQuery("SELECT * FROM Tarjeta");
             while (rs.next()) {
                 tarjetas.add(new Tarjeta(rs.getInt("id"), rs.getString("num_tarjeta"), rs.getString("fecha_expiracion"), rs.getString("tipo_tarjeta")));
             }
