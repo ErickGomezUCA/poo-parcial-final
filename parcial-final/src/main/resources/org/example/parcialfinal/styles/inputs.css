@@ -18,5 +18,8 @@ Label{
     -fx-text-weight: bold;
 }
 TabPane{
-    -fx-background-image: url("src/main/resources/images/Fondo.png");
+    -fx-background-image: url('resources/images/background.png');
+}
+.main{
+    -fx-background-image: url('resources/images/background.png');
 }
