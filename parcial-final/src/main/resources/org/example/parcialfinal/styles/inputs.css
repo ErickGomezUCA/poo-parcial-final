@@ -19,5 +19,4 @@ Label{
 }
 TabPane{
     -fx-background-image: url("src/main/resources/images/Fondo.png");
-    -fx-background-color: #2268C6;
 }
