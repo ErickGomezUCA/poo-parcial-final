@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+Text<?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -193,12 +193,11 @@
                                        <children>
                                           <TableView fx:id="tbRes_RD" prefHeight="686.0" prefWidth="649.0">
                                             <columns>
-                                              <TableColumn prefWidth="42.0" text="ID Cliente" />
+                                              <TableColumn prefWidth="42.0" text="ID" />
                                               <TableColumn prefWidth="135.0" text="Nombre" />
-                                                <TableColumn prefWidth="119.0" text="Tarjeta" />
-                                                <TableColumn prefWidth="110.0" text="Facilitador" />
-                                                <TableColumn prefWidth="100.0" text="Cantidad" />
-                                                <TableColumn prefWidth="78.0" text="Monto total" />
+                                                <TableColumn prefWidth="179.0" text="Tarjeta" />
+                                                <TableColumn prefWidth="108.0" text="Cantidad" />
+                                                <TableColumn prefWidth="131.0" text="Monto total" />
                                             </columns>
                                              <HBox.margin>
                                                 <Insets bottom="50.0" left="25.0" right="25.0" top="25.0" />
