@@ -43,7 +43,7 @@ public class ReporteBController implements Initializable {
 
     @FXML
     void generarReporteB(ActionEvent event) {
-        ReporteB reporteB = new ReporteB();
-        reporteB.generarReporte(selectCliente, txtAnioABuscar, txtMesABuscar);
+//        ReporteB reporteB = new ReporteB();
+//        reporteB.generarReporte(selectCliente, txtAnioABuscar, txtMesABuscar);
     }
 }

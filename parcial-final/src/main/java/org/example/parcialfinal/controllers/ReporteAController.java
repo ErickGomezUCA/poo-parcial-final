@@ -42,7 +42,7 @@ public class ReporteAController implements Initializable {
 
     @FXML
     void generarReporteA(ActionEvent event) {
-        ReporteA reporteA = new ReporteA();
-        reporteA.generarReporte(selectCliente, fechaInicio, fechaFin);
+//        ReporteA reporteA = new ReporteA();
+//        reporteA.generarReporte(selectCliente, fechaInicio, fechaFin);
     }
 }

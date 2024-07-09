@@ -38,8 +38,8 @@ public class ReporteCController implements Initializable {
 
     @FXML
     void generarReporteC(ActionEvent event) {
-        ReporteC reporteC = new ReporteC();
-        reporteC.generarReporte(selectCliente);
+//        ReporteC reporteC = new ReporteC();
+//        reporteC.generarReporte(selectCliente);
     }
 }
 

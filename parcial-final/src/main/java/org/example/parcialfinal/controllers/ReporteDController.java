@@ -34,7 +34,7 @@ public class ReporteDController implements Initializable {
 
     @FXML
     void generarReporteD(ActionEvent event) {
-        ReporteD reporte = new ReporteD();
-        reporte.generarReporte(selectFacilitador);
+//        ReporteD reporte = new ReporteD();
+//        reporte.generarReporte(selectFacilitador);
     }
 }
