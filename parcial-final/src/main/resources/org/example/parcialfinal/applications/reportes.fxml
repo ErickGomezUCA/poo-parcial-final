@@ -37,9 +37,9 @@
                                           <VBox prefHeight="674.0" prefWidth="397.0" spacing="13.0" stylesheets="@../styles/inputs.css">
                                              <children>
                                                 <Label id="lblID" styleClass="Labelstext" text="Cliente" />
-                                                <ComboBox prefWidth="1000.0" />
+                                                <ComboBox fx:id="selectCliente_RA" prefWidth="1000.0" />
                                                 <Label id="Labels" styleClass="Labelstext" text="Fecha Inicio" />
-                                                <DatePicker prefHeight="24.0" prefWidth="403.0" />
+                                                <DatePicker fx:id="dateFechaInicio_RA" prefHeight="24.0" prefWidth="403.0" />
                                                 <Label id="Labels" styleClass="Labelstext" text="Fecha Final" />
                                                 <DatePicker prefHeight="24.0" prefWidth="398.0" />
                                                 <Button mnemonicParsing="false" prefWidth="169.0" text="Mostrar compras">

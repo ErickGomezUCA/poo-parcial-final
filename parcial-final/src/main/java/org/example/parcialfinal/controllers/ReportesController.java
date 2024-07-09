@@ -19,6 +19,13 @@ import java.util.ResourceBundle;
 
 public class ReportesController implements Initializable {
     @FXML
+    private ComboBox<Cliente> selectCliente_RA;
+    @FXML
+    private DatePicker dateFechaInicio_RA;
+    @FXML
+    private DatePicker dateFechaFinal_RA;
+
+    @FXML
     private ComboBox<Cliente> selectCliente_RB;
     @FXML
     private ComboBox<Mes> selectMes_RB;
