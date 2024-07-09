@@ -6,21 +6,22 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
+import org.example.parcialfinal.backend.Cliente;
+import org.example.parcialfinal.backend.Facilitador;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ReportesController implements Initializable {
     @FXML
-    private ComboBox<?> selectCliente_RC;
-
-    @FXML
-    private ComboBox<?> selectFacilitador_RD;
-
-    @FXML
-    private TableView<?> tbRes_RD;
-
+    private ComboBox<Cliente> selectCliente_RC;
     @FXML
     private TextArea txtAreaRes_RC;
+
+    @FXML
+    private ComboBox<Facilitador> selectFacilitador_RD;
+    @FXML
+    private TableView<String> tbRes_RD;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
