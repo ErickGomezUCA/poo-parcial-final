@@ -40,6 +40,9 @@ public class ReportesController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ObservableList<Cliente> clientes = FXCollections.observableArrayList(DatabaseUtils.obtenerClientes());
+        selectCliente_RB.setItems(clientes);
+
         selectMes_RB.setItems(FXCollections.observableArrayList(Mes.values()));
 
         int minValueSpinner = 1967;
