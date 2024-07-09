@@ -39,8 +39,8 @@
                                                 <Label id="Labels" styleClass="Labelstext" text="Fecha Inicio" />
                                                 <DatePicker fx:id="dateFechaInicio_RA" prefHeight="24.0" prefWidth="403.0" />
                                                 <Label id="Labels" styleClass="Labelstext" text="Fecha Final" />
-                                                <DatePicker prefHeight="24.0" prefWidth="398.0" />
-                                                <Button mnemonicParsing="false" prefWidth="169.0" text="Mostrar compras">
+                                                <DatePicker fx:id="dateFechaFinal_RA" prefHeight="24.0" prefWidth="398.0" />
+                                                <Button mnemonicParsing="false" onAction="#clickGenerarReporteA" prefWidth="169.0" text="Mostrar compras">
                                                    <VBox.margin>
                                                       <Insets top="260.0" />
                                                    </VBox.margin>

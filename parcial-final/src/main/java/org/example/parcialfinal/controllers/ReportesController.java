@@ -10,6 +10,7 @@ import org.example.parcialfinal.backend.Cliente;
 import org.example.parcialfinal.backend.Facilitador;
 import org.example.parcialfinal.backend.Mes;
 import org.example.parcialfinal.backend.database.DatabaseUtils;
+import org.example.parcialfinal.reports.ReporteA;
 import org.example.parcialfinal.reports.ReporteB;
 import org.example.parcialfinal.reports.ReporteC;
 import org.example.parcialfinal.reports.ReporteD;
@@ -55,9 +56,14 @@ public class ReportesController implements Initializable {
         clientes = FXCollections.observableArrayList(DatabaseUtils.obtenerClientes());
         facilitadores = FXCollections.observableArrayList(DatabaseUtils.obtenerFacilitadores());
 
+        prepararInputsReporteA(clientes);
         prepararInputsReporteB(clientes);
         prepararInputsReporteC(clientes);
         prepararInputsReporteD(facilitadores);
+    }
+
+    private void prepararInputsReporteA(ObservableList<Cliente> clientes) {
+        selectCliente_RA.setItems(clientes);
     }
 
     private void prepararInputsReporteB(ObservableList<Cliente> clientes) {
@@ -80,7 +86,12 @@ public class ReportesController implements Initializable {
         selectFacilitador_RD.setItems(facilitadores);
     }
 
+    @FXML
+    void clickGenerarReporteA(ActionEvent event) {
+        ReporteA reporteA = new ReporteA(txtAreaRes_RA);
+        reporteA.generarReporte(selectCliente_RA, dateFechaInicio_RA, dateFechaFinal_RA);
 
+    }
 
     @FXML
     void clickGenerarReporteB(ActionEvent event) {
