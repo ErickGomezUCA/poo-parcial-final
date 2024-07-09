@@ -13,10 +13,7 @@ Label{
     -fx-text-weight: bold;
 }
 .Labelstext{
-    -fx-text-fill: #FFFFFF;
+    /*-fx-text-fill: #FFFFFF;*/
     -fx-font-size: 20;
     -fx-text-weight: bold;
-}
-TabPane{
-    -fx-background-image: url("src/main/resources/images/Fondo.png");
 }
