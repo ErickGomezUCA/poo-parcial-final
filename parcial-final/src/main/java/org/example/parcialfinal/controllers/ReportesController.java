@@ -5,12 +5,10 @@ import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Spinner;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import org.example.parcialfinal.backend.Cliente;
 import org.example.parcialfinal.backend.Facilitador;
+import org.example.parcialfinal.backend.Mes;
 import org.example.parcialfinal.backend.database.DatabaseUtils;
 import org.example.parcialfinal.reports.ReporteB;
 import org.example.parcialfinal.reports.ReporteC;
@@ -23,7 +21,7 @@ public class ReportesController implements Initializable {
     @FXML
     private ComboBox<Cliente> selectCliente_RB;
     @FXML
-    private ComboBox<?> selectMes_RB;
+    private ComboBox<Mes> selectMes_RB;
     @FXML
     private Spinner<Integer> spinnerYear_RB;
 
@@ -42,6 +40,13 @@ public class ReportesController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        selectMes_RB.setItems(FXCollections.observableArrayList(Mes.values()));
+
+        int minValueSpinner = 1967;
+        int maxValueSpinner = 5000;
+        SpinnerValueFactory<Integer> yearSpinnerFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(minValueSpinner, maxValueSpinner, minValueSpinner, 1);
+        spinnerYear_RB.setValueFactory(yearSpinnerFactory);
+
         ObservableList<Cliente> clienteObservableList = FXCollections.observableArrayList(DatabaseUtils.obtenerClientes());
         selectCliente_RC.setItems(clienteObservableList);
 
@@ -52,7 +57,7 @@ public class ReportesController implements Initializable {
     @FXML
     void clickGenerarReporteB(ActionEvent event) {
         ReporteB reporteB = new ReporteB(txtAreaRes_RB);
-        reporteB.generarReporte();
+        reporteB.generarReporte(selectCliente_RB, selectMes_RB, spinnerYear_RB);
     }
 
     @FXML

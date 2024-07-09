@@ -2,8 +2,10 @@ package org.example.parcialfinal.reports;
 
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Control;
+import javafx.scene.control.Spinner;
 import javafx.scene.control.TextField;
 import org.example.parcialfinal.backend.Cliente;
+import org.example.parcialfinal.backend.Mes;
 import org.example.parcialfinal.backend.reportes.ReporteUtils;
 
 import java.sql.PreparedStatement;
@@ -15,7 +17,7 @@ public class ReporteB extends Reporte{
         super(controlResultado);
     }
 
-    public void generarReporte(ComboBox<Cliente> selectCliente, TextField anio, TextField mes) {
+    public void generarReporte(ComboBox<Cliente> selectCliente, ComboBox<Mes> selectMes, Spinner<Integer> anio) {
         String contenidoReporte = "";
         try {
             PreparedStatement st = connection.getConnection().prepareStatement("SELECT c.nombre_completo, SUM(com.monto) AS monto_total " +
@@ -27,8 +29,8 @@ public class ReporteB extends Reporte{
                     "JOIN Compra com " +
                     "ON t.id = com.id_tarjeta_C " +
                     "WHERE c.id = " + selectCliente.getValue().getId() +
-                    "AND YEAR(com.fecha_compra) = " + anio.getText() +
-                    "AND MONTH(com.fecha_compra) = " + anio.getText() +
+                    "AND YEAR(com.fecha_compra) = " + anio.getValue() +
+                    "AND MONTH(com.fecha_compra) = " + selectMes.getValue() +
                     "GROUP BY c.nombre_completo");
 
             ResultSet rs = st.executeQuery();

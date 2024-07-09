@@ -1,4 +1,4 @@
-Text<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -87,11 +87,11 @@ Text<?xml version="1.0" encoding="UTF-8"?>
                                           <VBox prefHeight="674.0" prefWidth="426.0" spacing="13.0">
                                              <children>
                                                 <Label id="Labels" styleClass="Labelstext" text="Cliente" />
-                                                <ComboBox prefWidth="1000.0" />
+                                                <ComboBox fx:id="selectCliente_RB" prefWidth="1000.0" />
                                                 <Label id="Labels" styleClass="Labelstext" text="Mes" />
-                                                <ComboBox prefHeight="24.0" prefWidth="447.0" />
+                                                <ComboBox fx:id="selectMes_RB" prefHeight="24.0" prefWidth="447.0" />
                                                 <Label id="Labels" styleClass="Labelstext" text="Año" />
-                                                <Spinner prefWidth="1000.0" />
+                                                <Spinner fx:id="spinnerYear_RB" prefWidth="1000.0" />
                                                 <Button mnemonicParsing="false" onAction="#clickGenerarReporteB" text="Calcular total">
                                                    <VBox.margin>
                                                       <Insets top="260.0" />
