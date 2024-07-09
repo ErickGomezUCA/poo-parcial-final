@@ -13,14 +13,11 @@ Label{
     -fx-text-weight: bold;
 }
 .Labelstext{
-    /*-fx-text-fill: #FFFFFF;*/
+    -fx-text-fill: #FFFFFF;
     -fx-font-size: 20;
     -fx-text-weight: bold;
 }
-TabPane{
-    -fx-background-image: url('resources/images/background.png');
-}
-.main{
-    -fx-background-image: url('resources/images/background.png');
+.main, TabPane{
+     -fx-background-image: url('../../../../images/background.png');
 }
 
