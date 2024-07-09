@@ -8,6 +8,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import org.example.parcialfinal.backend.Cliente;
 import org.example.parcialfinal.backend.Facilitador;
+import org.example.parcialfinal.reports.ReporteC;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -30,7 +31,7 @@ public class ReportesController implements Initializable {
 
     @FXML
     void clickGenerarReporteC(ActionEvent event) {
-
+        ReporteC reporteC = new ReporteC();
     }
 
     @FXML

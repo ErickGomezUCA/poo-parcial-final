@@ -1,6 +1,7 @@
 package org.example.parcialfinal.reports;
 
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Control;
 import javafx.scene.control.DatePicker;
 import org.example.parcialfinal.backend.Cliente;
 import org.example.parcialfinal.backend.reportes.ReporteUtils;
@@ -10,6 +11,10 @@ import java.time.Year;
 import java.time.format.DateTimeFormatter;
 
 public class ReporteA extends Reporte {
+    public ReporteA(Control controlResultado) {
+        super(controlResultado);
+    }
+
     public void generarReporte(ComboBox<Cliente> selectCliente, DatePicker fechaInicio, DatePicker fechaFin) {
         String contenidoReporte = "";
         try {

@@ -1,6 +1,7 @@
 package org.example.parcialfinal.reports;
 
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Control;
 import org.example.parcialfinal.backend.Cliente;
 import org.example.parcialfinal.backend.Tarjeta;
 import org.example.parcialfinal.backend.reportes.ReporteUtils;
@@ -11,6 +12,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReporteC extends Reporte {
+    public ReporteC(Control controlResultado) {
+        super(controlResultado);
+    }
+
     public void generarReporte(ComboBox<Cliente> selectCliente) {
         String contenidoReporte = "";
         List<String> tarjetasCredito = new ArrayList<>();

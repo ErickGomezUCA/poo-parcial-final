@@ -1,6 +1,7 @@
 package org.example.parcialfinal.reports;
 
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Control;
 import javafx.scene.control.TextField;
 import org.example.parcialfinal.backend.Cliente;
 import org.example.parcialfinal.backend.reportes.ReporteUtils;
@@ -10,6 +11,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ReporteB extends Reporte{
+    public ReporteB(Control controlResultado) {
+        super(controlResultado);
+    }
+
     public void generarReporte(ComboBox<Cliente> selectCliente, TextField anio, TextField mes) {
         String contenidoReporte = "";
         try {

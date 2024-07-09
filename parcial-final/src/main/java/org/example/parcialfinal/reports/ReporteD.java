@@ -1,6 +1,7 @@
 package org.example.parcialfinal.reports;
 
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Control;
 import org.example.parcialfinal.backend.Facilitador;
 import org.example.parcialfinal.backend.database.DBConnection;
 import org.example.parcialfinal.backend.reportes.ReporteUtils;
@@ -9,6 +10,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ReporteD extends Reporte{
+    public ReporteD(Control controlResultado) {
+        super(controlResultado);
+    }
+
     public void generarReporte(ComboBox<Facilitador> selectFacilitador) {
         String contenidoReporte = "";
 
