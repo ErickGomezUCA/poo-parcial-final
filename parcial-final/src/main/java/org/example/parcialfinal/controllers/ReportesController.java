@@ -32,6 +32,9 @@ public class ReportesController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObservableList<Cliente> clienteObservableList = FXCollections.observableArrayList(DatabaseUtils.obtenerClientes());
         selectCliente_RC.setItems(clienteObservableList);
+
+        ObservableList<Facilitador> facilitadorObservableList = FXCollections.observableArrayList(DatabaseUtils.obtenerFacilitadores());
+        selectFacilitador_RD.setItems(facilitadorObservableList);
     }
 
     @FXML
