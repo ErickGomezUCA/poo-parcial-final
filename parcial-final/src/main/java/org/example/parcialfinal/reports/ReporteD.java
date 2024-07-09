@@ -9,10 +9,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ReporteD extends Reporte{
-    public ReporteD() {
-        super();
-    }
-
     public void generarReporte(ComboBox<Facilitador> selectFacilitador) {
         String contenidoReporte = "";
 
