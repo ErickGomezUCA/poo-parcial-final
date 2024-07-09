@@ -8,8 +8,6 @@
 <?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -59,15 +57,11 @@
                                     </HBox>
                                     <HBox prefHeight="694.0" prefWidth="856.0">
                                        <children>
-                                          <TableView prefHeight="579.0" prefWidth="642.0">
-                                            <columns>
-                                              <TableColumn prefWidth="75.0" text="C1" />
-                                              <TableColumn prefWidth="75.0" text="C2" />
-                                            </columns>
+                                          <TextArea prefHeight="694.0" prefWidth="702.0">
                                              <HBox.margin>
                                                 <Insets bottom="50.0" left="25.0" right="25.0" top="25.0" />
                                              </HBox.margin>
-                                          </TableView>
+                                          </TextArea>
                                        </children>
                                     </HBox>
                                  </children>
@@ -191,18 +185,11 @@
                                     </HBox>
                                     <HBox prefHeight="686.0" prefWidth="648.0">
                                        <children>
-                                          <TableView fx:id="tbRes_RD" prefHeight="686.0" prefWidth="649.0">
-                                            <columns>
-                                              <TableColumn prefWidth="42.0" text="ID" />
-                                              <TableColumn prefWidth="135.0" text="Nombre" />
-                                                <TableColumn prefWidth="179.0" text="Tarjeta" />
-                                                <TableColumn prefWidth="108.0" text="Cantidad" />
-                                                <TableColumn prefWidth="131.0" text="Monto total" />
-                                            </columns>
+                                          <TextArea prefHeight="686.0" prefWidth="695.0">
                                              <HBox.margin>
                                                 <Insets bottom="50.0" left="25.0" right="25.0" top="25.0" />
                                              </HBox.margin>
-                                          </TableView>
+                                          </TextArea>
                                        </children>
                                     </HBox>
                                  </children>
