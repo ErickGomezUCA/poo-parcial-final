@@ -6,6 +6,13 @@ public class Cliente { // 00300723 Clase para guardar los registros de la tabla 
     private String direccion; // 00300723 Contiene la direccion de los registros de los clientes
     private String numeroTelefono; // 00300723 Contiene el numero de telefono de los registros de los clientes
 
+    public Cliente() {
+        id = 0;
+        nombreCompleto = "";
+        direccion = "";
+        numeroTelefono = "";
+    }
+
     public Cliente(int id, String nombreCompleto, String direccion, String numeroTelefono) { // 00300723 Constructor para los objetos de Cliente
         this.id = id; // 00300723 Asigna el id del cliente
         this.nombreCompleto = nombreCompleto; // 00300723 Asigna el nombre completo del cliente

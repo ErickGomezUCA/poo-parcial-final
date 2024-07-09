@@ -6,6 +6,13 @@ public class Tarjeta {
     private String fechaExpiracion;
     private String tipo;
 
+    public Tarjeta() {
+        id = 0;
+        numeroTarjeta = "";
+        fechaExpiracion = "";
+        tipo = "";
+    }
+
     public Tarjeta(int id, String numeroTarjeta, String fechaExpiracion, String tipo) {
         this.id = id;
         this.numeroTarjeta = numeroTarjeta;
