@@ -17,3 +17,10 @@ Label{
     -fx-font-size: 20;
     -fx-text-weight: bold;
 }
+TabPane{
+    -fx-background-image: url('resources/images/background.png');
+}
+.main{
+    -fx-background-image: url('resources/images/background.png');
+}
+
