@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@styles/inputs.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox prefHeight="53.0" prefWidth="1280.0">
          <children>
@@ -31,29 +31,29 @@
                            <children>
                               <HBox layoutX="2.0" layoutY="-5.0" prefHeight="694.0" prefWidth="1276.0">
                                  <children>
-                                    <HBox prefHeight="694.0" prefWidth="769.0">
+                                    <HBox prefHeight="694.0" prefWidth="769.0" styleClass="fondoreporte">
                                        <children>
                                           <VBox prefHeight="674.0" prefWidth="397.0" spacing="13.0" stylesheets="@styles/inputs.css">
                                              <children>
-                                                <Label id="lblID" text="ID Cliente" />
+                                                <Label id="lblID" styleClass="Labelstext" text="ID Cliente" />
                                                 <TextField>
                                                    <VBox.margin>
                                                       <Insets />
                                                    </VBox.margin>
                                                 </TextField>
-                                                <Label id="Labels" text="Fecha Inicio" />
+                                                <Label id="Labels" styleClass="Labelstext" text="Fecha Inicio" />
                                                 <TextField>
                                                    <VBox.margin>
                                                       <Insets />
                                                    </VBox.margin>
                                                 </TextField>
-                                                <Label id="Labels" text="Fecha Final" />
+                                                <Label id="Labels" styleClass="Labelstext" text="Fecha Final" />
                                                 <TextField>
                                                    <VBox.margin>
                                                       <Insets />
                                                    </VBox.margin>
                                                 </TextField>
-                                                <Button mnemonicParsing="false" prefWidth="169.0" text="Mostrar Compras">
+                                                <Button mnemonicParsing="false" prefWidth="169.0" text="Mostrar compras">
                                                    <VBox.margin>
                                                       <Insets top="280.0" />
                                                    </VBox.margin>
@@ -70,11 +70,14 @@
                                     </HBox>
                                     <HBox prefHeight="694.0" prefWidth="856.0">
                                        <children>
-                                          <TableView prefHeight="590.0" prefWidth="710.0">
+                                          <TableView prefHeight="579.0" prefWidth="642.0">
                                             <columns>
                                               <TableColumn prefWidth="75.0" text="C1" />
                                               <TableColumn prefWidth="75.0" text="C2" />
                                             </columns>
+                                             <HBox.margin>
+                                                <Insets bottom="50.0" left="25.0" right="25.0" top="25.0" />
+                                             </HBox.margin>
                                           </TableView>
                                        </children>
                                     </HBox>
@@ -90,29 +93,29 @@
                            <children>
                               <HBox layoutY="3.0" prefHeight="686.0" prefWidth="1278.0">
                                  <children>
-                                    <HBox prefHeight="686.0" prefWidth="630.0">
+                                    <HBox prefHeight="686.0" prefWidth="630.0" styleClass="fondoreporte">
                                        <children>
                                           <VBox prefHeight="674.0" prefWidth="426.0" spacing="13.0">
                                              <children>
-                                                <Label id="Labels" text="ID Cliente" />
+                                                <Label id="Labels" styleClass="Labelstext" text="ID Cliente" />
                                                 <TextField>
                                                    <VBox.margin>
                                                       <Insets />
                                                    </VBox.margin>
                                                 </TextField>
-                                                <Label id="Labels" text="Mes" />
+                                                <Label id="Labels" styleClass="Labelstext" text="Mes" />
                                                 <TextField>
                                                    <VBox.margin>
                                                       <Insets />
                                                    </VBox.margin>
                                                 </TextField>
-                                                <Label id="Labels" text="Año" />
+                                                <Label id="Labels" styleClass="Labelstext" text="Año" />
                                                 <TextField>
                                                    <VBox.margin>
                                                       <Insets />
                                                    </VBox.margin>
                                                 </TextField>
-                                                <Button mnemonicParsing="false" text="Calcular Total">
+                                                <Button mnemonicParsing="false" text="Calcular total">
                                                    <VBox.margin>
                                                       <Insets top="280.0" />
                                                    </VBox.margin>
@@ -129,7 +132,10 @@
                                     </HBox>
                                     <HBox prefHeight="686.0" prefWidth="648.0">
                                        <children>
-                                          <TextArea prefHeight="686.0" prefWidth="682.0" />
+                                          <TextArea prefHeight="686.0" prefWidth="682.0">
+                                             <HBox.margin>
+                                                <Insets bottom="55.0" left="25.0" right="25.0" top="25.0" />
+                                             </HBox.margin></TextArea>
                                        </children>
                                     </HBox>
                                  </children>
@@ -144,17 +150,17 @@
                            <children>
                               <HBox layoutY="3.0" prefHeight="686.0" prefWidth="1278.0">
                                  <children>
-                                    <HBox prefHeight="686.0" prefWidth="630.0">
+                                    <HBox prefHeight="686.0" prefWidth="630.0" styleClass="fondoreporte">
                                        <children>
                                           <VBox prefHeight="674.0" prefWidth="426.0" spacing="13.0">
                                              <children>
-                                                <Label id="Labels" text="ID Cliente" />
-                                                <TextField>
+                                                <Label id="Labels" styleClass="Labelstext" text="ID Cliente" />
+                                                <TextField prefHeight="24.0" prefWidth="403.0">
                                                    <VBox.margin>
                                                       <Insets />
                                                    </VBox.margin>
                                                 </TextField>
-                                                <Button mnemonicParsing="false" text="Mostrar Tarjetas">
+                                                <Button mnemonicParsing="false" text="Mostrar tarjetas">
                                                    <VBox.margin>
                                                       <Insets top="430.0" />
                                                    </VBox.margin>
@@ -171,7 +177,10 @@
                                     </HBox>
                                     <HBox prefHeight="686.0" prefWidth="648.0">
                                        <children>
-                                          <TextArea prefHeight="686.0" prefWidth="647.0" />
+                                          <TextArea prefHeight="686.0" prefWidth="647.0">
+                                             <HBox.margin>
+                                                <Insets bottom="55.0" left="25.0" right="25.0" top="25.0" />
+                                             </HBox.margin></TextArea>
                                        </children>
                                     </HBox>
                                  </children>
@@ -186,11 +195,11 @@
                            <children>
                               <HBox layoutY="3.0" prefHeight="686.0" prefWidth="1278.0">
                                  <children>
-                                    <HBox prefHeight="686.0" prefWidth="630.0">
+                                    <HBox prefHeight="686.0" prefWidth="630.0" styleClass="fondoreporte">
                                        <children>
                                           <VBox prefHeight="674.0" prefWidth="426.0" spacing="13.0">
                                              <children>
-                                                <Label id="Labels" text="Facilitador" />
+                                                <Label id="Labels" styleClass="Labelstext" text="Facilitador" />
                                                 <ComboBox prefHeight="24.0" prefWidth="386.0" />
                                                 <Button mnemonicParsing="false" text="Mostrar clientes">
                                                    <VBox.margin>
@@ -214,6 +223,9 @@
                                               <TableColumn prefWidth="75.0" text="C1" />
                                               <TableColumn prefWidth="75.0" text="C2" />
                                             </columns>
+                                             <HBox.margin>
+                                                <Insets bottom="50.0" left="25.0" right="25.0" top="25.0" />
+                                             </HBox.margin>
                                           </TableView>
                                        </children>
                                     </HBox>

@@ -3,10 +3,21 @@ Button{
     -fx-background-radius: 15;
     -fx-pref-width: 160;
     -fx-pref-height: 50;
-    -fx-text-fil: bold;
+    -fx-text-fill: #2268C6;
+    -fx-text-width: bold;
     -fx-font-size: 16;
 }
 Label{
-    -fx-text-fill: bold;
+    -fx-text-fill: #02377D;
     -fx-font-size: 20;
+    -fx-text-weight: bold;
+}
+.Labelstext{
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 20;
+    -fx-text-weight: bold;
+}
+
+TabPane{
+    -fx-background-color: #2268C6;
 }
