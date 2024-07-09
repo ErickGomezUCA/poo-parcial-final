@@ -55,6 +55,7 @@ public class ReporteDController implements Initializable {
 
             System.out.println(contenidoReporte);
             ReporteUtils.generarReporte('D', contenidoReporte);
+            connection.closeConnection();
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -85,7 +85,7 @@ public class ReporteCController implements Initializable {
 
             System.out.println(contenidoReporte);
             ReporteUtils.generarReporte('C', contenidoReporte);
-
+            connection.closeConnection();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

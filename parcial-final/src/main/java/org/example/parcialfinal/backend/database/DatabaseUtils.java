@@ -18,6 +18,7 @@ public class DatabaseUtils {
             while (rs.next()) {
                 facilitadores.add(new Facilitador(rs.getInt("id"), rs.getString("facilitador")));
             }
+            connection.closeConnection();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -32,6 +33,7 @@ public class DatabaseUtils {
             while (rs.next()) {
                 clientes.add(new Cliente(rs.getInt("id"), rs.getString("nombre_completo"), rs.getString("direccion"), rs.getString("num_telefono")));
             }
+            connection.closeConnection();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

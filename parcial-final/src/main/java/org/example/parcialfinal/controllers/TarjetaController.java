@@ -60,6 +60,7 @@ public class TarjetaController implements Initializable {
             psTarjeta.setInt(4, Integer.parseInt(txtTarjetaId.getText()));
             psTarjeta.executeUpdate();
             System.out.println("Registro de tarjeta actualizado");
+            connection.closeConnection();
 
             PreparedStatement psComprasInteligentes = connection.getConnection().prepareStatement("UPDATE Compras_Inteligentes SET id_cliente_CI = ?, id_facilitador_CI = ? WHERE id_tarjeta_CI = ?");
             psComprasInteligentes.setInt(1, selectCliente.getValue().getId());
@@ -67,6 +68,7 @@ public class TarjetaController implements Initializable {
             psComprasInteligentes.setInt(3, Integer.parseInt(txtTarjetaId.getText()));
             psComprasInteligentes.executeUpdate();
             System.out.println("Registro de compras inteligentes actualizado");
+            connection.closeConnection();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -84,6 +86,7 @@ public class TarjetaController implements Initializable {
                 + "\nfecha de expiracion: " + rs.getString("fecha_expiracion")
                 + "\ntipo de tarjeta: " + rs.getString("tipo_tarjeta") + "\n");
             }
+            connection.closeConnection();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -113,6 +116,7 @@ public class TarjetaController implements Initializable {
             psComprasInteligentes.setInt(3, selectFacilitador.getValue().getId());
             psComprasInteligentes.executeUpdate();
             System.out.println("Compras inteligentes registrada");
+            connection.closeConnection();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -125,6 +129,7 @@ public class TarjetaController implements Initializable {
             ps.setInt(1, Integer.parseInt(txtTarjetaId.getText()));
             ps.executeUpdate();
             System.out.println("Tarjeta eliminada en el sistema");
+            connection.closeConnection();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
