@@ -6,11 +6,13 @@ import javafx.fxml.Initializable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Spinner;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import org.example.parcialfinal.backend.Cliente;
 import org.example.parcialfinal.backend.Facilitador;
 import org.example.parcialfinal.backend.database.DatabaseUtils;
+import org.example.parcialfinal.reports.ReporteB;
 import org.example.parcialfinal.reports.ReporteC;
 import org.example.parcialfinal.reports.ReporteD;
 
@@ -18,6 +20,16 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ReportesController implements Initializable {
+    @FXML
+    private ComboBox<Cliente> selectCliente_RB;
+    @FXML
+    private ComboBox<?> selectMes_RB;
+    @FXML
+    private Spinner<Integer> spinnerYear_RB;
+
+    @FXML
+    private TextArea txtAreaRes_RB;
+
     @FXML
     private ComboBox<Cliente> selectCliente_RC;
     @FXML
@@ -35,6 +47,12 @@ public class ReportesController implements Initializable {
 
         ObservableList<Facilitador> facilitadorObservableList = FXCollections.observableArrayList(DatabaseUtils.obtenerFacilitadores());
         selectFacilitador_RD.setItems(facilitadorObservableList);
+    }
+
+    @FXML
+    void clickGenerarReporteB(ActionEvent event) {
+        ReporteB reporteB = new ReporteB(txtAreaRes_RB);
+        reporteB.generarReporte();
     }
 
     @FXML
