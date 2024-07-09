@@ -19,20 +19,23 @@ public class ReporteD extends Reporte{
 
         try {
             ResultSet rs = connection.getConnection().createStatement().executeQuery(
-                    "SELECT ci.id_tarjeta_CI, t.num_tarjeta, ci.id_cliente_CI, c.nombre_completo, ci.id_facilitador_CI, f.facilitador " +
-                            "FROM Compras_Inteligentes ci " +
-                            "INNER JOIN Tarjeta t ON ci.id_tarjeta_CI = t.id " +
-                            "INNER JOIN Cliente c ON ci.id_cliente_ci = c.id " +
-                            "INNER JOIN Facilitador f ON ci.id_facilitador_CI = f.id " +
-                            "WHERE f.id = " + selectFacilitador.getValue().getId() + ";");
+                "SELECT cl.id as 'id_cliente', cl.nombre_completo as 'nombre', t.num_tarjeta as 'num_tarjeta', f.facilitador as 'facilitador', COUNT(c.id_tarjeta_C) as 'cantidad', SUM(c.monto) as 'monto_total' " +
+                    "FROM Compra c " +
+                    "INNER JOIN Tarjeta t ON c.id_tarjeta_C = t.id " +
+                    "INNER JOIN Compras_Inteligentes ci ON c.id_tarjeta_C = ci.id_tarjeta_CI " +
+                    "INNER JOIN Cliente cl ON ci.id_cliente_CI = cl.id " +
+                    "INNER JOIN Facilitador f ON ci.id_facilitador_CI = f.id " +
+                    "WHERE f.id = " + selectFacilitador.getValue().getId() + " " +
+                    "GROUP BY cl.id, cl.nombre_completo, t.num_tarjeta, f.facilitador;");
 
             while(rs.next()) {
-                contenidoReporte += ("id_tarjeta_CI : " + rs.getString("id_tarjeta_CI")
-                        + "\nnum_tarjeta: " + rs.getString("num_tarjeta")
-                        + "\nid_cliente_CI: " + rs.getString("id_cliente_CI")
-                        + "\nnombre_completo: " + rs.getString("nombre_completo")
-                        + "\nid_facilitador_CI: " + rs.getString("id_facilitador_CI")
-                        + "\nfacilitador: " + rs.getString("facilitador") + "\n");
+                contenidoReporte += (
+                            "ID Cliente : " + rs.getInt("id_cliente")
+                        + "\nNombre: " + rs.getString("nombre")
+                        + "\nNumero de tarjeta: " + rs.getString("num_tarjeta")
+                        + "\nFacilitador: " + rs.getString("facilitador")
+                        + "\nCantidad: " + rs.getInt("cantidad")
+                        + "\nMonto total: $" + rs.getDouble("monto_total") + "\n\n");
             }
 
             System.out.println(contenidoReporte);
