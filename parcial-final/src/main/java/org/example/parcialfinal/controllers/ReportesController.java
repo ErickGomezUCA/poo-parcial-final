@@ -12,6 +12,7 @@ import org.example.parcialfinal.backend.Cliente;
 import org.example.parcialfinal.backend.Facilitador;
 import org.example.parcialfinal.backend.database.DatabaseUtils;
 import org.example.parcialfinal.reports.ReporteC;
+import org.example.parcialfinal.reports.ReporteD;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -41,6 +42,7 @@ public class ReportesController implements Initializable {
 
     @FXML
     void clickGenerarReporteD(ActionEvent event) {
-
+        ReporteD reporteD = new ReporteD(tbRes_RD);
+        reporteD.generarReporte(selectFacilitador_RD);
     }
 }
