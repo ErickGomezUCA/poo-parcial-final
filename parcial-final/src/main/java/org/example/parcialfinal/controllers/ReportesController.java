@@ -50,11 +50,10 @@ public class ReportesController implements Initializable {
         SpinnerValueFactory<Integer> yearSpinnerFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(minValueSpinner, maxValueSpinner, minValueSpinner, 1);
         spinnerYear_RB.setValueFactory(yearSpinnerFactory);
 
-        ObservableList<Cliente> clienteObservableList = FXCollections.observableArrayList(DatabaseUtils.obtenerClientes());
-        selectCliente_RC.setItems(clienteObservableList);
+        selectCliente_RC.setItems(clientes);
 
-        ObservableList<Facilitador> facilitadorObservableList = FXCollections.observableArrayList(DatabaseUtils.obtenerFacilitadores());
-        selectFacilitador_RD.setItems(facilitadorObservableList);
+        ObservableList<Facilitador> facilitadores = FXCollections.observableArrayList(DatabaseUtils.obtenerFacilitadores());
+        selectFacilitador_RD.setItems(facilitadores);
     }
 
     @FXML
