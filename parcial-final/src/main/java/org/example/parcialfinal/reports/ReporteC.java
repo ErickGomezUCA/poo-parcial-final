@@ -2,6 +2,7 @@ package org.example.parcialfinal.reports;
 
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Control;
+import javafx.scene.control.TextArea;
 import org.example.parcialfinal.backend.Cliente;
 import org.example.parcialfinal.backend.Tarjeta;
 import org.example.parcialfinal.backend.reportes.ReporteUtils;
@@ -63,7 +64,7 @@ public class ReporteC extends Reporte {
                 contenidoReporte += "\tN/A\n";
             }
 
-            System.out.println(contenidoReporte);
+            ((TextArea)controlResultado).setText(contenidoReporte);
             ReporteUtils.generarReporte('C', contenidoReporte);
             connection.closeConnection();
         } catch (SQLException e) {
