@@ -5,11 +5,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import org.example.parcialfinal.backend.Compra;
+import org.example.parcialfinal.backend.database.DBConnection;
 
 import java.sql.*;
 import java.util.ArrayList;
 
 public class CompraController {
+    DBConnection connection = DBConnection.getInstance();
+
     @FXML
     private Button btnAgregarCompra;
 
@@ -109,8 +112,7 @@ public class CompraController {
         }
 
         try {
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Biblioteca", "pooUser", "pooUser");
-            PreparedStatement st = conn.prepareStatement("INSERT INTO Compra VALUES (?, ?, ?, ?)");
+            PreparedStatement st = connection.getConnection().prepareStatement("INSERT INTO Compra VALUES (?, ?, ?, ?)");
             st.setString(1, fecha);
             st.setDouble(2, monto);
             st.setString(3, descripcion);
@@ -127,7 +129,7 @@ public class CompraController {
 
                 cargarCompras();
             }
-            conn.close();
+            connection.closeConnection();
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
@@ -139,8 +141,7 @@ public class CompraController {
         int id = Integer.parseInt(txtIdBuscarCompra.getText());
 
         try {
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Biblioteca", "pooUser", "pooUser");
-            PreparedStatement st = conn.prepareStatement("SELECT * FROM Compra WHERE id = ?");
+            PreparedStatement st = connection.getConnection().prepareStatement("SELECT * FROM Compra WHERE id = ?");
             st.setInt(1, id);
             ResultSet rs = st.executeQuery();
 
@@ -156,34 +157,9 @@ public class CompraController {
             } else {
                 txtMensajeBuscarCompra.setText("Compra no encontrado en base de datos");
             }
-            conn.close();
+            connection.closeConnection();
         } catch (Exception e) {
             txtMensajeBuscarCompra.setText("Error: " + e.getMessage());
-        }
-    }
-
-    @FXML
-    public void mostrarTodosCompra() {
-        txtMensajeMostrarTodosCompra.clear();
-
-        try {
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Biblioteca", "pooUser", "pooUser");
-            Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM Compra");
-
-            while (rs.next()) {
-                int idCompra = rs.getInt("id");
-                //cambiar a DATE TODO
-                String fecha = rs.getString("fecha_compra");
-                Double monto = rs.getDouble("monto");
-                String descripcion = rs.getString("descripcion");
-                int idTarjeta = rs.getInt("id_tarjeta_C");
-
-                txtMensajeMostrarTodosCompra.appendText("COMPRA:\n" + idCompra + ", " + fecha + ", " + monto + ", " + descripcion + ", " + idTarjeta + "\n");
-            }
-            conn.close();
-        } catch (Exception e) {
-            txtMensajeMostrarTodosCompra.setText("Error: " + e.getMessage());
         }
     }
 
@@ -193,8 +169,7 @@ public class CompraController {
         int id = Integer.parseInt(txtIdEliminarCompra.getText());
 
         try {
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Biblioteca", "pooUser", "pooUser");
-            PreparedStatement st = conn.prepareStatement("DELETE FROM Compra WHERE id = ?");
+            PreparedStatement st = connection.getConnection().prepareStatement("DELETE FROM Compra WHERE id = ?");
             st.setInt(1, id);
 
             int filas = st.executeUpdate();
@@ -205,7 +180,7 @@ public class CompraController {
                 txtMensajeEliminarCompra.setText("Compra no encontrada en base de datos");
             }
 
-            conn.close();
+            connection.closeConnection();
         } catch (Exception e) {
             txtMensajeEliminarCompra.setText("Error: " + e.getMessage());
         }
@@ -222,8 +197,7 @@ public class CompraController {
         int idTarjeta = Integer.parseInt(txtIdTarjetaActualizarCompra.getText());
 
         try {
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Biblioteca", "pooUser", "pooUser");
-            PreparedStatement st = conn.prepareStatement("UPDATE Compra SET ?, ?, ?, ? WHERE id = ?");
+            PreparedStatement st = connection.getConnection().prepareStatement("UPDATE Compra SET ?, ?, ?, ? WHERE id = ?");
             st.setString(1, fecha);
             st.setDouble(2, monto);
             st.setString(3, descripcion);
@@ -244,7 +218,7 @@ public class CompraController {
             } else {
                 txtMensajeActualizarCompra.setText("Compra no encontrada en base de datos");
             }
-            conn.close();
+            connection.closeConnection();
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
@@ -253,8 +227,7 @@ public class CompraController {
     private void cargarCompras() {
         compras = new ArrayList();
         try {
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Biblioteca", "pooUser", "pooUser");
-            Statement st = conn.createStatement();
+            Statement st = connection.getConnection().createStatement();
             ResultSet rs = st.executeQuery("SELECT * FROM Compra");
 
             while (rs.next()) {
@@ -268,7 +241,7 @@ public class CompraController {
                 Compra compra = new Compra(idCompra, fecha, monto, descripcion, idTarjeta);
                 compras.add(compra);
             }
-            conn.close();
+            connection.closeConnection();
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
