@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.example.parcialfinal.LobbyApplication;
@@ -50,7 +51,7 @@ public class CompraController {
     @FXML
     private ComboBox<Tarjeta> selectActualizarTarjeta;
     @FXML
-    private TextField txtDescripcionActualizarCompra;
+    private TextArea txtDescripcionActualizarCompra;
 
 
     @FXML
@@ -76,6 +77,11 @@ public class CompraController {
     public void initialize() {
         cargarCompras();
 
+        actualizarInputs();
+        mostrarTodasCompras();
+    }
+
+    private void actualizarInputs() {
         ObservableList<Tarjeta> tarjetas = FXCollections.observableArrayList(DatabaseUtils.obtenerTarjetas());
         ObservableList<Compra> compras = FXCollections.observableArrayList(DatabaseUtils.obtenerCompras());
 
@@ -108,6 +114,20 @@ public class CompraController {
         selectEliminarCompra.setItems(compras);
     }
 
+    private void mostrarTodasCompras() {
+        ObservableList<Compra> compras = FXCollections.observableArrayList(DatabaseUtils.obtenerCompras());
+        mostrarCompra(compras);
+    }
+
+    private void mostrarCompra(ObservableList<Compra> compras) {
+        tableCompra.setItems(compras);
+        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colFecha.setCellValueFactory(new PropertyValueFactory<>("fechaCompra"));
+        colMonto.setCellValueFactory(new PropertyValueFactory<>("monto"));
+        colDescripcion.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
+        colTarjeta.setCellValueFactory(new PropertyValueFactory<>("idTajerta"));
+    }
+
     @FXML
     public void agregarCompra() {
         String fecha = dtFechaAgregarCompra.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
@@ -125,6 +145,8 @@ public class CompraController {
             int filas = st.executeUpdate();
             if (filas > 0) {
                 alerta.mostrarMensaje("Compras", "Compra agregada con exito");
+                mostrarTodasCompras();
+                actualizarInputs();
 
 
                 dtFechaAgregarCompra.setValue(null);
@@ -142,6 +164,7 @@ public class CompraController {
     @FXML
     public void buscarCompra() {
         int id =(selectBuscarCompra.getValue().getId());
+        ObservableList<Compra> compras = FXCollections.observableArrayList();
 
         try {
             PreparedStatement st = connection.getConnection().prepareStatement("SELECT * FROM Compra WHERE id = ?");
@@ -156,10 +179,15 @@ public class CompraController {
                 String descripcion = rs.getString("descripcion");
                 int idTarjeta = rs.getInt("id_tarjeta_C");
 
+                compras.add(new Compra(rs.getInt("id"), rs.getString("fecha_compra"), rs.getDouble("monto"), rs.getString("descripcion"), rs.getInt("id_tarjeta_C")));
                 alerta.mostrarMensaje("Compras", "Compra encontrada");
+
                 } else {
                 alerta.mostrarError("Compras error","Compra no encontrado en base de datos", "");
             }
+
+            mostrarCompra(compras);
+
             connection.closeConnection();
         } catch (Exception e) {
             e.printStackTrace();
@@ -182,6 +210,8 @@ public class CompraController {
                 alerta.mostrarError("Compra error", "Compra no encontrada en base de datos", "");
             }
 
+            mostrarTodasCompras();
+            actualizarInputs();
             connection.closeConnection();
         } catch (Exception e) {
             e.printStackTrace();
@@ -216,6 +246,8 @@ public class CompraController {
             } else {
                 alerta.mostrarError("Compra error", "Compra no encontrada en base de datos", "");
             }
+            mostrarTodasCompras();
+            actualizarInputs();
             connection.closeConnection();
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
