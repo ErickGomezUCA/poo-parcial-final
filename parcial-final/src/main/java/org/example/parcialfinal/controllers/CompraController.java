@@ -1,94 +1,142 @@
 package org.example.parcialfinal.controllers;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import org.example.parcialfinal.LobbyApplication;
 import org.example.parcialfinal.backend.Compra;
+import org.example.parcialfinal.backend.Tarjeta;
+import org.example.parcialfinal.backend.alertas.Alerta;
 import org.example.parcialfinal.backend.database.DBConnection;
 
+import javafx.event.ActionEvent;
+import org.example.parcialfinal.backend.database.DatabaseUtils;
+
+import java.io.IOException;
 import java.sql.*;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class CompraController {
     DBConnection connection = DBConnection.getInstance();
+    @FXML
+    private VBox main;
 
     @FXML
     private DatePicker dtFechaAgregarCompra;
-
     @FXML
     private Spinner<Double> spinnerMontoAgregarCompra;
+    @FXML
+    private ComboBox<Tarjeta> selectAgregarTarjeta;
+    @FXML
+    private TextArea txtDescripcionAgregarCompra;
 
     @FXML
-        private TextArea txtDescripcionAgregarCompra;
+    private ComboBox<Compra> selectBuscarCompra;
 
     @FXML
-    //cambiar a combobox todo
-    private TextField txtIdTarjetaAgregarCompra;
-
-
-    //camniar a combobox todo
-    @FXML
-    private TextField txtIdBuscarCompra;
+    private ComboBox<Compra> selectEliminarCompra;
 
     //cambiar a combobox todo
     @FXML
-    private TextField txtIdEliminarCompra;
-
-    //cambiar a combobox todo
-    @FXML
-    private TextField txtIdActualizarCompra;
-
+    private ComboBox<Compra> selectActualizarCompra;
     @FXML
     private DatePicker dtFechaActualizarCompra;
-
     @FXML
     private Spinner<Double> spinnerMontoActualizarCompra;
-
     @FXML
-    private TextField txtDescripcionActualizarCompra;
-
+    private ComboBox<Tarjeta> selectActualizarTarjeta;
     @FXML
-    private TextField txtIdTarjetaActualizarCompra;
+    private TextArea txtDescripcionActualizarCompra;
 
 
     @FXML
-    private TextArea txtMensajeAgregarCompra;
-
+    private TableView<Compra> tableCompra;
     @FXML
-    private TextArea txtMensajeBuscarCompra;
-
+    private TableColumn<Compra, Integer> colId;
     @FXML
-    private TextArea txtMensajeMostrarTodosCompra;
-
+    private TableColumn<Compra, String> colFecha;
     @FXML
-    private TextArea txtMensajeEliminarCompra;
-
+    private TableColumn<Compra, Double> colMonto;
     @FXML
-    private TextArea txtMensajeActualizarCompra;
+    private TableColumn<Compra, Integer> colTarjeta;
+    @FXML
+    private TableColumn<Compra, String> colDescripcion;
+
+
 
     private ArrayList<Compra> compras = new ArrayList<>();
+    Alerta alerta = new Alerta();
 
 
     @FXML
     public void initialize() {
         cargarCompras();
 
+        actualizarInputs();
+        mostrarTodasCompras();
+    }
+
+    private void actualizarInputs() {
+        ObservableList<Tarjeta> tarjetas = FXCollections.observableArrayList(DatabaseUtils.obtenerTarjetas());
+        ObservableList<Compra> compras = FXCollections.observableArrayList(DatabaseUtils.obtenerCompras());
+
         SpinnerValueFactory<Double> valueFactoryCrear = new SpinnerValueFactory.DoubleSpinnerValueFactory(0.0, 10000.0, 0.0, 1);
         SpinnerValueFactory<Double> valueFactoryActualizar = new SpinnerValueFactory.DoubleSpinnerValueFactory(0.0, 10000.0, 0.0, 1);
-        spinnerMontoAgregarCompra.setValueFactory(valueFactoryCrear);
         spinnerMontoActualizarCompra.setValueFactory(valueFactoryActualizar);
+
+        prepararCrear(valueFactoryCrear, tarjetas);
+        prepararBuscar(compras);
+        prepararActualizar(compras, valueFactoryActualizar, tarjetas);
+        prepararEliminar(compras);
+    }
+
+    private void prepararCrear(SpinnerValueFactory<Double> valueFactoryCrear, ObservableList<Tarjeta> tarjetas) {
+        spinnerMontoAgregarCompra.setValueFactory(valueFactoryCrear);
+        selectAgregarTarjeta.setItems(tarjetas);
+    }
+
+    private void prepararBuscar(ObservableList<Compra> compras) {
+        selectBuscarCompra.setItems(compras);
+    }
+
+    private void prepararActualizar(ObservableList<Compra> compras, SpinnerValueFactory<Double> valueFactoryActualizar, ObservableList<Tarjeta> tarjetas) {
+        selectActualizarTarjeta.setItems(tarjetas);
+        spinnerMontoActualizarCompra.setValueFactory(valueFactoryActualizar);
+        selectActualizarTarjeta.setItems(tarjetas);
+    }
+
+    private void prepararEliminar(ObservableList<Compra> compras) {
+        selectEliminarCompra.setItems(compras);
+    }
+
+    private void mostrarTodasCompras() {
+        ObservableList<Compra> compras = FXCollections.observableArrayList(DatabaseUtils.obtenerCompras());
+        mostrarCompra(compras);
+    }
+
+    private void mostrarCompra(ObservableList<Compra> compras) {
+        tableCompra.setItems(compras);
+        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colFecha.setCellValueFactory(new PropertyValueFactory<>("fechaCompra"));
+        colMonto.setCellValueFactory(new PropertyValueFactory<>("monto"));
+        colDescripcion.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
+        colTarjeta.setCellValueFactory(new PropertyValueFactory<>("idTajerta"));
     }
 
     @FXML
     public void agregarCompra() {
-        txtMensajeAgregarCompra.clear();
         String fecha = dtFechaAgregarCompra.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         Double monto = spinnerMontoAgregarCompra.getValue();
         String descripcion = txtDescripcionAgregarCompra.getText();
-        int idTarjeta = Integer.parseInt(txtIdTarjetaAgregarCompra.getText());
+        int idTarjeta = selectAgregarTarjeta.getValue().getId();
 
         try {
-            PreparedStatement st = connection.getConnection().prepareStatement("INSERT INTO Compra VALUES (?, ?, ?, ?)");
+            PreparedStatement st = connection.getConnection().prepareStatement("INSERT INTO Compra() VALUES (?, ?, ?, ?)");
             st.setString(1, fecha);
             st.setDouble(2, monto);
             st.setString(3, descripcion);
@@ -96,12 +144,14 @@ public class CompraController {
 
             int filas = st.executeUpdate();
             if (filas > 0) {
-                txtMensajeAgregarCompra.setText("Compra agregada con exito");
+                alerta.mostrarMensaje("Compras", "Compra agregada con exito");
+                mostrarTodasCompras();
+                actualizarInputs();
+
 
                 dtFechaAgregarCompra.setValue(null);
                 spinnerMontoAgregarCompra.getValueFactory().setValue(0.0);
                 txtDescripcionAgregarCompra.clear();
-                txtIdTarjetaAgregarCompra.clear();
 
                 cargarCompras();
             }
@@ -113,8 +163,8 @@ public class CompraController {
 
     @FXML
     public void buscarCompra() {
-        txtMensajeBuscarCompra.clear();
-        int id = Integer.parseInt(txtIdBuscarCompra.getText());
+        int id =(selectBuscarCompra.getValue().getId());
+        ObservableList<Compra> compras = FXCollections.observableArrayList();
 
         try {
             PreparedStatement st = connection.getConnection().prepareStatement("SELECT * FROM Compra WHERE id = ?");
@@ -129,20 +179,24 @@ public class CompraController {
                 String descripcion = rs.getString("descripcion");
                 int idTarjeta = rs.getInt("id_tarjeta_C");
 
-                txtMensajeBuscarCompra.appendText("COMPRA ENCONTRADA:\n" + idCompra + ", " + fecha + ", " + monto + ", " + descripcion + ", " + idTarjeta + "\n");
-            } else {
-                txtMensajeBuscarCompra.setText("Compra no encontrado en base de datos");
+                compras.add(new Compra(rs.getInt("id"), rs.getString("fecha_compra"), rs.getDouble("monto"), rs.getString("descripcion"), rs.getInt("id_tarjeta_C")));
+                alerta.mostrarMensaje("Compras", "Compra encontrada");
+
+                } else {
+                alerta.mostrarError("Compras error","Compra no encontrado en base de datos", "");
             }
+
+            mostrarCompra(compras);
+
             connection.closeConnection();
         } catch (Exception e) {
-            txtMensajeBuscarCompra.setText("Error: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 
     @FXML
     public void eliminarCompra() {
-        txtMensajeEliminarCompra.clear();
-        int id = Integer.parseInt(txtIdEliminarCompra.getText());
+        int id = selectEliminarCompra.getValue().getId();
 
         try {
             PreparedStatement st = connection.getConnection().prepareStatement("DELETE FROM Compra WHERE id = ?");
@@ -150,27 +204,27 @@ public class CompraController {
 
             int filas = st.executeUpdate();
             if (filas > 0) {
-                txtMensajeEliminarCompra.setText("Compra eliminada con exito");
+                alerta.mostrarMensaje("Compras", "Compra eliminada con exito");
                 cargarCompras();
             } else {
-                txtMensajeEliminarCompra.setText("Compra no encontrada en base de datos");
+                alerta.mostrarError("Compra error", "Compra no encontrada en base de datos", "");
             }
 
+            mostrarTodasCompras();
+            actualizarInputs();
             connection.closeConnection();
         } catch (Exception e) {
-            txtMensajeEliminarCompra.setText("Error: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 
     @FXML
     public void actualizarCompra() {
-        txtMensajeActualizarCompra.clear();
-
-        int id = Integer.parseInt(txtIdActualizarCompra.getText());
+        int id = selectActualizarCompra.getValue().getId();
         String fecha = dtFechaActualizarCompra.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         Double monto = spinnerMontoAgregarCompra.getValue();
         String descripcion = txtDescripcionActualizarCompra.getText();
-        int idTarjeta = Integer.parseInt(txtIdTarjetaActualizarCompra.getText());
+        int idTarjeta = selectActualizarTarjeta.getValue().getId();
 
         try {
             PreparedStatement st = connection.getConnection().prepareStatement("UPDATE Compra SET ?, ?, ?, ? WHERE id = ?");
@@ -182,18 +236,18 @@ public class CompraController {
 
             int filas = st.executeUpdate();
             if (filas > 0) {
-                txtMensajeActualizarCompra.setText("Compra actualizada con exito");
+                alerta.mostrarMensaje("Compra", "Compra actualizada con exito");
 
-                txtIdActualizarCompra.clear();
                 dtFechaActualizarCompra.setValue(null);
                 spinnerMontoAgregarCompra.getValueFactory().setValue(0.0);
                 txtDescripcionActualizarCompra.clear();
-                txtIdTarjetaActualizarCompra.clear();
 
                 cargarCompras();
             } else {
-                txtMensajeActualizarCompra.setText("Compra no encontrada en base de datos");
+                alerta.mostrarError("Compra error", "Compra no encontrada en base de datos", "");
             }
+            mostrarTodasCompras();
+            actualizarInputs();
             connection.closeConnection();
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
@@ -221,5 +275,23 @@ public class CompraController {
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
+    }
+
+    @FXML
+    private void clickRegresar(ActionEvent event) {
+        Stage stage = new Stage();
+        LobbyApplication lobbyApp = new LobbyApplication();
+        try {
+            lobbyApp.start(stage);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.show();
+        cerrar();
+    }
+
+    @FXML
+    private void cerrar() {
+        ((Stage)main.getScene().getWindow()).close();
     }
 }

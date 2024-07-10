@@ -15,7 +15,7 @@
 
 <!-- Contenedor vertical principal -->
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../styles/inputs.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.parcialfinal.controllers.ReportesController">
+<VBox fx:id="main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../styles/inputs.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.parcialfinal.controllers.ReportesController">
    <!-- Contenidos del VBox -->
    <children>
 
@@ -24,7 +24,7 @@
          <!-- Contenidos del segundo VBox -->
          <children>
             <!-- Botón de regreso -->
-            <Button mnemonicParsing="false" text="Regresar" />
+            <Button mnemonicParsing="false" onAction="#clickRegresar" text="Regresar" />
          </children>
       </VBox>
       <!-- Contenedor horizontal principal -->

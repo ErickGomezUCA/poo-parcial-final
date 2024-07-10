@@ -6,6 +6,9 @@ import javafx.fxml.Initializable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import org.example.parcialfinal.LobbyApplication;
 import org.example.parcialfinal.backend.Cliente;
 import org.example.parcialfinal.backend.Facilitador;
 import org.example.parcialfinal.backend.Mes;
@@ -15,10 +18,14 @@ import org.example.parcialfinal.reports.ReporteB;
 import org.example.parcialfinal.reports.ReporteC;
 import org.example.parcialfinal.reports.ReporteD;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ReportesController implements Initializable {
+    @FXML
+    private VBox main;
+
     @FXML
     private ComboBox<Cliente> selectCliente_RA;
     @FXML
@@ -109,5 +116,23 @@ public class ReportesController implements Initializable {
     void clickGenerarReporteD(ActionEvent event) {
         ReporteD reporteD = new ReporteD(txtAreaRes_RD);
         reporteD.generarReporte(selectFacilitador_RD);
+    }
+
+    @FXML
+    private void clickRegresar(ActionEvent event) {
+        Stage stage = new Stage();
+        LobbyApplication lobbyApp = new LobbyApplication();
+        try {
+            lobbyApp.start(stage);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.show();
+        cerrar();
+    }
+
+    @FXML
+    private void cerrar() {
+        ((Stage)main.getScene().getWindow()).close();
     }
 }

@@ -3,6 +3,7 @@ module org.example.parcialfinal {
     requires javafx.fxml;
     requires javafx.base;
     requires java.sql;
+    requires java.desktop;
 
     opens org.example.parcialfinal to javafx.fxml;
     opens org.example.parcialfinal.backend to javafx.base;

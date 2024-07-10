@@ -6,6 +6,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import org.example.parcialfinal.LobbyApplication;
 import org.example.parcialfinal.backend.Cliente;
 import org.example.parcialfinal.backend.Facilitador;
 import org.example.parcialfinal.backend.Tarjeta;
@@ -13,6 +16,7 @@ import org.example.parcialfinal.backend.alertas.Alerta;
 import org.example.parcialfinal.backend.database.DBConnection;
 import org.example.parcialfinal.backend.database.DatabaseUtils;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
@@ -21,6 +25,9 @@ public class TarjetaController implements Initializable {
 
     DBConnection connection = DBConnection.getInstance();
     Alerta alerta = new Alerta();
+
+    @FXML
+    private VBox main;
 
     @FXML
     private TextField txtTarjetaNum_Crear;
@@ -66,6 +73,11 @@ public class TarjetaController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        actualizarInputs();
+        mostrarTarjetasTodas();
+    }
+
+    private void actualizarInputs() {
         ObservableList<String> tipos = FXCollections.observableArrayList("Credito", "Debito");
         ObservableList<Cliente> clientes = FXCollections.observableArrayList(DatabaseUtils.obtenerClientes());
         ObservableList<Facilitador> facilitadores = FXCollections.observableArrayList(DatabaseUtils.obtenerFacilitadores());
@@ -75,8 +87,6 @@ public class TarjetaController implements Initializable {
         prepararBuscar(tarjetas);
         prepararActualizar(tarjetas, tipos, clientes, facilitadores);
         prepararEliminar(tarjetas);
-
-        mostrarTarjetasTodas();
     }
 
     private void mostrarTarjetasTodas() {
@@ -137,6 +147,7 @@ public class TarjetaController implements Initializable {
             psComprasInteligentes.executeUpdate();
             alerta.mostrarMensaje("Tarjetas", "Tarjeta creada en el sistema");
             mostrarTarjetasTodas();
+            actualizarInputs();
             connection.closeConnection();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -180,6 +191,7 @@ public class TarjetaController implements Initializable {
             alerta.mostrarMensaje("Tarjetas", "Tarjeta actualizada en el sistema");
             connection.closeConnection();
             mostrarTarjetasTodas();
+            actualizarInputs();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -194,8 +206,27 @@ public class TarjetaController implements Initializable {
             alerta.mostrarMensaje("Tarjetas", "Tarjeta eliminada en el sistema");
             connection.closeConnection();
             mostrarTarjetasTodas();
+            actualizarInputs();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @FXML
+    private void clickRegresar(ActionEvent event) {
+        Stage stage = new Stage();
+        LobbyApplication lobbyApp = new LobbyApplication();
+        try {
+            lobbyApp.start(stage);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.show();
+        cerrar();
+    }
+
+    @FXML
+    private void cerrar() {
+        ((Stage)main.getScene().getWindow()).close();
     }
 }
