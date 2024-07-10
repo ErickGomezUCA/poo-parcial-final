@@ -262,7 +262,7 @@ public class CompraController { // 00300723 Clase controladora para manejar las 
     }
 
     @FXML
-    private void clickRegresar(ActionEvent event) { // 00300723 Método para manejar el evento de regresar
+    public void clickRegresar(ActionEvent event) { // 00300723 Método para manejar el evento de regresar
         Stage stage = new Stage(); // 00300723 Crear nueva ventana
         LobbyApplication lobbyApp = new LobbyApplication(); // 00300723 Crear instancia de la aplicación principal
         try { // 00300723 Manejar error

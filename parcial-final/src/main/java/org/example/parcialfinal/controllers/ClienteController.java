@@ -171,7 +171,7 @@ public class ClienteController { //00167523 comienzo de clase clientecontroller
         }
     }
 
-    private void clickRegresar(ActionEvent event) { // 00300723 Inicio del método
+    public void clickRegresar(ActionEvent event) { // 00300723 Inicio del método
         Stage stage = new Stage(); // 00300723 Crear un nuevo Stage
         LobbyApplication lobbyApp = new LobbyApplication(); // 00300723 Crear una nueva instancia de LobbyApplication
         try { // 00300723 Bloque try para manejar posibles excepciones IO
