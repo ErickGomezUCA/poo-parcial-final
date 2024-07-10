@@ -28,7 +28,7 @@ public class ClienteController { //00167523 comienzo de clase clientecontroller
     Alerta alerta = new Alerta(); //00167523 inicializacion de alerta con clase alerta
 
     @FXML
-    private VBox main;
+    private VBox main; // Ventana principal para cerrarla
 
     @FXML
     private TextField txtNombreCompletoAgregarCliente; //00167523 textfield para guardar el nombrecompleto de cliente en agregarcliente
@@ -67,8 +67,8 @@ public class ClienteController { //00167523 comienzo de clase clientecontroller
 
     @FXML
 
-    public void initialize() {
-        actualizarInputs();
+    public void initialize() { // Cuando la ventana inicie
+        actualizarInputs(); // 00300723 Actualizar los inputs
         mostrarClientesTodos(); //00167523 llamando metodo mostrarclientetodos
     }
 
@@ -85,12 +85,11 @@ public class ClienteController { //00167523 comienzo de clase clientecontroller
         colNumTelefono.setCellValueFactory(new PropertyValueFactory<>("numeroTelefono")); //00167523 en la colnumtelefono se ponen los valores de la columa de la clase cliente numerotelefono
     }
 
-    private void actualizarInputs() {
-        ObservableList<Cliente> clientes = FXCollections.observableArrayList(DatabaseUtils.obtenerClientes());
-
-        prepararBuscar(clientes);
-        prepararActualizar(clientes);
-        prepararEliminar(clientes);
+    private void actualizarInputs() { // 00300723 Método para actualizar los inputs
+        ObservableList<Cliente> clientes = FXCollections.observableArrayList(DatabaseUtils.obtenerClientes()); // 00300723 Obtener lista de clientes
+        prepararBuscar(clientes); // 00300723 Preparar ComboBox de búsqueda con los clientes
+        prepararActualizar(clientes); // 00300723 Preparar ComboBox de actualización con los clientes
+        prepararEliminar(clientes); // 00300723 Preparar ComboBox de eliminación con los clientes
     }
 
     private void prepararBuscar(ObservableList<Cliente> clientes) { //00167523 metodo para perarar el combobox a utilizar en buscarclientes
@@ -105,93 +104,86 @@ public class ClienteController { //00167523 comienzo de clase clientecontroller
         selectIdEliminarCliente.setItems(clientes); //00167523 combobox se inicializa con la lista clientes
     }
 
+    public void clickCrearCliente(ActionEvent event) { // 00300723 Inicio del método
+        try { // 00300723 Bloque try para manejar posibles excepciones SQL
+            PreparedStatement st = connection.getConnection().prepareStatement("INSERT INTO Cliente(nombre_completo, direccion, num_telefono) VALUES (?, ?, ?)"); // 00300723 Preparar la declaración SQL
+            st.setString(1, txtNombreCompletoAgregarCliente.getText()); // 00300723 Establecer el nombre del cliente
+            st.setString(2, txtDireccionAgregarCliente.getText()); // 00300723 Establecer la dirección del cliente
+            st.setString(3, txtNumTelefonoAgregarCliente.getText()); // 00300723 Establecer el número de teléfono del cliente
+            st.executeUpdate(); // 00300723 Ejecutar la actualización
 
-    @FXML
-    public void clickCrearCliente(ActionEvent event) {
-        try {
-            PreparedStatement st = connection.getConnection().prepareStatement("INSERT INTO Cliente(nombre_completo, direccion, num_telefono) VALUES (?, ?, ?)");
-            st.setString(1, txtNombreCompletoAgregarCliente.getText());
-            st.setString(2, txtDireccionAgregarCliente.getText());
-            st.setString(3, txtNumTelefonoAgregarCliente.getText());
-            st.executeUpdate();
-
-            mostrarClientesTodos();
-            actualizarInputs();
-            alerta.mostrarMensaje("Clientes", "Cliente creado en el sistema");
-            connection.closeConnection();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+            mostrarClientesTodos(); // 00300723 Mostrar todos los clientes
+            actualizarInputs(); // 00300723 Actualizar los inputs
+            alerta.mostrarMensaje("Clientes", "Cliente creado en el sistema"); // 00300723 Mostrar mensaje de éxito
+            connection.closeConnection(); // 00300723 Cerrar la conexión
+        } catch (SQLException e) { // 00300723 Capturar excepciones SQL
+            throw new RuntimeException(e); // 00300723 Lanzar una nueva RuntimeException
         }
     }
 
-    @FXML
-    public void clickBuscarCliente() {
-        ObservableList<Cliente> clientes = FXCollections.observableArrayList();
-        try {
-            Statement st = connection.getConnection().createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM Cliente WHERE id = " + selectIdBuscarCliente.getValue().getId() + ";");
+    public void clickBuscarCliente() { // 00300723 Inicio del método
+        ObservableList<Cliente> clientes = FXCollections.observableArrayList(); // 00300723 Crear una lista observable de clientes
+        try { // 00300723 Bloque try para manejar posibles excepciones SQL
+            Statement st = connection.getConnection().createStatement(); // 00300723 Crear una declaración SQL
+            ResultSet rs = st.executeQuery("SELECT * FROM Cliente WHERE id = " + selectIdBuscarCliente.getValue().getId() + ";"); // 00300723 Ejecutar la consulta SQL
 
-            while (rs.next()) {
-                clientes.add(new Cliente(rs.getInt("id"), rs.getString("nombre_completo"), rs.getString("direccion"), rs.getString("num_telefono")));
+            while (rs.next()) { // 00300723 Iterar sobre los resultados
+                clientes.add(new Cliente(rs.getInt("id"), rs.getString("nombre_completo"), rs.getString("direccion"), rs.getString("num_telefono"))); // 00300723 Agregar cliente a la lista
             }
-            mostrarCliente(clientes);
-            alerta.mostrarMensaje("Clientes", "Cliente encontrado en el sistema");
-            connection.closeConnection();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+            mostrarCliente(clientes); // 00300723 Mostrar los clientes
+            alerta.mostrarMensaje("Clientes", "Cliente encontrado en el sistema"); // 00300723 Mostrar mensaje de éxito
+            connection.closeConnection(); // 00300723 Cerrar la conexión
+        } catch (SQLException e) { // 00300723 Capturar excepciones SQL
+            throw new RuntimeException(e); // 00300723 Lanzar una nueva RuntimeException
         }
     }
 
-    @FXML
-    public void clickActualizarCliente() {
-        try {
-            PreparedStatement st = connection.getConnection().prepareStatement("UPDATE Cliente SET nombre_completo = ?, direccion = ?, num_telefono = ? WHERE id = ?");
-            st.setString(1, txtNombreCompletoActualizarCliente.getText());
-            st.setString(2, txtDireccionActualizarCliente.getText());
-            st.setString(3, txtNumTelefonoActualizarCliente.getText());
-            st.setInt(4, selectIdActualizarCliente.getValue().getId());
-            st.executeUpdate();
+    public void clickActualizarCliente() { // 00300723 Inicio del método
+        try { // 00300723 Bloque try para manejar posibles excepciones SQL
+            PreparedStatement st = connection.getConnection().prepareStatement("UPDATE Cliente SET nombre_completo = ?, direccion = ?, num_telefono = ? WHERE id = ?"); // 00300723 Preparar la declaración SQL
+            st.setString(1, txtNombreCompletoActualizarCliente.getText()); // 00300723 Establecer el nombre del cliente
+            st.setString(2, txtDireccionActualizarCliente.getText()); // 00300723 Establecer la dirección del cliente
+            st.setString(3, txtNumTelefonoActualizarCliente.getText()); // 00300723 Establecer el número de teléfono del cliente
+            st.setInt(4, selectIdActualizarCliente.getValue().getId()); // 00300723 Establecer el ID del cliente
+            st.executeUpdate(); // 00300723 Ejecutar la actualización
 
-            mostrarClientesTodos();
-            actualizarInputs();
-            alerta.mostrarMensaje("Clientes", "Cliente actualizado en el sistema");
-            connection.closeConnection();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+            mostrarClientesTodos(); // 00300723 Mostrar todos los clientes
+            actualizarInputs(); // 00300723 Actualizar los inputs
+            alerta.mostrarMensaje("Clientes", "Cliente actualizado en el sistema"); // 00300723 Mostrar mensaje de éxito
+            connection.closeConnection(); // 00300723 Cerrar la conexión
+        } catch (SQLException e) { // 00300723 Capturar excepciones SQL
+            throw new RuntimeException(e); // 00300723 Lanzar una nueva RuntimeException
         }
     }
 
-    @FXML
-    public void clickEliminarCliente() {
-        try {
-            PreparedStatement st = connection.getConnection().prepareStatement("DELETE FROM Cliente WHERE id = ?");
-            st.setInt(1, selectIdEliminarCliente.getValue().getId());
-            st.executeUpdate();
+    public void clickEliminarCliente() { // 00300723 Inicio del método
+        try { // 00300723 Bloque try para manejar posibles excepciones SQL
+            PreparedStatement st = connection.getConnection().prepareStatement("DELETE FROM Cliente WHERE id = ?"); // 00300723 Preparar la declaración SQL
+            st.setInt(1, selectIdEliminarCliente.getValue().getId()); // 00300723 Establecer el ID del cliente
+            st.executeUpdate(); // 00300723 Ejecutar la eliminación
 
-            mostrarClientesTodos();
-            actualizarInputs();
-            alerta.mostrarMensaje("Clientes", "Cliente eliminado en el sistema");
-            connection.closeConnection();
-        } catch (SQLException e) {
-            throw new RuntimeException();
+            mostrarClientesTodos(); // 00300723 Mostrar todos los clientes
+            actualizarInputs(); // 00300723 Actualizar los inputs
+            alerta.mostrarMensaje("Clientes", "Cliente eliminado en el sistema"); // 00300723 Mostrar mensaje de éxito
+            connection.closeConnection(); // 00300723 Cerrar la conexión
+        } catch (SQLException e) { // 00300723 Capturar excepciones SQL
+            throw new RuntimeException(); // 00300723 Lanzar una nueva RuntimeException
         }
     }
 
-    @FXML
-    private void clickRegresar(ActionEvent event) {
-        Stage stage = new Stage();
-        LobbyApplication lobbyApp = new LobbyApplication();
-        try {
-            lobbyApp.start(stage);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+    private void clickRegresar(ActionEvent event) { // 00300723 Inicio del método
+        Stage stage = new Stage(); // 00300723 Crear un nuevo Stage
+        LobbyApplication lobbyApp = new LobbyApplication(); // 00300723 Crear una nueva instancia de LobbyApplication
+        try { // 00300723 Bloque try para manejar posibles excepciones IO
+            lobbyApp.start(stage); // 00300723 Iniciar la aplicación de Lobby
+        } catch (IOException e) { // 00300723 Capturar excepciones IO
+            throw new RuntimeException(e); // 00300723 Lanzar una nueva RuntimeException
         }
-        stage.show();
-        cerrar();
+        stage.show(); // 00300723 Mostrar el Stage
+        cerrar(); // 00300723 Cerrar la ventana actual
     }
 
-    @FXML
-    private void cerrar() {
-        ((Stage)main.getScene().getWindow()).close();
+    private void cerrar() { // 00300723 Inicio del método
+        ((Stage)main.getScene().getWindow()).close(); // 00300723 Cerrar la ventana actual
     }
 }
