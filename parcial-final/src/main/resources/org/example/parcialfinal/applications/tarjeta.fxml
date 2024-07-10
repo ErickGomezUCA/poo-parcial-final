@@ -2,64 +2,230 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" spacing="30.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.parcialfinal.controllers.TarjetaController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../styles/inputs.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox spacing="10.0">
+      <VBox prefHeight="59.0" prefWidth="1280.0">
          <children>
-            <Label text="id" />
-            <TextField fx:id="txtTarjetaId" />
+            <Button mnemonicParsing="false" text="Regresar" />
          </children>
       </VBox>
-      <VBox spacing="10.0">
+      <HBox prefHeight="722.0" prefWidth="1280.0">
          <children>
-            <Label text="numero de tarjeta" />
-            <TextField fx:id="txtTarjetaNum" />
+            <TabPane prefHeight="696.0" prefWidth="1280.0" tabClosingPolicy="UNAVAILABLE">
+               <tabs>
+                  <Tab text="Crear">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <HBox layoutY="-1.0" prefHeight="662.0" prefWidth="1284.0">
+                                 <children>
+                                    <HBox prefHeight="662.0" prefWidth="669.0">
+                                       <children>
+                                          <VBox prefHeight="620.0" prefWidth="403.0" spacing="13.0" stylesheets="@../styles/inputs.css">
+                                             <children>
+                                                <Label id="lblID" styleClass="Labelstext" text="Numero tarjeta" />
+                                                <TextField />
+                                                <Label id="Labels" styleClass="Labelstext" text="Fecha de expiracion" />
+                                                <DatePicker />
+                                                <Label styleClass="Labelstext" text="Tipo" />
+                                                <ComboBox prefHeight="24.0" prefWidth="411.0" />
+                                                <Label id="Labels" styleClass="Labelstext" text="Cliente" />
+                                                <ComboBox prefHeight="26.0" prefWidth="550.0" />
+                                                <Label id="Labels" styleClass="Labelstext" text="Facilitador" />
+                                                <ComboBox prefHeight="26.0" prefWidth="523.0" />
+                                                <Button mnemonicParsing="false" prefWidth="169.0" text="Crear tarjeta">
+                                                   <VBox.margin>
+                                                      <Insets bottom="40.0" top="112.0" />
+                                                   </VBox.margin>
+                                                </Button>
+                                             </children>
+                                             <padding>
+                                                <Insets top="80.0" />
+                                             </padding>
+                                             <HBox.margin>
+                                                <Insets bottom="10.0" left="100.0" right="10.0" top="10.0" />
+                                             </HBox.margin>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="662.0" prefWidth="650.0">
+                                       <children>
+                                          <TableView prefHeight="662.0" prefWidth="672.0">
+                                             <columns>
+                                                <TableColumn prefWidth="75.0" text="C1" />
+                                                <TableColumn prefWidth="75.0" text="C2" />
+                                             </columns>
+                                             <HBox.margin>
+                                                <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                             </HBox.margin>
+                                          </TableView>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Buscar">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <HBox prefHeight="662.0" prefWidth="1284.0">
+                                 <children>
+                                    <HBox prefHeight="662.0" prefWidth="669.0">
+                                       <children>
+                                          <VBox prefHeight="620.0" prefWidth="403.0" spacing="13.0" stylesheets="@../styles/inputs.css">
+                                             <children>
+                                                <Label id="lblID" styleClass="Labelstext" text="ID tarjeta" />
+                                                <ComboBox prefHeight="24.0" prefWidth="407.0" />
+                                                <Button mnemonicParsing="false" prefWidth="169.0" text="Buscar">
+                                                   <VBox.margin>
+                                                      <Insets top="400.0" />
+                                                   </VBox.margin>
+                                                </Button>
+                                             </children>
+                                             <padding>
+                                                <Insets top="80.0" />
+                                             </padding>
+                                             <HBox.margin>
+                                                <Insets bottom="10.0" left="100.0" right="10.0" top="10.0" />
+                                             </HBox.margin>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="662.0" prefWidth="650.0">
+                                       <children>
+                                          <TableView prefHeight="662.0" prefWidth="632.0">
+                                             <columns>
+                                                <TableColumn prefWidth="75.0" text="C1" />
+                                                <TableColumn prefWidth="75.0" text="C2" />
+                                             </columns>
+                                             <HBox.margin>
+                                                <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                             </HBox.margin>
+                                          </TableView>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Actualizar">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <HBox prefHeight="662.0" prefWidth="1284.0">
+                                 <children>
+                                    <HBox prefHeight="662.0" prefWidth="669.0">
+                                       <children>
+                                          <VBox prefHeight="299.0" prefWidth="403.0" spacing="13.0" stylesheets="@../styles/inputs.css">
+                                             <children>
+                                                <Label id="lblID" styleClass="Labelstext" text="ID de tarjeta" />
+                                                <ComboBox prefHeight="24.0" prefWidth="403.0" />
+                                                <Label id="lblID" styleClass="Labelstext" text="Numero tarjeta" />
+                                                <TextField />
+                                                <Label id="Labels" styleClass="Labelstext" text="Fecha de expiracion" />
+                                                <DatePicker />
+                                                <Label styleClass="Labelstext" text="Tipo" />
+                                                <ComboBox prefHeight="24.0" prefWidth="411.0" />
+                                                <Label id="Labels" styleClass="Labelstext" text="Cliente" />
+                                                <ComboBox prefHeight="26.0" prefWidth="550.0" />
+                                                <Label id="Labels" styleClass="Labelstext" text="Facilitador" />
+                                                <ComboBox prefHeight="26.0" prefWidth="523.0" />
+                                                <Button mnemonicParsing="false" text="Actualizar" />
+                                             </children>
+                                             <padding>
+                                                <Insets top="80.0" />
+                                             </padding>
+                                             <HBox.margin>
+                                                <Insets bottom="10.0" left="100.0" right="10.0" top="10.0" />
+                                             </HBox.margin>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="662.0" prefWidth="650.0">
+                                       <children>
+                                          <TableView prefHeight="662.0" prefWidth="632.0">
+                                             <columns>
+                                                <TableColumn prefWidth="75.0" text="C1" />
+                                                <TableColumn prefWidth="75.0" text="C2" />
+                                             </columns>
+                                             <HBox.margin>
+                                                <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                             </HBox.margin>
+                                          </TableView>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Eliminar">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="689.0" prefWidth="1047.0">
+                           <children>
+                              <HBox prefHeight="662.0" prefWidth="1284.0">
+                                 <children>
+                                    <HBox prefHeight="662.0" prefWidth="669.0">
+                                       <children>
+                                          <VBox prefHeight="620.0" prefWidth="403.0" spacing="13.0" stylesheets="@../styles/inputs.css">
+                                             <children>
+                                                <Label id="lblID" styleClass="Labelstext" text="ID tarjeta" />
+                                                <ComboBox prefHeight="24.0" prefWidth="411.0" />
+                                                <Button mnemonicParsing="false" prefWidth="169.0" text="Eliminar">
+                                                   <VBox.margin>
+                                                      <Insets top="400.0" />
+                                                   </VBox.margin>
+                                                </Button>
+                                             </children>
+                                             <padding>
+                                                <Insets top="80.0" />
+                                             </padding>
+                                             <HBox.margin>
+                                                <Insets bottom="10.0" left="100.0" right="10.0" top="10.0" />
+                                             </HBox.margin>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="662.0" prefWidth="650.0">
+                                       <children>
+                                          <TableView prefHeight="662.0" prefWidth="632.0">
+                                             <columns>
+                                                <TableColumn prefWidth="75.0" text="C1" />
+                                                <TableColumn prefWidth="75.0" text="C2" />
+                                             </columns>
+                                             <HBox.margin>
+                                                <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                             </HBox.margin>
+                                          </TableView>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+               </tabs>
+            </TabPane>
          </children>
-      </VBox>
-      <VBox spacing="10.0">
-         <children>
-            <Label text="fecha expiracion" />
-            <DatePicker fx:id="dateFechaExp" prefWidth="10000.0" />
-         </children>
-      </VBox>
-      <VBox spacing="10.0">
-         <children>
-            <Label text="tipo" />
-            <ComboBox fx:id="selectTarjetaTipo" prefWidth="1000.0" promptText="Selecciona un tipo de tarjeta" />
-         </children>
-      </VBox>
-      <VBox spacing="10.0">
-         <children>
-            <Label text="cliente" />
-            <ComboBox fx:id="selectCliente" prefWidth="1000.0" promptText="Selecciona un cliente" />
-         </children>
-      </VBox>
-      <VBox spacing="10.0">
-         <children>
-            <Label text="facilitador" />
-            <ComboBox fx:id="selectFacilitador" prefWidth="1000.0" promptText="Selecciona un facilitador" />
-         </children>
-      </VBox>
-      <ButtonBar maxWidth="-Infinity">
-        <buttons>
-          <Button mnemonicParsing="false" onAction="#btnCrearTarjetaClick" text="Create" />
-            <Button mnemonicParsing="false" onAction="#btnBuscarTarjetaClick" text="Search" />
-            <Button mnemonicParsing="false" onAction="#btnActualizarTarjetaClick" text="Update" />
-            <Button mnemonicParsing="false" onAction="#btnEliminarTarjetaClick" text="Delete" />
-        </buttons>
-         <padding>
-            <Insets right="20.0" />
-         </padding>
-      </ButtonBar>
+      </HBox>
    </children>
-   <padding>
-      <Insets left="100.0" right="100.0" />
-   </padding>
 </VBox>
