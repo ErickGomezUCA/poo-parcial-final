@@ -16,7 +16,7 @@ public class ReporteA extends Reporte { //00167523 Clase ReporteA que se extiend
         super(controlResultado); //00167523 Pasa controlResultado al super de la clase Reporte
     }
 
-    public void generarReporte(ComboBox<Cliente> selectCliente, DatePicker fechaInicio, DatePicker fechaFin) { //00167523 Metodo para generar el reporteA
+    public void generarReporte(ComboBox<Cliente> selectCliente, DatePicker fechaInicio, DatePicker fechaFin) { //00167523 Metodo para generar el reporteA con parametros de javafx a utilizar
         String contenidoReporte = ""; //00167523 Crea una variable string contenidoReporte que es igual a una cadena de texto vacia
         try { //00167523 Comienzo del try utilizado para la funcion generarReporte
             int idCliente = selectCliente.getValue().getId(); //00167523 Crea una variable int idCliente que guarda el id que se selecciono en el combobox
