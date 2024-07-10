@@ -14,7 +14,7 @@ public class ClienteController {
     DBConnection connection = DBConnection.getInstance();
 
     @FXML
-    private Button btnAgregarCliente;
+    private Button btnCrearCliente;
 
     @FXML
     private Button btnBuscarCliente;
@@ -66,9 +66,7 @@ public class ClienteController {
     }
 
     @FXML
-    public void agregarCliente() {
-        txtMensajeError.clear();
-
+    public void clickCrearCliente() {
         String nombreCompleto = txtNombreCompletoAgregarCliente.getText();
         String direccion = txtDireccionAgregarCliente.getText();
         String numTelefono = txtNumTelefonoAgregarCliente.getText();
@@ -106,7 +104,7 @@ public class ClienteController {
     }
 
     @FXML
-    public void buscarCliente() {
+    public void clickBuscarCliente() {
         txtMensajeError.clear();
         int id = Integer.parseInt(txtIdBuscarCliente.getText());
 
@@ -132,30 +130,7 @@ public class ClienteController {
     }
 
     @FXML
-    public void eliminarCliente() {
-        txtMensajeError.clear();
-        int id = Integer.parseInt(txtIdEliminarCliente.getText());
-
-        try {
-            PreparedStatement st = connection.getConnection().prepareStatement("DELETE FROM Cliente WHERE id = ?");
-            st.setInt(1, id);
-
-            int filas = st.executeUpdate();
-            if (filas > 0) {
-                txtMensajeError.setText("Cliente eliminado con exito");
-                cargarClientes();
-            } else {
-                txtMensajeError.setText("Cliente no encontrado en base de datos");
-            }
-
-            connection.closeConnection();
-        } catch (Exception e) {
-            txtMensajeError.setText("Error: " + e.getMessage());
-        }
-    }
-
-    @FXML
-    public void actualizarCliente() {
+    public void clickActualizarCliente() {
         txtMensajeError.clear();
         int id = Integer.parseInt(txtIdActualizarCliente.getText());
         String nombreCompleto = txtNombreCompletoActualizarCliente.getText();
@@ -189,7 +164,29 @@ public class ClienteController {
     }
 
     @FXML
+    public void clickEliminarCliente() {
+        txtMensajeError.clear();
+        int id = Integer.parseInt(txtIdEliminarCliente.getText());
 
+        try {
+            PreparedStatement st = connection.getConnection().prepareStatement("DELETE FROM Cliente WHERE id = ?");
+            st.setInt(1, id);
+
+            int filas = st.executeUpdate();
+            if (filas > 0) {
+                txtMensajeError.setText("Cliente eliminado con exito");
+                cargarClientes();
+            } else {
+                txtMensajeError.setText("Cliente no encontrado en base de datos");
+            }
+
+            connection.closeConnection();
+        } catch (Exception e) {
+            txtMensajeError.setText("Error: " + e.getMessage());
+        }
+    }
+
+    @FXML
     private void cargarClientes() {
         clientes = new ArrayList<>();
         try {
