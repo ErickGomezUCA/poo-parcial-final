@@ -15,11 +15,14 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../styles/inputs.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.parcialfinal.controllers.ReportesController"> <!-- 00090123 Contenedor vertical principal con controlador especificado y hojas de estilo -->
+<VBox fx:id="main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../styles/inputs.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.parcialfinal.controllers.CompraController">
+
    <children>
       <VBox prefHeight="53.0" prefWidth="1280.0"> <!-- 00090123 Contenedor vertical con altura y ancho preferidos -->
          <children>
-            <Button mnemonicParsing="false" text="Regresar" /> <!-- 00090123 Botón con texto 'Regresar' y sin análisis de mnemónicos -->
+
+            <Button mnemonicParsing="false" onAction="#clickRegresar" text="Regresar" />
+
          </children>
       </VBox>
       <HBox prefHeight="720.0" prefWidth="1280.0"> <!-- 00090123 Contenedor horizontal con altura y ancho preferidos -->
@@ -36,15 +39,17 @@
                                        <children>
                                           <VBox prefHeight="674.0" prefWidth="397.0" spacing="13.0" stylesheets="@../styles/inputs.css"> <!-- 00090123 Contenedor vertical con altura y ancho preferidos, espacio entre elementos y hojas de estilo -->
                                              <children>
-                                                <Label id="lblID" styleClass="Labelstext" text="Fecha de compra" /> <!-- 00090123 Etiqueta con id, clase de estilo y texto -->
-                                                <DatePicker prefHeight="24.0" prefWidth="403.0" /> <!-- 00090123 Selector de fecha con altura y ancho preferidos -->
-                                                <Label id="Labels" styleClass="Labelstext" text="Monto" /> <!-- 00090123 Etiqueta con id, clase de estilo y texto -->
-                                                <Spinner prefHeight="24.0" prefWidth="411.0" /> <!-- 00090123 Selector de valor con altura y ancho preferidos -->
-                                                <Label id="Labels" styleClass="Labelstext" text="Tarjeta" /> <!-- 00090123 Etiqueta con id, clase de estilo y texto -->
-                                                <ComboBox prefHeight="24.0" prefWidth="428.0" /> <!-- 00090123 Cuadro combinado con altura y ancho preferidos -->
-                                                <Label styleClass="Labelstext" text="Descripcion" /> <!-- 00090123 Etiqueta con clase de estilo y texto -->
-                                                <TextArea prefHeight="80.0" prefWidth="230.0" /> <!-- 00090123 Área de texto con altura y ancho preferidos -->
-                                                <Button mnemonicParsing="false" prefWidth="169.0" text="Crear"> <!-- 00090123 Botón con texto 'Crear' y sin análisis de mnemónicos -->
+
+                                                <Label id="lblID" styleClass="Labelstext" text="Fecha de compra" />
+                                                <DatePicker fx:id="dtFechaAgregarCompra" prefHeight="24.0" prefWidth="403.0" />
+                                                <Label id="Labels" styleClass="Labelstext" text="Monto" />
+                                                <Spinner fx:id="spinnerMontoAgregarCompra" prefHeight="24.0" prefWidth="411.0" />
+                                                <Label id="Labels" styleClass="Labelstext" text="Tarjeta" />
+                                                <ComboBox fx:id="selectAgregarTarjeta" prefHeight="24.0" prefWidth="428.0" />
+                                                <Label styleClass="Labelstext" text="Descripcion" />
+                                                <TextArea fx:id="txtDescripcionAgregarCompra" prefHeight="80.0" prefWidth="230.0" />
+                                                <Button mnemonicParsing="false" onAction="#agregarCompra" prefWidth="169.0" text="Crear">
+
                                                    <VBox.margin>
                                                       <Insets top="130.0" /> <!-- 00090123 Márgenes superiores del botón dentro del VBox -->
                                                    </VBox.margin>
@@ -75,9 +80,11 @@
                                        <children>
                                           <VBox prefHeight="674.0" prefWidth="426.0" spacing="13.0"> <!-- 00090123 Contenedor vertical con altura y ancho preferidos y espacio entre elementos -->
                                              <children>
-                                                <Label id="Labels" styleClass="Labelstext" text="ID Compra" /> <!-- 00090123 Etiqueta con id, clase de estilo y texto -->
-                                                <ComboBox prefHeight="24.0" prefWidth="439.0" /> <!-- 00090123 Cuadro combinado con altura y ancho preferidos -->
-                                                <Button mnemonicParsing="false" text="Buscar"> <!-- 00090123 Botón con texto 'Buscar' y sin análisis de mnemónicos -->
+
+                                                <Label id="Labels" styleClass="Labelstext" text="ID Compra" />
+                                                <ComboBox fx:id="selectBuscarCompra" prefHeight="24.0" prefWidth="439.0" />
+                                                <Button mnemonicParsing="false" onAction="#buscarCompra" text="Buscar">
+
                                                    <VBox.margin>
                                                       <Insets top="410.0" /> <!-- 00090123 Márgenes superiores del botón dentro del VBox -->
                                                    </VBox.margin>
@@ -120,27 +127,17 @@
                                              <children>
                                                 <!-- 00090123 Inicia el Label con id "Labels" y clase de estilo "Labelstext" -->
                                                 <Label id="Labels" styleClass="Labelstext" text="ID Compra" />
-                                                <!-- 00090123 Inicia el ComboBox -->
-                                                <ComboBox prefHeight="24.0" prefWidth="440.0" />
-                                                <!-- 00090123 Inicia el Label con clase de estilo "Labelstext" -->
+                                                <ComboBox fx:id="selectActualizarCompra" prefHeight="24.0" prefWidth="440.0" />
                                                 <Label styleClass="Labelstext" text="Fecha de compra" />
-                                                <!-- 00090123 Inicia el DatePicker -->
-                                                <DatePicker prefHeight="24.0" prefWidth="427.0" />
-                                                <!-- 00090123 Inicia el Label con clase de estilo "Labelstext" -->
+                                                <DatePicker fx:id="dtFechaActualizarCompra" prefHeight="24.0" prefWidth="427.0" />
                                                 <Label styleClass="Labelstext" text="Monto" />
-                                                <!-- 00090123 Inicia el Spinner -->
-                                                <Spinner prefHeight="24.0" prefWidth="428.0" />
-                                                <!-- 00090123 Inicia el Label con clase de estilo "Labelstext" -->
+                                                <Spinner fx:id="spinnerMontoActualizarCompra" prefHeight="24.0" prefWidth="428.0" />
                                                 <Label styleClass="Labelstext" text="Tarjeta" />
-                                                <!-- 00090123 Inicia el ComboBox -->
-                                                <ComboBox prefHeight="24.0" prefWidth="434.0" />
-                                                <!-- 00090123 Inicia el Label con clase de estilo "Labelstext" -->
+                                                <ComboBox fx:id="selectActualizarTarjeta" prefHeight="24.0" prefWidth="434.0" />
                                                 <Label styleClass="Labelstext" text="Descripcion" />
-                                                <!-- 00090123 Inicia el TextArea -->
-                                                <TextArea prefHeight="80.0" prefWidth="230.0" />
-                                                <!-- 00090123 Inicia el Button -->
-                                                <Button mnemonicParsing="false" text="Actualizar">
-                                                   <!-- 00090123 Inicia el VBox.margin del Button -->
+                                                <TextArea fx:id="txtDescripcionActualizarCompra" prefHeight="80.0" prefWidth="230.0" />
+                                                <Button mnemonicParsing="false" onAction="#actualizarCompra" text="Actualizar">
+
                                                    <VBox.margin>
                                                       <Insets top="50.0" />
                                                    </VBox.margin>
@@ -193,11 +190,10 @@
                                              <children>
                                                 <!-- 00090123 Inicia el Label con id "Labels" y clase de estilo "Labelstext" -->
                                                 <Label id="Labels" styleClass="Labelstext" text="ID de compra" />
-                                                <!-- 00090123 Inicia el ComboBox -->
-                                                <ComboBox prefHeight="24.0" prefWidth="386.0" />
-                                                <!-- 00090123 Inicia el Button -->
-                                                <Button mnemonicParsing="false" text="Eliminar">
-                                                   <!-- 00090123 Inicia el VBox.margin del Button -->
+
+                                                <ComboBox fx:id="selectEliminarCompra" prefHeight="24.0" prefWidth="386.0" />
+                                                <Button mnemonicParsing="false" onAction="#eliminarCompra" text="Eliminar">
+
                                                    <VBox.margin>
                                                       <Insets top="410.0" />
                                                    </VBox.margin>
@@ -231,19 +227,16 @@
                   <!-- 00090123 Termina el Tab "Eliminar" -->
                </tabs>
             </TabPane>
-            <!-- 00090123 Inicia el TableView -->
-            <TableView prefHeight="690.0" prefWidth="656.0">
-               <!-- 00090123 Inician las columnas del TableView -->
-               <columns>
-                  <!-- 00090123 Inicia la primera TableColumn -->
-                  <TableColumn prefWidth="75.0" text="C1" />
-                  <!-- 00090123 Termina la primera TableColumn -->
-                  <!-- 00090123 Inicia la segunda TableColumn -->
-                  <TableColumn prefWidth="75.0" text="C2" />
-                  <!-- 00090123 Termina la segunda TableColumn -->
-               </columns>
-               <!-- 00090123 Terminan las columnas del TableView -->
-               <!-- 00090123 Inicia el HBox.margin del TableView -->
+
+            <TableView fx:id="tableCompra" prefHeight="690.0" prefWidth="656.0">
+              <columns>
+                <TableColumn fx:id="colId" prefWidth="58.0" text="ID" />
+                <TableColumn fx:id="colFecha" prefWidth="123.0" text="Fecha" />
+                  <TableColumn fx:id="colMonto" prefWidth="88.0" text="Monto" />
+                  <TableColumn fx:id="colTarjeta" prefWidth="116.0" text="Tarjeta" />
+                  <TableColumn fx:id="colDescripcion" minWidth="0.0" prefWidth="262.0" text="Descripcion" />
+              </columns>
+
                <HBox.margin>
                   <Insets />
                </HBox.margin>

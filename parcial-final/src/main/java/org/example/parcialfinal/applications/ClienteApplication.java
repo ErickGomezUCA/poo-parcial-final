@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class ClienteApplication extends Application {
+public class ClienteApplication extends Application { // 00300723 Clase para mostrar CRUD de Cliente
     @Override
     public void start(Stage stage) throws IOException { // 00090123 Método start requerido por la clase Application para iniciar la aplicación
         FXMLLoader fxmlLoader = new FXMLLoader(ClienteApplication.class.getResource("cliente.fxml")); // 00090123 Carga el archivo FXML para la interfaz de usuario del cliente

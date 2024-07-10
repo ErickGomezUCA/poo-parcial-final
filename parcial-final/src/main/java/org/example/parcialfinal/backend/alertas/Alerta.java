@@ -2,7 +2,7 @@ package org.example.parcialfinal.backend.alertas;
 
 import javafx.scene.control.Alert;
 
-public class Alerta {
+public class Alerta { // 00300723 Clase para mostrar mensajes en pantalla
     public void mostrarMensaje(String titulo, String mensaje) { // 00090123 Método para mostrar un mensaje de información
         mostrarDialogo(Alert.AlertType.INFORMATION, titulo, mensaje); // 00090123 Invoca el método para mostrar un diálogo de tipo INFORMATION
     }

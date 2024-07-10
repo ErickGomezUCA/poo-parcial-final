@@ -61,4 +61,9 @@ public class Compra {
     public void setIdTajerta(int idTajerta) { // 00090123 Método para establecer el ID de la tarjeta asociada a la compra
         this.idTajerta = idTajerta;
     }
+
+    @Override
+    public String toString() {
+        return "ID: " + id + ", Fecha: " + fechaCompra + ", Monto: $" + monto;
+    }
 }

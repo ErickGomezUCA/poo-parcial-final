@@ -1,210 +1,197 @@
 package org.example.parcialfinal.controllers;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import org.example.parcialfinal.LobbyApplication;
 import org.example.parcialfinal.backend.Cliente;
+import org.example.parcialfinal.backend.Tarjeta;
+import org.example.parcialfinal.backend.alertas.Alerta;
 import org.example.parcialfinal.backend.database.DBConnection;
+import org.example.parcialfinal.backend.database.DatabaseUtils;
 
+import javafx.event.ActionEvent;
+
+import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 
 public class ClienteController {
     DBConnection connection = DBConnection.getInstance();
+    Alerta alerta = new Alerta();
 
     @FXML
-    private Button btnCrearCliente;
-
-    @FXML
-    private Button btnBuscarCliente;
-
-    @FXML
-    private Button btnEliminarCliente;
-
-    @FXML
-    private Button btnActualizarCliente;
-
+    private VBox main;
 
     @FXML
     private TextField txtNombreCompletoAgregarCliente;
-
     @FXML
     private TextField txtDireccionAgregarCliente;
-
     @FXML
     private TextField txtNumTelefonoAgregarCliente;
 
     @FXML
-    private TextField txtIdActualizarCliente;
-
+    private ComboBox<Cliente> selectIdActualizarCliente;
     @FXML
     private TextField txtNombreCompletoActualizarCliente;
-
     @FXML
     private TextField txtDireccionActualizarCliente;
-
     @FXML
     private TextField txtNumTelefonoActualizarCliente;
 
 
     @FXML
-    private TextArea txtMensajeError;
-
-
-    @FXML
-    private TextField txtIdBuscarCliente;
+    private ComboBox<Cliente> selectIdBuscarCliente;
 
     @FXML
-    private TextField txtIdEliminarCliente;
+    private ComboBox<Cliente> selectIdEliminarCliente;
 
+    @FXML
+    private TableView<Cliente> tableCliente;
+    @FXML
+    private TableColumn<Tarjeta, Integer> colId;
+    @FXML
+    private TableColumn<Tarjeta, String> colNombreCompleto;
+    @FXML
+    private TableColumn<Tarjeta, String> colDireccion;
+    @FXML
+    private TableColumn<Tarjeta, String> colNumTelefono;
     private ArrayList<Cliente> clientes;
 
     @FXML
     public void initialize() {
-        cargarClientes();
+        actualizarInputs();
+
+        mostrarClientesTodos();
     }
 
+    private void mostrarClientesTodos() {
+        ObservableList<Cliente> clientes = FXCollections.observableArrayList(DatabaseUtils.obtenerClientes());
+        mostrarCliente(clientes);
+    }
+
+    private void mostrarCliente(ObservableList<Cliente> clientes) {
+        tableCliente.setItems(clientes);
+        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colNombreCompleto.setCellValueFactory(new PropertyValueFactory<>("nombreCompleto"));
+        colDireccion.setCellValueFactory(new PropertyValueFactory<>("direccion"));
+        colNumTelefono.setCellValueFactory(new PropertyValueFactory<>("numeroTelefono"));
+    }
+
+    private void actualizarInputs() {
+        ObservableList<Cliente> clientes = FXCollections.observableArrayList(DatabaseUtils.obtenerClientes());
+
+        prepararBuscar(clientes);
+        prepararActualizar(clientes);
+        prepararEliminar(clientes);
+    }
+
+    private void prepararBuscar(ObservableList<Cliente> clientes) {
+        selectIdBuscarCliente.setItems(clientes);
+    }
+
+    private void prepararActualizar(ObservableList<Cliente> clientes) {
+        selectIdActualizarCliente.setItems(clientes);
+    }
+
+    private void prepararEliminar(ObservableList<Cliente> clientes) {
+        selectIdEliminarCliente.setItems(clientes);
+    }
+
+
     @FXML
-    public void clickCrearCliente() {
-        String nombreCompleto = txtNombreCompletoAgregarCliente.getText();
-        String direccion = txtDireccionAgregarCliente.getText();
-        String numTelefono = txtNumTelefonoAgregarCliente.getText();
-
-        if (nombreCompleto.equals("")) {
-            txtNombreCompletoAgregarCliente.setText("Este campo es obligatorio");
-        }
-        if (direccion.equals("")) {
-            txtDireccionAgregarCliente.setText("Este campo es obligatorio");
-        }
-        if (numTelefono.equals("")) {
-            txtNumTelefonoAgregarCliente.setText("Este campo es obligatorio");
-        }
-
+    public void clickCrearCliente(ActionEvent event) {
         try {
-            PreparedStatement st = connection.getConnection().prepareStatement("INSERT INTO Cliente VALUES (?, ?, ?)");
-            st.setString(1, nombreCompleto);
-            st.setString(2, direccion);
-            st.setString(3, numTelefono);
+            PreparedStatement st = connection.getConnection().prepareStatement("INSERT INTO Cliente(nombre_completo, direccion, num_telefono) VALUES (?, ?, ?)");
+            st.setString(1, txtNombreCompletoAgregarCliente.getText());
+            st.setString(2, txtDireccionAgregarCliente.getText());
+            st.setString(3, txtNumTelefonoAgregarCliente.getText());
+            st.executeUpdate();
 
-            int filas = st.executeUpdate();
-            if (filas > 0) {
-                txtMensajeError.setText("Cliente agregado con exito");
-
-                txtNombreCompletoAgregarCliente.clear();
-                txtDireccionAgregarCliente.clear();
-                txtNumTelefonoAgregarCliente.clear();
-
-                cargarClientes();
-            }
+            mostrarClientesTodos();
+            actualizarInputs();
+            alerta.mostrarMensaje("Clientes", "Cliente creado en el sistema");
             connection.closeConnection();
-        } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
     @FXML
     public void clickBuscarCliente() {
-        txtMensajeError.clear();
-        int id = Integer.parseInt(txtIdBuscarCliente.getText());
-
+        ObservableList<Cliente> clientes = FXCollections.observableArrayList();
         try {
-            PreparedStatement st = connection.getConnection().prepareStatement("SELECT * FROM Cliente WHERE id = ?");
-            st.setInt(1, id);
-            ResultSet rs = st.executeQuery();
+            Statement st = connection.getConnection().createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM Cliente WHERE id = " + selectIdBuscarCliente.getValue().getId() + ";");
 
-            if (rs.next()) {
-                int idString = rs.getInt("id");
-                String nombreCompleto = rs.getString("nombre_completo");
-                String direccion = rs.getString("direccion");
-                String numTelefono = rs.getString("num_telefono");
-
-                txtMensajeError.appendText("CLIENTE ENCONTRADO:\n" + idString + ", " + nombreCompleto + ", " + direccion + ", " + numTelefono + ".");
-            } else {
-                txtMensajeError.setText("Cliente no encontrado en base de datos");
+            while (rs.next()) {
+                clientes.add(new Cliente(rs.getInt("id"), rs.getString("nombre_completo"), rs.getString("direccion"), rs.getString("num_telefono")));
             }
+            mostrarCliente(clientes);
+            alerta.mostrarMensaje("Clientes", "Cliente encontrado en el sistema");
             connection.closeConnection();
-        } catch (Exception e) {
-            txtMensajeError.setText("Error: " + e.getMessage());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
     @FXML
     public void clickActualizarCliente() {
-        txtMensajeError.clear();
-        int id = Integer.parseInt(txtIdActualizarCliente.getText());
-        String nombreCompleto = txtNombreCompletoActualizarCliente.getText();
-        String direccion = txtDireccionActualizarCliente.getText();
-        String numTelefono = txtNumTelefonoActualizarCliente.getText();
-
         try {
-            PreparedStatement st = connection.getConnection().prepareStatement("UPDATE Cliente SET ?, ?, ? WHERE id = ?");
-            st.setString(1, nombreCompleto);
-            st.setString(2, direccion);
-            st.setString(3, numTelefono);
-            st.setInt(4, id);
+            PreparedStatement st = connection.getConnection().prepareStatement("UPDATE Cliente SET nombre_completo = ?, direccion = ?, num_telefono = ? WHERE id = ?");
+            st.setString(1, txtNombreCompletoActualizarCliente.getText());
+            st.setString(2, txtDireccionActualizarCliente.getText());
+            st.setString(3, txtNumTelefonoActualizarCliente.getText());
+            st.setInt(4, selectIdActualizarCliente.getValue().getId());
+            st.executeUpdate();
 
-            int filas = st.executeUpdate();
-            if (filas > 0) {
-                txtMensajeError.setText("Cliente actualizado con exito");
-
-                txtIdActualizarCliente.clear();
-                txtNombreCompletoActualizarCliente.clear();
-                txtDireccionActualizarCliente.clear();
-                txtNumTelefonoActualizarCliente.clear();
-
-                cargarClientes();
-            } else {
-                txtMensajeError.setText("Cliente no encontrado en base de datos");
-            }
+            mostrarClientesTodos();
+            actualizarInputs();
+            alerta.mostrarMensaje("Clientes", "Cliente actualizado en el sistema");
             connection.closeConnection();
-        } catch (Exception e) {
-            txtMensajeError.setText("Error: " + e.getMessage());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
     @FXML
     public void clickEliminarCliente() {
-        txtMensajeError.clear();
-        int id = Integer.parseInt(txtIdEliminarCliente.getText());
-
         try {
             PreparedStatement st = connection.getConnection().prepareStatement("DELETE FROM Cliente WHERE id = ?");
-            st.setInt(1, id);
+            st.setInt(1, selectIdEliminarCliente.getValue().getId());
+            st.executeUpdate();
 
-            int filas = st.executeUpdate();
-            if (filas > 0) {
-                txtMensajeError.setText("Cliente eliminado con exito");
-                cargarClientes();
-            } else {
-                txtMensajeError.setText("Cliente no encontrado en base de datos");
-            }
-
+            mostrarClientesTodos();
+            actualizarInputs();
+            alerta.mostrarMensaje("Clientes", "Cliente eliminado en el sistema");
             connection.closeConnection();
-        } catch (Exception e) {
-            txtMensajeError.setText("Error: " + e.getMessage());
+        } catch (SQLException e) {
+            throw new RuntimeException();
         }
     }
 
     @FXML
-    private void cargarClientes() {
-        clientes = new ArrayList<>();
+    private void clickRegresar(ActionEvent event) {
+        Stage stage = new Stage();
+        LobbyApplication lobbyApp = new LobbyApplication();
         try {
-            Statement st = connection.getConnection().createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM Cliente");
-
-            while (rs.next()) {
-                int id = rs.getInt("id");
-                String nombreCompleto = rs.getString("nombre_completo");
-                String direccion = rs.getString("direccion");
-                String numTelefono = rs.getString("num_telefono");
-
-                Cliente cliente = new Cliente(id, nombreCompleto, direccion, numTelefono);
-                clientes.add(cliente);
-            }
-            connection.closeConnection();
-        } catch (SQLException e) {
-            System.out.println("Error: " + e.getMessage());
+            lobbyApp.start(stage);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
+        stage.show();
+        cerrar();
+    }
+
+    @FXML
+    private void cerrar() {
+        ((Stage)main.getScene().getWindow()).close();
     }
 }

@@ -13,14 +13,15 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<!-- 00090123 Inicia VBox principal -->
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../styles/inputs.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.parcialfinal.controllers.ClienteController">
+<VBox fx:id="main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../styles/inputs.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.parcialfinal.controllers.ClienteController">
+
    <children>
       <!-- 00090123 VBox para el botón "Regresar" -->
       <VBox prefHeight="59.0" prefWidth="1280.0">
          <children>
-            <!-- 00090123 Botón "Regresar" -->
-            <Button mnemonicParsing="false" text="Regresar" />
+
+            <Button mnemonicParsing="false" onAction="#clickRegresar" text="Regresar" />
+
          </children>
       </VBox>
       <!-- 00090123 HBox principal -->
@@ -47,15 +48,14 @@
                                              <children>
                                                 <!-- 00090123 Etiqueta y campo para Nombre -->
                                                 <Label id="lblID" styleClass="Labelstext" text="Nombre" />
-                                                <TextField />
-                                                <!-- 00090123 Etiqueta y campo para Dirección -->
+
+                                                <TextField fx:id="txtNombreCompletoAgregarCliente" />
                                                 <Label id="Labels" styleClass="Labelstext" text="Direccion" />
-                                                <TextField />
-                                                <!-- 00090123 Etiqueta y campo para Teléfono -->
+                                                <TextField fx:id="txtDireccionAgregarCliente" />
                                                 <Label styleClass="Labelstext" text="Telefono" />
-                                                <TextField />
-                                                <!-- 00090123 Botón para crear cliente -->
-                                                <Button mnemonicParsing="false" onAction="#clickCrearCliente" prefWidth="169.0" text="Crear cliente">
+                                                <TextField fx:id="txtNumTelefonoAgregarCliente" />
+                                                <Button fx:id="btnCrearCliente" mnemonicParsing="false" onAction="#clickCrearCliente" prefWidth="169.0" text="Crear cliente">
+
                                                    <VBox.margin>
                                                       <Insets bottom="40.0" top="112.0" />
                                                    </VBox.margin>
@@ -101,10 +101,10 @@
                                              <children>
                                                 <!-- 00090123 Label "ID cliente" -->
                                                 <Label id="lblID" styleClass="Labelstext" text="ID cliente" />
-                                                <!-- 00090123 ComboBox para selección de cliente -->
-                                                <ComboBox prefHeight="24.0" prefWidth="407.0" />
-                                                <!-- 00090123 Botón "Buscar cliente" -->
-                                                <Button mnemonicParsing="false" onAction="#clickBuscarCliente" prefWidth="169.0" text="Buscar cliente">
+
+                                                <ComboBox fx:id="selectIdBuscarCliente" prefHeight="24.0" prefWidth="407.0" />
+                                                <Button fx:id="btnBuscarCliente" mnemonicParsing="false" onAction="#clickBuscarCliente" prefWidth="169.0" text="Buscar cliente">
+
                                                    <VBox.margin>
                                                       <Insets top="400.0" />
                                                    </VBox.margin>
@@ -126,8 +126,8 @@
                         </AnchorPane>
                      </content>
                   </Tab>
-                  <!-- 00090123 Tab "Actualizar" -->
-                  <Tab text="Actualizar">
+                  <Tab fx:id="btnActualizarCliente" text="Actualizar">
+
                      <content>
                         <!-- 00090123 AnchorPane -->
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
@@ -150,21 +150,15 @@
                                              <children>
                                                 <!-- 00090123 Label "ID cliente" -->
                                                 <Label id="lblID" styleClass="Labelstext" text="ID cliente" />
-                                                <!-- 00090123 ComboBox para selección de cliente -->
-                                                <ComboBox prefHeight="24.0" prefWidth="407.0" />
-                                                <!-- 00090123 Label "Nombre" -->
+
+                                                <ComboBox fx:id="selectIdActualizarCliente" prefHeight="24.0" prefWidth="407.0" />
                                                 <Label id="lblID" styleClass="Labelstext" text="Nombre" />
-                                                <!-- 00090123 Campo de texto para el nombre -->
-                                                <TextField />
-                                                <!-- 00090123 Label "Direccion" -->
+                                                <TextField fx:id="txtNombreCompletoActualizarCliente" />
                                                 <Label id="Labels" styleClass="Labelstext" text="Direccion" />
-                                                <!-- 00090123 Campo de texto para la dirección -->
-                                                <TextField />
-                                                <!-- 00090123 Label "Telefono" -->
+                                                <TextField fx:id="txtDireccionActualizarCliente" />
                                                 <Label styleClass="Labelstext" text="Telefono" />
-                                                <!-- 00090123 Campo de texto para el teléfono -->
-                                                <TextField />
-                                                <!-- 00090123 Botón "Actualizar Cliente" -->
+                                                <TextField fx:id="txtNumTelefonoActualizarCliente" />
+
                                                 <Button mnemonicParsing="false" onAction="#clickActualizarCliente" prefWidth="169.0" text="Actualizar Cliente" />
                                              </children>
                                           </VBox>
@@ -190,7 +184,17 @@
                                        <children>
                                           <!-- 00090123 VBox con elementos de eliminación -->
                                           <VBox prefHeight="620.0" prefWidth="403.0" spacing="13.0" stylesheets="@../styles/inputs.css">
-                                             <!-- 00090123 Padding y márgenes -->
+
+                                             <children>
+                                                <Label id="lblID" styleClass="Labelstext" text="ID cliente" />
+                                                <ComboBox fx:id="selectIdEliminarCliente" prefHeight="24.0" prefWidth="411.0" />
+                                                <Button fx:id="btnEliminarCliente" mnemonicParsing="false" onAction="#clickEliminarCliente" prefWidth="169.0" text="Eliminar Cliente">
+                                                   <VBox.margin>
+                                                      <Insets top="400.0" />
+                                                   </VBox.margin>
+                                                </Button>
+                                             </children>
+
                                              <padding>
                                                 <Insets top="80.0" />
                                              </padding>
@@ -220,16 +224,15 @@
                   </Tab>
                </tabs>
             </TabPane>
-            <!-- 00090123 TableView -->
-            <TableView prefHeight="690.0" prefWidth="643.0">
-               <!-- 00090123 Columnas -->
-               <columns>
-                  <!-- 00090123 TableColumn "C1" -->
-                  <TableColumn prefWidth="75.0" text="C1" />
-                  <!-- 00090123 TableColumn "C2" -->
-                  <TableColumn prefWidth="75.0" text="C2" />
-               </columns>
-               <!-- 00090123 Márgenes -->
+
+            <TableView fx:id="tableCliente" prefHeight="690.0" prefWidth="643.0">
+              <columns>
+                <TableColumn fx:id="colId" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="colNombreCompleto" prefWidth="205.0" text="Nombre Completo" />
+                  <TableColumn fx:id="colDireccion" minWidth="0.0" prefWidth="185.0" text="Direccion" />
+                  <TableColumn fx:id="colNumTelefono" prefWidth="174.0" text="Num. Telefono" />
+              </columns>
+
                <HBox.margin>
                   <Insets />
                </HBox.margin>
