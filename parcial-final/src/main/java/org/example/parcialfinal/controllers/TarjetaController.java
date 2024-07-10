@@ -38,10 +38,19 @@ public class TarjetaController implements Initializable {
     @FXML
     private ComboBox<Facilitador> selectFacilitador;
 
+    @FXML
+    private TextField txtTarjetaNum_Crear;
+    @FXML
+    private DatePicker dateFechaExp_Crear;
+    @FXML
+    private ComboBox<String> selectTarjetaTipo_Crear;
+    @FXML
+    private ComboBox<Cliente> selectCliente_Crear;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObservableList<String> tipoTarjetaValues = FXCollections.observableArrayList("Credito", "Debito");
-        selectTarjetaTipo.setItems(tipoTarjetaValues);
+        selectTarjetaTipo_Crear.setItems(tipoTarjetaValues);
 
         ObservableList<Cliente> clienteValues = FXCollections.observableArrayList(DatabaseUtils.obtenerClientes());
         selectCliente.setItems(clienteValues);
@@ -93,14 +102,14 @@ public class TarjetaController implements Initializable {
     }
 
     @FXML
-    void btnCrearTarjetaClick(ActionEvent event) {
+    void clickCrearTarjeta(ActionEvent event) {
         int lastIdInserted = 0;
 
         try {
             PreparedStatement psTarjeta = connection.getConnection().prepareStatement("INSERT INTO Tarjeta(num_tarjeta, fecha_expiracion, tipo_tarjeta) VALUES(?, ?, ?)");
-            psTarjeta.setString(1 , txtTarjetaNum.getText());
-            psTarjeta.setDate(2 , Date.valueOf(dateFechaExp.getValue()));
-            psTarjeta.setString(3 , selectTarjetaTipo.getValue());
+            psTarjeta.setString(1 , txtTarjetaNum_Crear.getText());
+                psTarjeta.setDate(2 , Date.valueOf(dateFechaExp_Crear.getValue()));
+            psTarjeta.setString(3 , selectTarjetaTipo_Crear.getValue());
             psTarjeta.executeUpdate();
             System.out.println("Tarjeta creada en el sistema");
 
@@ -112,7 +121,7 @@ public class TarjetaController implements Initializable {
 
             PreparedStatement psComprasInteligentes = connection.getConnection().prepareStatement("INSERT INTO Compras_Inteligentes(id_tarjeta_CI, id_cliente_CI, id_facilitador_CI) VALUES(?, ?, ?)");
             psComprasInteligentes.setInt(1, lastIdInserted);
-            psComprasInteligentes.setInt(2, selectCliente.getValue().getId());
+            psComprasInteligentes.setInt(2, selectCliente_Crear.getValue().getId());
             psComprasInteligentes.setInt(3, selectFacilitador.getValue().getId());
             psComprasInteligentes.executeUpdate();
             System.out.println("Compras inteligentes registrada");
