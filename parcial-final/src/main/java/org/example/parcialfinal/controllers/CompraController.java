@@ -172,13 +172,6 @@ public class CompraController {
             ResultSet rs = st.executeQuery();
 
             if (rs.next()) {
-                int idCompra = rs.getInt("id");
-                //cambiar a DATE TODO
-                String fecha = rs.getString("fecha_compra");
-                Double monto = rs.getDouble("monto");
-                String descripcion = rs.getString("descripcion");
-                int idTarjeta = rs.getInt("id_tarjeta_C");
-
                 compras.add(new Compra(rs.getInt("id"), rs.getString("fecha_compra"), rs.getDouble("monto"), rs.getString("descripcion"), rs.getInt("id_tarjeta_C")));
                 alerta.mostrarMensaje("Compras", "Compra encontrada");
 

@@ -62,4 +62,9 @@ public class Compra {
     public void setIdTajerta(int idTajerta) {
         this.idTajerta = idTajerta;
     }
+
+    @Override
+    public String toString() {
+        return "ID: " + id + ", Fecha: " + fechaCompra + ", Monto: $" + monto;
+    }
 }
