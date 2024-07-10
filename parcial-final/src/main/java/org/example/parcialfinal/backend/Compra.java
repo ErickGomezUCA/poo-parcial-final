@@ -7,6 +7,14 @@ public class Compra {
     private String descripcion;
     private int idTajerta;
 
+    public Compra() {
+        id = 0;
+        fechaCompra = "";
+        monto = 0;
+        descripcion = "";
+        idTajerta = 0;
+    }
+
     public Compra(int id, String fechaCompra, double monto, String descripcion, int idTajerta) {
         this.id = id;
         this.fechaCompra = fechaCompra;

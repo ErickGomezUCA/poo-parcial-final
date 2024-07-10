@@ -7,12 +7,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class ReporteDApplication extends Application {
+public class ClienteApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(ReporteDApplication.class.getResource("reporteD.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 600);
-        stage.setTitle("Reporte D");
+        FXMLLoader fxmlLoader = new FXMLLoader(ClienteApplication.class.getResource("cliente.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
+        stage.setTitle("Cliente");
         stage.setScene(scene);
         stage.show();
     }
@@ -20,4 +20,5 @@ public class ReporteDApplication extends Application {
     public static void main(String[] args) {
         launch();
     }
+
 }

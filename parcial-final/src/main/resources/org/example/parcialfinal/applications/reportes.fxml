@@ -8,66 +8,95 @@
 <?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
+<!-- Contenedor vertical principal -->
+
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../styles/inputs.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.parcialfinal.controllers.ReportesController">
+   <!-- Contenidos del VBox -->
    <children>
+
+      <!-- Segundo contenedor vertical -->
       <VBox prefHeight="53.0" prefWidth="1280.0">
+         <!-- Contenidos del segundo VBox -->
          <children>
+            <!-- Botón de regreso -->
             <Button mnemonicParsing="false" text="Regresar" />
          </children>
       </VBox>
+      <!-- Contenedor horizontal principal -->
       <HBox prefHeight="720.0" prefWidth="1280.0">
+         <!-- Contenidos del HBox -->
          <children>
+            <!-- Panel de pestañas -->
             <TabPane prefHeight="720.0" prefWidth="1282.0" stylesheets="@../styles/inputs.css" tabClosingPolicy="UNAVAILABLE">
+               <!-- Pestañas del TabPane -->
               <tabs>
+                 <!-- Primera pestaña -->
                 <Tab text="Reporte A">
+                   <!-- Contenido de la pestaña -->
                   <content>
+                     <!-- Panel ancla para posicionamiento -->
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="689.0" prefWidth="1046.0">
-                           <children>
+                       <!-- Contenidos del AnchorPane -->
+                       <children>
+                          <!-- Contenedor horizontal dentro del AnchorPane -->
                               <HBox layoutX="2.0" layoutY="-5.0" prefHeight="694.0" prefWidth="1276.0">
+                                 <!-- Contenidos del HBox -->
                                  <children>
+                                    <!-- Segundo contenedor horizontal -->
                                     <HBox prefHeight="694.0" prefWidth="769.0" styleClass="fondoreporte">
+                                       <!-- Contenidos del segundo HBox -->
                                        <children>
+                                          <!-- Contenedor vertical dentro del HBox -->
                                           <VBox prefHeight="674.0" prefWidth="397.0" spacing="13.0" stylesheets="@../styles/inputs.css">
+                                             <!-- Contenidos del VBox -->
                                              <children>
+                                                <!-- Etiqueta para el ID del cliente -->
                                                 <Label id="lblID" styleClass="Labelstext" text="Cliente" />
-                                                <ComboBox prefWidth="1000.0" />
+                                                <!-- 00090123 ComboBox con ancho preferido de 1000 píxeles -->
+                                                <ComboBox fx:id="selectCliente_RA" prefWidth="1000.0" />
+                                                <!-- Etiqueta para la fecha de inicio -->
                                                 <Label id="Labels" styleClass="Labelstext" text="Fecha Inicio" />
-                                                <DatePicker prefHeight="24.0" prefWidth="403.0" />
+                                                <!-- Selector de fecha para la fecha de inicio -->
+                                                <DatePicker fx:id="dateFechaInicio_RA" prefHeight="24.0" prefWidth="403.0" />
+                                                <!-- Etiqueta para la fecha final -->
                                                 <Label id="Labels" styleClass="Labelstext" text="Fecha Final" />
-                                                <DatePicker prefHeight="24.0" prefWidth="398.0" />
-                                                <Button mnemonicParsing="false" prefWidth="169.0" text="Mostrar compras">
+                                                <!-- Selector de fecha para la fecha final -->
+                                                <DatePicker fx:id="dateFechaFinal_RA" prefHeight="24.0" prefWidth="398.0" />
+                                                <!-- Botón para mostrar compras -->
+                                                <Button mnemonicParsing="false" onAction="#clickGenerarReporteA" prefWidth="169.0" text="Mostrar compras">
+                                                   <!-- 00090123 Margen del VBox para el botón -->
                                                    <VBox.margin>
                                                       <Insets top="260.0" />
                                                    </VBox.margin>
                                                 </Button>
                                              </children>
+
+                                             <!-- Margen del HBox -->
                                              <HBox.margin>
                                                 <Insets bottom="10.0" left="100.0" right="10.0" top="10.0" />
                                              </HBox.margin>
+                                             <!-- Relleno del VBox -->
                                              <padding>
                                                 <Insets top="80.0" />
                                              </padding>
                                           </VBox>
                                        </children>
                                     </HBox>
+                                    <!-- 00090123 Contenidos del Hbox-->
                                     <HBox prefHeight="694.0" prefWidth="856.0">
                                        <children>
-                                          <TableView prefHeight="579.0" prefWidth="642.0">
-                                            <columns>
-                                              <TableColumn prefWidth="75.0" text="C1" />
-                                              <TableColumn prefWidth="75.0" text="C2" />
-                                            </columns>
+                                          <!-- 00090123 Contenedor de área de texto con altura y anchura preferida -->
+                                          <TextArea fx:id="txtAreaRes_RA" prefHeight="694.0" prefWidth="702.0">
+                                             <!-- 00090123 Márgenes del HBox para el área de texto -->
                                              <HBox.margin>
                                                 <Insets bottom="50.0" left="25.0" right="25.0" top="25.0" />
                                              </HBox.margin>
-                                          </TableView>
+                                          </TextArea>
                                        </children>
                                     </HBox>
                                  </children>
@@ -78,30 +107,45 @@
                 </Tab>
                 <Tab text="Reporte B">
                   <content>
+                     <!-- 00090123 Panel ancla para posicionamiento -->
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
+                              <!-- 00090123 Contenedor horizontal dentro del AnchorPane -->
                               <HBox layoutY="3.0" prefHeight="686.0" prefWidth="1278.0">
                                  <children>
+                                    <!-- 00090123 Segundo contenedor horizontal -->
                                     <HBox prefHeight="686.0" prefWidth="630.0" styleClass="fondoreporte">
                                        <children>
+                                          <!-- 00090123 Contenedor vertical dentro del HBox -->
                                           <VBox prefHeight="674.0" prefWidth="426.0" spacing="13.0">
                                              <children>
+                                                <!-- 00090123 Etiqueta para el cliente -->
                                                 <Label id="Labels" styleClass="Labelstext" text="Cliente" />
-                                                <ComboBox prefWidth="1000.0" />
+                                                <!-- 00090123 ComboBox con ancho preferido -->
+                                                <ComboBox fx:id="selectCliente_RB" prefWidth="1000.0" />
+                                                <!-- 00090123 Etiqueta para el mes -->
                                                 <Label id="Labels" styleClass="Labelstext" text="Mes" />
-                                                <ComboBox prefHeight="24.0" prefWidth="447.0" />
+                                                <!-- 00090123 ComboBox para seleccionar el mes -->
+                                                <ComboBox fx:id="selectMes_RB" prefHeight="24.0" prefWidth="447.0" />
+                                                <!-- 00090123 Etiqueta para el año -->
                                                 <Label id="Labels" styleClass="Labelstext" text="Año" />
-                                                <Spinner prefWidth="1000.0" />
-                                                <Button mnemonicParsing="false" text="Calcular total">
+                                                <!-- 00090123 Spinner para seleccionar el año -->
+                                                <Spinner fx:id="spinnerYear_RB" prefWidth="1000.0" />
+                                                <!-- 00090123 Botón para calcular el total -->
+                                                <Button mnemonicParsing="false" onAction="#clickGenerarReporteB" text="Calcular total">
+                                                   <!-- 00090123 Márgenes del VBox para el botón -->
                                                    <VBox.margin>
                                                       <Insets top="260.0" />
                                                    </VBox.margin>
                                                 </Button>
                                              </children>
+                                             <!-- 00090123 Relleno del VBox -->
                                              <padding>
                                                 <Insets top="80.0" />
                                              </padding>
+                                             <!--00090123 Contenido del Hbox-->
                                              <HBox.margin>
+                                                <!-- 00090123 Márgenes del HBox -->
                                                 <Insets left="100.0" />
                                              </HBox.margin>
                                           </VBox>
@@ -109,8 +153,10 @@
                                     </HBox>
                                     <HBox prefHeight="686.0" prefWidth="648.0">
                                        <children>
-                                          <TextArea prefHeight="686.0" prefWidth="682.0">
+                                          <!-- 00090123 Contenedor de área de texto con altura y anchura preferida -->
+                                          <TextArea fx:id="txtAreaRes_RB" prefHeight="686.0" prefWidth="682.0">
                                              <HBox.margin>
+                                                <!-- 00090123 Márgenes del HBox para el área de texto -->
                                                 <Insets bottom="55.0" left="25.0" right="25.0" top="25.0" />
                                              </HBox.margin></TextArea>
                                        </children>
@@ -123,30 +169,41 @@
                 </Tab>
                   <Tab text="Reporte C">
                      <content>
+                        <!-- 00090123 Panel ancla para posicionamiento -->
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
+                              <!-- 00090123 Contenedor horizontal dentro del AnchorPane -->
                               <HBox layoutY="3.0" prefHeight="686.0" prefWidth="1278.0">
                                  <children>
+                                    <!-- 00090123 Segundo contenedor horizontal -->
                                     <HBox prefHeight="686.0" prefWidth="630.0" styleClass="fondoreporte">
                                        <children>
+                                          <!-- 00090123 Contenedor vertical dentro del HBox -->
                                           <VBox prefHeight="674.0" prefWidth="426.0" spacing="13.0">
                                              <children>
+                                                <!-- 00090123 Etiqueta para el cliente -->
                                                 <Label id="Labels" styleClass="Labelstext" text="Cliente" />
+                                                <!-- 00090123 ComboBox con ID y ancho preferido -->
                                                 <ComboBox fx:id="selectCliente_RC" prefWidth="1000.0" />
+                                                <!-- 00090123 Botón para mostrar tarjetas -->
                                                 <Button mnemonicParsing="false" onAction="#clickGenerarReporteC" text="Mostrar tarjetas">
+                                                   <!-- 00090123 Márgenes del VBox para el botón -->
                                                    <VBox.margin>
                                                       <Insets top="410.0" />
                                                    </VBox.margin>
                                                 </Button>
                                              </children>
+                                             <!-- 00090123 Relleno del VBox -->
                                              <padding>
                                                 <Insets top="80.0" />
                                              </padding>
+                                             <!-- 00090123 Márgenes del HBox -->
                                              <HBox.margin>
                                                 <Insets left="100.0" />
                                              </HBox.margin>
                                           </VBox>
                                        </children>
+                                       <!--00090123 Contenido del Hbox-->
                                     </HBox>
                                     <HBox prefHeight="686.0" prefWidth="648.0">
                                        <children>
@@ -191,19 +248,13 @@
                                     </HBox>
                                     <HBox prefHeight="686.0" prefWidth="648.0">
                                        <children>
-                                          <TableView fx:id="tbRes_RD" prefHeight="686.0" prefWidth="649.0">
-                                            <columns>
-                                              <TableColumn prefWidth="42.0" text="ID Cliente" />
-                                              <TableColumn prefWidth="135.0" text="Nombre" />
-                                                <TableColumn prefWidth="119.0" text="Tarjeta" />
-                                                <TableColumn prefWidth="110.0" text="Facilitador" />
-                                                <TableColumn prefWidth="100.0" text="Cantidad" />
-                                                <TableColumn prefWidth="78.0" text="Monto total" />
-                                            </columns>
+                                          <!-- 00090123 Área de texto con altura y anchura preferida -->
+                                          <TextArea fx:id="txtAreaRes_RD" prefHeight="686.0" prefWidth="695.0">
+                                             <!-- 00090123 Márgenes del HBox para el área de texto -->
                                              <HBox.margin>
                                                 <Insets bottom="50.0" left="25.0" right="25.0" top="25.0" />
                                              </HBox.margin>
-                                          </TableView>
+                                          </TextArea>
                                        </children>
                                     </HBox>
                                  </children>

@@ -73,9 +73,10 @@ public class CompraController {
     public void initialize() {
         cargarCompras();
 
-        SpinnerValueFactory<Double> valueFactory = new SpinnerValueFactory.DoubleSpinnerValueFactory(0.0, 10000.0, 0.0, 1);
-        spinnerMontoAgregarCompra.setValueFactory(valueFactory);
-        spinnerMontoActualizarCompra.setValueFactory(valueFactory);
+        SpinnerValueFactory<Double> valueFactoryCrear = new SpinnerValueFactory.DoubleSpinnerValueFactory(0.0, 10000.0, 0.0, 1);
+        SpinnerValueFactory<Double> valueFactoryActualizar = new SpinnerValueFactory.DoubleSpinnerValueFactory(0.0, 10000.0, 0.0, 1);
+        spinnerMontoAgregarCompra.setValueFactory(valueFactoryCrear);
+        spinnerMontoActualizarCompra.setValueFactory(valueFactoryActualizar);
     }
 
     @FXML

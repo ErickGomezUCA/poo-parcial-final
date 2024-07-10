@@ -2,6 +2,7 @@ package org.example.parcialfinal.reports;
 
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Control;
+import javafx.scene.control.TextArea;
 import org.example.parcialfinal.backend.Facilitador;
 import org.example.parcialfinal.backend.database.DBConnection;
 import org.example.parcialfinal.backend.reportes.ReporteUtils;
@@ -38,7 +39,7 @@ public class ReporteD extends Reporte{
                         + "\nMonto total: $" + rs.getDouble("monto_total") + "\n\n");
             }
 
-            System.out.println(contenidoReporte);
+            ((TextArea)controlResultado).setText(contenidoReporte);
             ReporteUtils.generarReporte('D', contenidoReporte);
             connection.closeConnection();
         } catch (SQLException e) {
