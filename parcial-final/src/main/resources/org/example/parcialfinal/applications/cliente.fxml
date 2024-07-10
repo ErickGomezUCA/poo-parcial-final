@@ -202,10 +202,6 @@
                                                 <Insets bottom="10.0" left="100.0" right="10.0" top="10.0" />
                                              </HBox.margin>
                                              <children>
-                                                <!-- 00090123 Label "ID cliente" -->
-                                                <Label id="lblID" styleClass="Labelstext" text="ID cliente" />
-                                                <!-- 00090123 ComboBox para selección de cliente -->
-                                                <ComboBox prefHeight="24.0" prefWidth="411.0" />
                                                 <!-- 00090123 Botón "Eliminar Cliente" -->
                                                 <Button mnemonicParsing="false" onAction="#clickEliminarCliente" prefWidth="169.0" text="Eliminar Cliente">
                                                    <VBox.margin>

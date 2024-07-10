@@ -72,20 +72,20 @@ public class ReporteC extends Reporte { //00167523 clase reportec que se extiend
         }
     }
 
-    private String censurarTarjeta(String numeroTarjeta) {
-        String censurado = "";
-        char digito;
+    private String censurarTarjeta(String numeroTarjeta) { // 00300723 Metodo para censurar tarjeta
+        String censurado = ""; // 00300723 Inicializar la cadena censurada
+        char digito; // 00300723 Declarar la variable para almacenar el dígito actual
 
-        for (int i = 0; i < numeroTarjeta.length(); i++) {
-            digito = numeroTarjeta.charAt(i);
+        for (int i = 0; i < numeroTarjeta.length(); i++) { // 00300723 Iterar sobre cada carácter del número de tarjeta
+            digito = numeroTarjeta.charAt(i); // 00300723 Obtener el carácter en la posición actual
 
-            if (Character.isDigit(digito) && i < numeroTarjeta.length() - 4) {
-                censurado += 'X';
-            } else {
-                censurado += digito;
+            if (Character.isDigit(digito) && i < numeroTarjeta.length() - 4) { // 00300723 Verificar si es un dígito y si no está en los últimos 4 caracteres
+                censurado += 'X'; // 00300723 Reemplazar el dígito con 'X'
+            } else { // 00300723 Caso contrario
+                censurado += digito; // 00300723 Mantener el carácter original
             }
         }
 
-        return censurado;
+        return censurado; // 00300723 Devolver la cadena censurada
     }
 }
