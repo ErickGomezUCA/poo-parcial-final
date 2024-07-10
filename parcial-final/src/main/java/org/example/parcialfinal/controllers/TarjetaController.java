@@ -81,9 +81,9 @@ public class TarjetaController implements Initializable {
         ObservableList<Tarjeta> tarjetas = FXCollections.observableArrayList(DatabaseUtils.obtenerTarjetas());
         tableTarjeta.setItems(tarjetas);
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
-        colNumero.setCellValueFactory(new PropertyValueFactory<>("numero"));
+        colNumero.setCellValueFactory(new PropertyValueFactory<>("numeroTarjeta"));
+        colFecha.setCellValueFactory(new PropertyValueFactory<>("fechaExpiracion"));
         colTipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
-        colFecha.setCellValueFactory(new PropertyValueFactory<>("fecha"));
     }
 
     private void prepararCrear(ObservableList<String> tipos, ObservableList<Cliente> clientes, ObservableList<Facilitador> facilitadores) {

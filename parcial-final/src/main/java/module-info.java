@@ -1,13 +1,17 @@
 module org.example.parcialfinal {
     requires javafx.controls;
     requires javafx.fxml;
+    requires javafx.base;
     requires java.sql;
 
-
     opens org.example.parcialfinal to javafx.fxml;
+    opens org.example.parcialfinal.backend to javafx.base;
+
     exports org.example.parcialfinal;
     exports org.example.parcialfinal.applications;
-    opens org.example.parcialfinal.applications to javafx.fxml;
     exports org.example.parcialfinal.controllers;
+    exports org.example.parcialfinal.backend;
+
+    opens org.example.parcialfinal.applications to javafx.fxml;
     opens org.example.parcialfinal.controllers to javafx.fxml;
 }
