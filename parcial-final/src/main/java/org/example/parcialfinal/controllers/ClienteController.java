@@ -18,79 +18,79 @@ import javafx.event.ActionEvent;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class ClienteController {
-    DBConnection connection = DBConnection.getInstance();
-    Alerta alerta = new Alerta();
+public class ClienteController { //00167523 comienzo de clase clientecontroller
+    DBConnection connection = DBConnection.getInstance(); //00167523 inicializacion de dbconnection con su singleton
+    Alerta alerta = new Alerta(); //00167523 inicializacion de alerta con clase alerta
 
     @FXML
-    private TextField txtNombreCompletoAgregarCliente;
+    private TextField txtNombreCompletoAgregarCliente; //00167523 textfield para guardar el nombrecompleto de cliente en agregarcliente
     @FXML
-    private TextField txtDireccionAgregarCliente;
+    private TextField txtDireccionAgregarCliente; //00167523 textfield para guardar direccion de cliente en agregarcliente
     @FXML
-    private TextField txtNumTelefonoAgregarCliente;
+    private TextField txtNumTelefonoAgregarCliente; //00167523 textfield para guardar el numtelefono de cliente en agregarcliente
 
     @FXML
-    private ComboBox<Cliente> selectIdActualizarCliente;
+    private ComboBox<Cliente> selectIdActualizarCliente; //00167523 combobox de tipo cliente que selecciona el id en actualizarcliente
     @FXML
-    private TextField txtNombreCompletoActualizarCliente;
+    private TextField txtNombreCompletoActualizarCliente; //00167523 textfield para guardar el nombrecompleto de cliente en actualizarcliente
     @FXML
-    private TextField txtDireccionActualizarCliente;
+    private TextField txtDireccionActualizarCliente; //00167523 textfield para guardar direccion de cliente en actualizarcliente
     @FXML
-    private TextField txtNumTelefonoActualizarCliente;
+    private TextField txtNumTelefonoActualizarCliente; //00167523 textfield para guardar numtelefono de cliente en actualizarcliente
 
 
     @FXML
-    private ComboBox<Cliente> selectIdBuscarCliente;
+    private ComboBox<Cliente> selectIdBuscarCliente; //00167523 combobox de tipo cliente que selecciona id en buscarcliente
 
     @FXML
-    private ComboBox<Cliente> selectIdEliminarCliente;
+    private ComboBox<Cliente> selectIdEliminarCliente; //00167523 combobox de tipo cliente que selecciona id en eliminarcliente
 
     @FXML
-    private TableView<Cliente> tableCliente;
+    private TableView<Cliente> tableCliente; //00167523 tableview de tipo cliente
     @FXML
-    private TableColumn<Tarjeta, Integer> colId;
+    private TableColumn<Cliente, Integer> colId; //00167523 columna int para idcliente
     @FXML
-    private TableColumn<Tarjeta, String> colNombreCompleto;
+    private TableColumn<Cliente, String> colNombreCompleto; //00167523 columna string para nombrecompleto
     @FXML
-    private TableColumn<Tarjeta, String> colDireccion;
+    private TableColumn<Cliente, String> colDireccion; //00167523 columna string para direccion cliente
     @FXML
-    private TableColumn<Tarjeta, String> colNumTelefono;
-    private ArrayList<Cliente> clientes;
+    private TableColumn<Cliente, String> colNumTelefono; //00167523 columna string para numtelefono cliente
+    private ArrayList<Cliente> clientes; //00167523 arraylist de clientes
 
     @FXML
-    public void initialize() {
-        ObservableList<Cliente> clientes = FXCollections.observableArrayList(DatabaseUtils.obtenerClientes());
+    public void initialize() { //00167523 metodo initialize para inicializar utilidades generales
+        ObservableList<Cliente> clientes = FXCollections.observableArrayList(DatabaseUtils.obtenerClientes()); //00167523 lista observable tipo cliente que proviene de databaseutils obtenerclientes
 
-        prepararBuscar(clientes);
-        prepararActualizar(clientes);
-        prepararEliminar(clientes);
+        prepararBuscar(clientes); //00167523 inicializacion de metodo prepararbuscar con lista observable clientes
+        prepararActualizar(clientes); //00167523 inicializacion de metodo prepararactualizar con lista observable clientes
+        prepararEliminar(clientes); //00167523 inicializacion de metodo preparareliminar con lista observable clientes
 
-        mostrarClientesTodos();
+        mostrarClientesTodos(); //00167523 llamando metodo mostrarclientetodos
     }
 
-    private void mostrarClientesTodos() {
-        ObservableList<Cliente> clientes = FXCollections.observableArrayList(DatabaseUtils.obtenerClientes());
-        mostrarCliente(clientes);
+    private void mostrarClientesTodos() { //00167523 metodo para mostrar todos los clientes
+        ObservableList<Cliente> clientes = FXCollections.observableArrayList(DatabaseUtils.obtenerClientes()); //00167523 lista observable clientes que proviene de databaseutils obtenerclientes
+        mostrarCliente(clientes); //00167523 llamando a metodo mostrar cliente con parametro clientes para mostrar uno por uno
     }
 
-    private void mostrarCliente(ObservableList<Cliente> clientes) {
-        tableCliente.setItems(clientes);
-        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
-        colNombreCompleto.setCellValueFactory(new PropertyValueFactory<>("nombreCompleto"));
-        colDireccion.setCellValueFactory(new PropertyValueFactory<>("direccion"));
-        colNumTelefono.setCellValueFactory(new PropertyValueFactory<>("numeroTelefono"));
+    private void mostrarCliente(ObservableList<Cliente> clientes) { //00167523 metodo para mostrar un cliente con parametro lista observable cliente
+        tableCliente.setItems(clientes); //00167523 se pone en la tablacliente los items de clientes
+        colId.setCellValueFactory(new PropertyValueFactory<>("id")); //00167523 en la colID se ponen los valores de la columna de la clase cliente id
+        colNombreCompleto.setCellValueFactory(new PropertyValueFactory<>("nombreCompleto")); //00167523 en la colnombrecompleto se ponen los valores de la columa de la clase cliente nombrecomppleto
+        colDireccion.setCellValueFactory(new PropertyValueFactory<>("direccion")); //00167523 en la coldireccion se ponen los valores de la columa de la clase cliente direccion
+        colNumTelefono.setCellValueFactory(new PropertyValueFactory<>("numeroTelefono")); //00167523 en la colnumtelefono se ponen los valores de la columa de la clase cliente numerotelefono
     }
 
-    private void prepararBuscar(ObservableList<Cliente> clientes) {
-        selectIdBuscarCliente.setItems(clientes);
+    private void prepararBuscar(ObservableList<Cliente> clientes) { //00167523 metodo para perarar el combobox a utilizar en buscarclientes
+        selectIdBuscarCliente.setItems(clientes); //00167523 combobox se inicializa con la lista clientes
     }
 
-    private void prepararActualizar(ObservableList<Cliente> clientes) {
-        selectIdActualizarCliente.setItems(clientes);
+    private void prepararActualizar(ObservableList<Cliente> clientes) { //00167523 metodo para preparar el combobox a utilizar en actualizarclientes
+        selectIdActualizarCliente.setItems(clientes); //00167523 combobox se inicializa con la lista clientes
     }
 
-    private void prepararEliminar(ObservableList<Cliente> clientes) {
-        selectIdEliminarCliente.setItems(clientes);
+    private void prepararEliminar(ObservableList<Cliente> clientes) { //00167523 metodo para preparar le combobox a utilizar en eliminarclientes
+        selectIdEliminarCliente.setItems(clientes); //00167523 combobox se inicializa con la lista clientes
     }
 
 
