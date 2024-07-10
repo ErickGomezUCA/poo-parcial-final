@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../styles/inputs.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../styles/inputs.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.parcialfinal.controllers.CompraController">
    <children>
       <VBox prefHeight="59.0" prefWidth="1280.0">
          <children>
@@ -37,14 +37,14 @@
                                           <VBox prefHeight="620.0" prefWidth="403.0" spacing="13.0" stylesheets="@../styles/inputs.css">
                                              <children>
                                                 <Label id="lblID" styleClass="Labelstext" text="Fecha de compra" />
-                                                <DatePicker prefHeight="24.0" prefWidth="421.0" />
+                                                <DatePicker fx:id="dtFechaAgregarCompra" prefHeight="24.0" prefWidth="421.0" />
                                                 <Label id="Labels" styleClass="Labelstext" text="Monto" />
-                                                <Spinner prefHeight="24.0" prefWidth="463.0" />
+                                                <Spinner fx:id="spinnerMontoAgregarCompra" prefHeight="24.0" prefWidth="463.0" />
                                                 <Label styleClass="Labelstext" text="Tarjeta" />
                                                 <ComboBox prefHeight="24.0" prefWidth="411.0" />
                                                 <Label id="Labels" styleClass="Labelstext" text="Descripcion" />
-                                                <TextArea prefHeight="80.0" prefWidth="200.0" />
-                                                <Button mnemonicParsing="false" prefWidth="169.0" text="Mostrar compras">
+                                                <TextArea fx:id="txtDescripcionAgregarCompra" prefHeight="80.0" prefWidth="200.0" />
+                                                <Button fx:id="btnAgregarCompra" onAction="#agregarCompra" mnemonicParsing="false" prefWidth="169.0" text="Mostrar compras">
                                                    <VBox.margin>
                                                       <Insets bottom="40.0" top="112.0" />
                                                    </VBox.margin>
@@ -90,7 +90,7 @@
                                              <children>
                                                 <Label id="lblID" styleClass="Labelstext" text="ID de compra" />
                                                 <ComboBox prefHeight="24.0" prefWidth="407.0" />
-                                                <Button mnemonicParsing="false" prefWidth="169.0" text="Mostrar compras">
+                                                <Button fx:id="btnBuscarCompra" mnemonicParsing="false" prefWidth="169.0" text="Mostrar compras">
                                                    <VBox.margin>
                                                       <Insets top="400.0" />
                                                    </VBox.margin>
@@ -124,7 +124,7 @@
                         </AnchorPane>
                   </content>
                 </Tab>
-                  <Tab text="Actualizar">
+                  <Tab fx:id="btnActualizarCompra" text="Actualizar">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -188,7 +188,7 @@
                                              <children>
                                                 <Label id="lblID" styleClass="Labelstext" text="ID de compra" />
                                                 <ComboBox prefHeight="24.0" prefWidth="411.0" />
-                                                <Button mnemonicParsing="false" prefWidth="169.0" text="Mostrar compras">
+                                                <Button fx:id="btnEliminarCompra" mnemonicParsing="false" prefWidth="169.0" text="Mostrar compras">
                                                    <VBox.margin>
                                                       <Insets top="400.0" />
                                                    </VBox.margin>
