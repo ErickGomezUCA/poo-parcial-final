@@ -22,116 +22,114 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ReportesController implements Initializable {
+public class ReportesController implements Initializable { // 00300723 Define la clase controladora para los reportes
     @FXML
-    private VBox main;
+    private VBox main; // 00300723 Declara el contenedor principal de la vista
 
     @FXML
-    private ComboBox<Cliente> selectCliente_RA;
+    private ComboBox<Cliente> selectCliente_RA; // 00300723 ComboBox para seleccionar cliente en Reporte A
     @FXML
-    private DatePicker dateFechaInicio_RA;
+    private DatePicker dateFechaInicio_RA; // 00300723 Selector de fecha inicial para Reporte A
     @FXML
-    private DatePicker dateFechaFinal_RA;
+    private DatePicker dateFechaFinal_RA; // 00300723 Selector de fecha final para Reporte A
     @FXML
-    private TextArea txtAreaRes_RA;
+    private TextArea txtAreaRes_RA; // 00300723 Área de texto para mostrar resultados del Reporte A
 
     @FXML
-    private ComboBox<Cliente> selectCliente_RB;
+    private ComboBox<Cliente> selectCliente_RB; // 00300723 ComboBox para seleccionar cliente en Reporte B
     @FXML
-        private ComboBox<Mes> selectMes_RB;
+    private ComboBox<Mes> selectMes_RB; // 00300723 ComboBox para seleccionar mes en Reporte B
     @FXML
-    private Spinner<Integer> spinnerYear_RB;
+    private Spinner<Integer> spinnerYear_RB; // 00300723 Spinner para seleccionar año en Reporte B
+    @FXML
+    private TextArea txtAreaRes_RB; // 00300723 Área de texto para mostrar resultados del Reporte B
 
     @FXML
-    private TextArea txtAreaRes_RB;
+    private ComboBox<Cliente> selectCliente_RC; // 00300723 ComboBox para seleccionar cliente en Reporte C
+    @FXML
+    private TextArea txtAreaRes_RC; // 00300723 Área de texto para mostrar resultados del Reporte C
 
     @FXML
-    private ComboBox<Cliente> selectCliente_RC;
+    private ComboBox<Facilitador> selectFacilitador_RD; // 00300723 ComboBox para seleccionar facilitador en Reporte D
     @FXML
-    private TextArea txtAreaRes_RC;
+    private TextArea txtAreaRes_RD; // 00300723 Área de texto para mostrar resultados del Reporte D
 
-    @FXML
-    private ComboBox<Facilitador> selectFacilitador_RD;
-    @FXML
-    private TextArea txtAreaRes_RD;
-
-    ObservableList<Cliente> clientes;
-    ObservableList<Facilitador> facilitadores;
+    ObservableList<Cliente> clientes; // 00300723 Lista observable para almacenar clientes
+    ObservableList<Facilitador> facilitadores; // 00300723 Lista observable para almacenar facilitadores
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        clientes = FXCollections.observableArrayList(DatabaseUtils.obtenerClientes());
-        facilitadores = FXCollections.observableArrayList(DatabaseUtils.obtenerFacilitadores());
+    public void initialize(URL url, ResourceBundle resourceBundle) { // 00300723 Método de inicialización del controlador
+        clientes = FXCollections.observableArrayList(DatabaseUtils.obtenerClientes()); // 00300723 Obtiene y almacena los clientes de la base de datos
+        facilitadores = FXCollections.observableArrayList(DatabaseUtils.obtenerFacilitadores()); // 00300723 Obtiene y almacena los facilitadores de la base de datos
 
-        prepararInputsReporteA(clientes);
-        prepararInputsReporteB(clientes);
-        prepararInputsReporteC(clientes);
-        prepararInputsReporteD(facilitadores);
+        prepararInputsReporteA(clientes); // 00300723 Prepara los inputs para el Reporte A
+        prepararInputsReporteB(clientes); // 00300723 Prepara los inputs para el Reporte B
+        prepararInputsReporteC(clientes); // 00300723 Prepara los inputs para el Reporte C
+        prepararInputsReporteD(facilitadores); // 00300723 Prepara los inputs para el Reporte D
     }
 
-    private void prepararInputsReporteA(ObservableList<Cliente> clientes) {
-        selectCliente_RA.setItems(clientes);
+    private void prepararInputsReporteA(ObservableList<Cliente> clientes) { // 00300723 Método para preparar inputs del Reporte A
+        selectCliente_RA.setItems(clientes); // 00300723 Establece los clientes en el ComboBox del Reporte A
     }
 
-    private void prepararInputsReporteB(ObservableList<Cliente> clientes) {
-        selectCliente_RB.setItems(clientes);
+    private void prepararInputsReporteB(ObservableList<Cliente> clientes) { // 00300723 Método para preparar inputs del Reporte B
+        selectCliente_RB.setItems(clientes); // 00300723 Establece los clientes en el ComboBox del Reporte B
+        selectMes_RB.setItems(FXCollections.observableArrayList(Mes.values())); // 00300723 Establece los meses en el ComboBox del Reporte B
 
-        selectMes_RB.setItems(FXCollections.observableArrayList(Mes.values()));
-
-        int minValueSpinner = 1967;
-        int maxValueSpinner = 5000;
-        SpinnerValueFactory<Integer> yearSpinnerFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(minValueSpinner, maxValueSpinner, minValueSpinner, 1);
-        spinnerYear_RB.setValueFactory(yearSpinnerFactory);
-        spinnerYear_RB.setEditable(true);
+        int minValueSpinner = 1967; // 00300723 Define el valor mínimo para el spinner de año
+        int maxValueSpinner = 5000; // 00300723 Define el valor máximo para el spinner de año
+        SpinnerValueFactory<Integer> yearSpinnerFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(minValueSpinner, maxValueSpinner, minValueSpinner, 1); // 00300723 Crea la fábrica de valores para el spinner de año
+        spinnerYear_RB.setValueFactory(yearSpinnerFactory); // 00300723 Establece la fábrica de valores en el spinner de año
+        spinnerYear_RB.setEditable(true); // 00300723 Permite editar manualmente el valor del spinner de año
     }
 
-    private void prepararInputsReporteC(ObservableList<Cliente> clientes) {
-        selectCliente_RC.setItems(clientes);
+    private void prepararInputsReporteC(ObservableList<Cliente> clientes) { // 00300723 Método para preparar inputs del Reporte C
+        selectCliente_RC.setItems(clientes); // 00300723 Establece los clientes en el ComboBox del Reporte C
     }
 
-    private void prepararInputsReporteD(ObservableList<Facilitador> facilitadores) {
-        selectFacilitador_RD.setItems(facilitadores);
-    }
-
-    @FXML
-    void clickGenerarReporteA(ActionEvent event) {
-        ReporteA reporteA = new ReporteA(txtAreaRes_RA);
-        reporteA.generarReporte(selectCliente_RA, dateFechaInicio_RA, dateFechaFinal_RA);
+    private void prepararInputsReporteD(ObservableList<Facilitador> facilitadores) { // 00300723 Método para preparar inputs del Reporte D
+        selectFacilitador_RD.setItems(facilitadores); // 00300723 Establece los facilitadores en el ComboBox del Reporte D
     }
 
     @FXML
-    void clickGenerarReporteB(ActionEvent event) {
-        ReporteB reporteB = new ReporteB(txtAreaRes_RB);
-        reporteB.generarReporte(selectCliente_RB, selectMes_RB, spinnerYear_RB);
+    void clickGenerarReporteA(ActionEvent event) { // 00300723 Método para generar el Reporte A
+        ReporteA reporteA = new ReporteA(txtAreaRes_RA); // 00300723 Crea una instancia del Reporte A
+        reporteA.generarReporte(selectCliente_RA, dateFechaInicio_RA, dateFechaFinal_RA); // 00300723 Genera el Reporte A con los parámetros seleccionados
     }
 
     @FXML
-    void clickGenerarReporteC(ActionEvent event) {
-        ReporteC reporteC = new ReporteC(txtAreaRes_RC);
-        reporteC.generarReporte(selectCliente_RC);
+    void clickGenerarReporteB(ActionEvent event) { // 00300723 Método para generar el Reporte B
+        ReporteB reporteB = new ReporteB(txtAreaRes_RB); // 00300723 Crea una instancia del Reporte B
+        reporteB.generarReporte(selectCliente_RB, selectMes_RB, spinnerYear_RB); // 00300723 Genera el Reporte B con los parámetros seleccionados
     }
 
     @FXML
-    void clickGenerarReporteD(ActionEvent event) {
-        ReporteD reporteD = new ReporteD(txtAreaRes_RD);
-        reporteD.generarReporte(selectFacilitador_RD);
+    void clickGenerarReporteC(ActionEvent event) { // 00300723 Método para generar el Reporte C
+        ReporteC reporteC = new ReporteC(txtAreaRes_RC); // 00300723 Crea una instancia del Reporte C
+        reporteC.generarReporte(selectCliente_RC); // 00300723 Genera el Reporte C con el cliente seleccionado
     }
 
     @FXML
-    private void clickRegresar(ActionEvent event) {
-        Stage stage = new Stage();
-        LobbyApplication lobbyApp = new LobbyApplication();
+    void clickGenerarReporteD(ActionEvent event) { // 00300723 Método para generar el Reporte D
+        ReporteD reporteD = new ReporteD(txtAreaRes_RD); // 00300723 Crea una instancia del Reporte D
+        reporteD.generarReporte(selectFacilitador_RD); // 00300723 Genera el Reporte D con el facilitador seleccionado
+    }
+
+    @FXML
+    private void clickRegresar(ActionEvent event) { // 00300723 Método para regresar a la pantalla principal
+        Stage stage = new Stage(); // 00300723 Crea una nueva ventana
+        LobbyApplication lobbyApp = new LobbyApplication(); // 00300723 Crea una instancia de la aplicación de lobby
         try {
-            lobbyApp.start(stage);
+            lobbyApp.start(stage); // 00300723 Inicia la aplicación de lobby en la nueva ventana
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException(e); // 00300723 Maneja cualquier error de IO lanzando una excepción
         }
-        stage.show();
-        cerrar();
+        stage.show(); // 00300723 Muestra la nueva ventana
+        cerrar(); // 00300723 Cierra la ventana actual
     }
 
     @FXML
-    private void cerrar() {
-        ((Stage)main.getScene().getWindow()).close();
+    private void cerrar() { // 00300723 Método para cerrar la ventana actual
+        ((Stage)main.getScene().getWindow()).close(); // 00300723 Obtiene la ventana actual y la cierra
     }
 }
