@@ -105,7 +105,7 @@ public class CompraController {
     }
 
     private void prepararActualizar(ObservableList<Compra> compras, SpinnerValueFactory<Double> valueFactoryActualizar, ObservableList<Tarjeta> tarjetas) {
-        selectActualizarTarjeta.setItems(tarjetas);
+        selectActualizarCompra.setItems(compras);
         spinnerMontoActualizarCompra.setValueFactory(valueFactoryActualizar);
         selectActualizarTarjeta.setItems(tarjetas);
     }
@@ -220,7 +220,7 @@ public class CompraController {
         int idTarjeta = selectActualizarTarjeta.getValue().getId();
 
         try {
-            PreparedStatement st = connection.getConnection().prepareStatement("UPDATE Compra SET ?, ?, ?, ? WHERE id = ?");
+            PreparedStatement st = connection.getConnection().prepareStatement("UPDATE Compra SET fecha_compra = ?, monto = ?, descripcion = ?, id_tarjeta_C = ? WHERE id = ?");
             st.setString(1, fecha);
             st.setDouble(2, monto);
             st.setString(3, descripcion);
