@@ -51,4 +51,9 @@ public class Tarjeta { // 00090123 Declaración de la clase Tarjeta
     public void setTipo(String tipo) { // 00090123 Método para establecer el tipo de la tarjeta
         this.tipo = tipo; // 00090123 Asigna el valor del parámetro tipo al campo tipo
     }
+
+    @Override
+    public String toString() {
+        return "ID: " + id + ", Numero: " + numeroTarjeta;
+    }
 }

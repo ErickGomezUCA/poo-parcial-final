@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="main" stylesheets="@styles/inputs.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<VBox fx:id="main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="main" stylesheets="@styles/inputs.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.parcialfinal.controllers.LobbyController">
    <children>
       <HBox prefHeight="282.0" prefWidth="1280.0">
          <children>
@@ -35,7 +35,7 @@
                               <Image url="@../../../images/icons/clientes.png" />
                            </image>
                         </ImageView>
-                        <Button id="btnClientes" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Clientes">
+                        <Button id="btnClientes" mnemonicParsing="false" onAction="#clickAbrirClientes" prefHeight="50.0" prefWidth="150.0" text="Clientes">
                            <VBox.margin>
                               <Insets bottom="10.0" left="20.0" right="20.0" top="50.0" />
                            </VBox.margin>
@@ -59,7 +59,7 @@
                               <Image url="@../../../images/icons/tarjetas.png" />
                            </image>
                         </ImageView>
-                        <Button id="btnTarjetas" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Tarjetas">
+                        <Button id="btnTarjetas" mnemonicParsing="false" onAction="#clickAbrirTarjetas" prefHeight="50.0" prefWidth="150.0" text="Tarjetas">
                            <VBox.margin>
                               <Insets bottom="10.0" left="20.0" right="20.0" top="50.0" />
                            </VBox.margin>
@@ -83,7 +83,7 @@
                               <Image url="@../../../images/icons/compras.png" />
                            </image>
                         </ImageView>
-                        <Button id="btnCompras" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Compras">
+                        <Button id="btnCompras" mnemonicParsing="false" onAction="#clickAbrirCompras" prefHeight="50.0" prefWidth="150.0" text="Compras">
                            <VBox.margin>
                               <Insets bottom="10.0" left="20.0" right="20.0" top="50.0" />
                            </VBox.margin>
@@ -107,7 +107,7 @@
                               <Image url="@../../../images/icons/reportes.png" />
                            </image>
                         </ImageView>
-                        <Button id="btnReportes" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Reportes">
+                        <Button id="btnReportes" mnemonicParsing="false" onAction="#clickAbrirReportes" prefHeight="50.0" prefWidth="150.0" text="Reportes">
                            <VBox.margin>
                               <Insets bottom="10.0" left="20.0" right="20.0" top="50.0" />
                            </VBox.margin>
@@ -123,7 +123,7 @@
       </HBox>
       <HBox prefHeight="413.0" prefWidth="1280.0">
          <children>
-            <Button id="btnexit" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="EXIT">
+            <Button id="btnexit" mnemonicParsing="false" onAction="#clickSalir" prefHeight="50.0" prefWidth="150.0" text="EXIT">
                <HBox.margin>
                   <Insets bottom="50.0" left="570.0" right="50.0" top="50.0" />
                </HBox.margin>

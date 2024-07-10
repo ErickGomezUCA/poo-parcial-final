@@ -57,19 +57,19 @@
                                              <children>
                                                 <!-- Etiqueta para el ID del cliente -->
                                                 <Label id="lblID" styleClass="Labelstext" text="Cliente" />
-                                                <!-- ComboBox con ancho preferido de 1000 píxeles -->
-                                                <ComboBox prefWidth="1000.0" />
+                                                <!-- 00090123 ComboBox con ancho preferido de 1000 píxeles -->
+                                                <ComboBox fx:id="selectCliente_RA" prefWidth="1000.0" />
                                                 <!-- Etiqueta para la fecha de inicio -->
                                                 <Label id="Labels" styleClass="Labelstext" text="Fecha Inicio" />
                                                 <!-- Selector de fecha para la fecha de inicio -->
-                                                <DatePicker prefHeight="24.0" prefWidth="403.0" />
+                                                <DatePicker fx:id="dateFechaInicio_RA" prefHeight="24.0" prefWidth="403.0" />
                                                 <!-- Etiqueta para la fecha final -->
                                                 <Label id="Labels" styleClass="Labelstext" text="Fecha Final" />
                                                 <!-- Selector de fecha para la fecha final -->
-                                                <DatePicker prefHeight="24.0" prefWidth="398.0" />
+                                                <DatePicker fx:id="dateFechaFinal_RA" prefHeight="24.0" prefWidth="398.0" />
                                                 <!-- Botón para mostrar compras -->
-                                                <Button mnemonicParsing="false" prefWidth="169.0" text="Mostrar compras">
-                                                   <!-- Margen del VBox para el botón -->
+                                                <Button mnemonicParsing="false" onAction="#clickGenerarReporteA" prefWidth="169.0" text="Mostrar compras">
+                                                   <!-- 00090123 Margen del VBox para el botón -->
                                                    <VBox.margin>
                                                       <Insets top="260.0" />
                                                    </VBox.margin>
@@ -91,7 +91,7 @@
                                     <HBox prefHeight="694.0" prefWidth="856.0">
                                        <children>
                                           <!-- 00090123 Contenedor de área de texto con altura y anchura preferida -->
-                                          <TextArea prefHeight="694.0" prefWidth="702.0">
+                                          <TextArea fx:id="txtAreaRes_RA" prefHeight="694.0" prefWidth="702.0">
                                              <!-- 00090123 Márgenes del HBox para el área de texto -->
                                              <HBox.margin>
                                                 <Insets bottom="50.0" left="25.0" right="25.0" top="25.0" />
@@ -122,17 +122,17 @@
                                                 <!-- 00090123 Etiqueta para el cliente -->
                                                 <Label id="Labels" styleClass="Labelstext" text="Cliente" />
                                                 <!-- 00090123 ComboBox con ancho preferido -->
-                                                <ComboBox prefWidth="1000.0" />
+                                                <ComboBox fx:id="selectCliente_RB" prefWidth="1000.0" />
                                                 <!-- 00090123 Etiqueta para el mes -->
                                                 <Label id="Labels" styleClass="Labelstext" text="Mes" />
                                                 <!-- 00090123 ComboBox para seleccionar el mes -->
-                                                <ComboBox prefHeight="24.0" prefWidth="447.0" />
+                                                <ComboBox fx:id="selectMes_RB" prefHeight="24.0" prefWidth="447.0" />
                                                 <!-- 00090123 Etiqueta para el año -->
                                                 <Label id="Labels" styleClass="Labelstext" text="Año" />
                                                 <!-- 00090123 Spinner para seleccionar el año -->
-                                                <Spinner prefWidth="1000.0" />
+                                                <Spinner fx:id="spinnerYear_RB" prefWidth="1000.0" />
                                                 <!-- 00090123 Botón para calcular el total -->
-                                                <Button mnemonicParsing="false" text="Calcular total">
+                                                <Button mnemonicParsing="false" onAction="#clickGenerarReporteB" text="Calcular total">
                                                    <!-- 00090123 Márgenes del VBox para el botón -->
                                                    <VBox.margin>
                                                       <Insets top="260.0" />
@@ -154,7 +154,7 @@
                                     <HBox prefHeight="686.0" prefWidth="648.0">
                                        <children>
                                           <!-- 00090123 Contenedor de área de texto con altura y anchura preferida -->
-                                          <TextArea prefHeight="686.0" prefWidth="682.0">
+                                          <TextArea fx:id="txtAreaRes_RB" prefHeight="686.0" prefWidth="682.0">
                                              <HBox.margin>
                                                 <!-- 00090123 Márgenes del HBox para el área de texto -->
                                                 <Insets bottom="55.0" left="25.0" right="25.0" top="25.0" />
@@ -248,7 +248,9 @@
                                     </HBox>
                                     <HBox prefHeight="686.0" prefWidth="648.0">
                                        <children>
-                                          <TextArea prefHeight="686.0" prefWidth="695.0">
+                                          <!-- 00090123 Área de texto con altura y anchura preferida -->
+                                          <TextArea fx:id="txtAreaRes_RD" prefHeight="686.0" prefWidth="695.0">
+                                             <!-- 00090123 Márgenes del HBox para el área de texto -->
                                              <HBox.margin>
                                                 <Insets bottom="50.0" left="25.0" right="25.0" top="25.0" />
                                              </HBox.margin>
