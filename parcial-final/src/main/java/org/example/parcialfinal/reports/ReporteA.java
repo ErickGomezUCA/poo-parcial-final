@@ -32,8 +32,11 @@ public class ReporteA extends Reporte {
                                                                                     "ON ci.id_tarjeta_CI = t.id " +
                                                                                     "INNER JOIN Compra cmpr " +
                                                                                     "ON t.id = cmpr.id_tarjeta_C " +
-                                                                                    "WHERE clnt.id =  " + idCliente +
-                                                                                    " AND cmpr.fecha_compra BETWEEN " + primeraFecha + " AND " + segundaFecha);
+                                                                                    "WHERE clnt.id =  ?" +
+                                                                                    " AND cmpr.fecha_compra BETWEEN ? AND ?");
+            st.setInt(1, idCliente);
+            st.setString(2, primeraFecha);
+            st.setString(3, segundaFecha);
 
             ResultSet rs = st.executeQuery();
 
