@@ -12,7 +12,9 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "git-widget-placeholder": "PaolaLopez"
+    "Gradle.parcial-final [:TarjetaApplication.main()].executor": "Run",
+    "git-widget-placeholder": "PaolaLopez",
+    "node.js.selected.package.tslint": "(autodetect)"
   }
 }]]></component>
   <component name="TaskManager">
