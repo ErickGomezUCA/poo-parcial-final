@@ -1,6 +1,6 @@
 package org.example.parcialfinal.backend;
 
-public class Facilitador {
+public class Facilitador { // 00300723 Clase para guardar facilitador
     private int id; // 00090123 Identificador único del facilitador
     private String facilitador; // 00090123 Nombre del facilitador
 
@@ -15,24 +15,24 @@ public class Facilitador {
     }
 
     public int getId() { // 00090123 Método para obtener el ID del facilitador
-        return id;
+        return id; // 00300723 Retorna el id
     }
 
     public void setId(int id) { // 00090123 Método para establecer el ID del facilitador
-        this.id = id;
+        this.id = id; // 00300723 Setea el id
     }
 
     public String getFacilitador() { // 00090123 Método para obtener el nombre del facilitador
-        return facilitador;
+        return facilitador; // 00300723 Retorna el facilitador
     }
 
     public void setFacilitador(String facilitador) { // 00090123 Método para establecer el nombre del facilitador
-        this.facilitador = facilitador;
+        this.facilitador = facilitador; // 00300723 Setea el facilitador
     }
 
     @Override
     public String toString() { // 00090123 Método para obtener una representación en cadena del facilitador
-        return facilitador;
+        return facilitador; // 00300723 Retorna solo el nombre del facilitador
     }
 
 }

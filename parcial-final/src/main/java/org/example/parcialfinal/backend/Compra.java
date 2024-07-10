@@ -1,6 +1,6 @@
 package org.example.parcialfinal.backend;
 
-public class Compra {
+public class Compra { // 00300723 Clase para guardar Compra
     private int id; // 00090123 Identificador único de la compra
     private String fechaCompra; // 00090123 Fecha de la compra
     private double monto; // 00090123 Monto de la compra
