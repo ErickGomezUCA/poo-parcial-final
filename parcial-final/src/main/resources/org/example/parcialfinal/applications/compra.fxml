@@ -44,7 +44,7 @@
                                                 <ComboBox prefHeight="24.0" prefWidth="411.0" />
                                                 <Label id="Labels" styleClass="Labelstext" text="Descripcion" />
                                                 <TextArea fx:id="txtDescripcionAgregarCompra" prefHeight="80.0" prefWidth="200.0" />
-                                                <Button fx:id="btnAgregarCompra" onAction="#agregarCompra" mnemonicParsing="false" prefWidth="169.0" text="Mostrar compras">
+                                                <Button fx:id="btnAgregarCompra" mnemonicParsing="false" onAction="#agregarCompra" prefWidth="169.0" text="Mostrar compras">
                                                    <VBox.margin>
                                                       <Insets bottom="40.0" top="112.0" />
                                                    </VBox.margin>
@@ -139,7 +139,7 @@
                                                 <Label id="Labels" styleClass="Labelstext" text="Fecha de compra" />
                                                 <DatePicker prefHeight="24.0" prefWidth="488.0" />
                                                 <Label id="Labels" styleClass="Labelstext" text="Monto" />
-                                                <Spinner prefHeight="24.0" prefWidth="455.0" />
+                                                <Spinner fx:id="spinnerMontoActualizarCompra" prefHeight="24.0" prefWidth="455.0" />
                                                 <Label styleClass="Labelstext" text="Descripcion" />
                                                 <TextArea prefHeight="80.0" prefWidth="200.0" />
                                                 <Button mnemonicParsing="false" prefWidth="169.0" text="Mostrar compras">
