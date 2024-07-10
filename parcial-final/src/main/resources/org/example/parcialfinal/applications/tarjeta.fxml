@@ -44,7 +44,7 @@
                                                 <Label id="Labels" styleClass="Labelstext" text="Cliente" />
                                                 <ComboBox fx:id="selectCliente_Crear" prefHeight="26.0" prefWidth="550.0" />
                                                 <Label id="Labels" styleClass="Labelstext" text="Facilitador" />
-                                                <ComboBox prefHeight="26.0" prefWidth="523.0" />
+                                                <ComboBox fx:id="selectFacilitador_Crear" prefHeight="26.0" prefWidth="523.0" />
                                                 <Button mnemonicParsing="false" onAction="#clickCrearTarjeta" prefWidth="169.0" text="Crear tarjeta">
                                                    <VBox.margin>
                                                       <Insets bottom="40.0" top="112.0" />
@@ -62,7 +62,7 @@
                                     </HBox>
                                     <HBox prefHeight="662.0" prefWidth="650.0">
                                        <children>
-                                          <TableView prefHeight="662.0" prefWidth="672.0">
+                                          <TableView fx:id="tableTarjeta" prefHeight="662.0" prefWidth="672.0">
                                              <columns>
                                                 <TableColumn prefWidth="75.0" text="C1" />
                                                 <TableColumn prefWidth="75.0" text="C2" />
@@ -90,8 +90,8 @@
                                           <VBox prefHeight="620.0" prefWidth="403.0" spacing="13.0" stylesheets="@../styles/inputs.css">
                                              <children>
                                                 <Label id="lblID" styleClass="Labelstext" text="ID tarjeta" />
-                                                <ComboBox prefHeight="24.0" prefWidth="407.0" />
-                                                <Button mnemonicParsing="false" prefWidth="169.0" text="Buscar">
+                                                <ComboBox fx:id="selectTarjeta_Buscar" prefHeight="24.0" prefWidth="407.0" />
+                                                <Button mnemonicParsing="false" onAction="#clickBuscarTarjeta" prefWidth="169.0" text="Buscar">
                                                    <VBox.margin>
                                                       <Insets top="400.0" />
                                                    </VBox.margin>
@@ -136,18 +136,18 @@
                                           <VBox prefHeight="299.0" prefWidth="403.0" spacing="13.0" stylesheets="@../styles/inputs.css">
                                              <children>
                                                 <Label id="lblID" styleClass="Labelstext" text="ID de tarjeta" />
-                                                <ComboBox prefHeight="24.0" prefWidth="403.0" />
+                                                <ComboBox fx:id="selectTarjeta_Actualizar" prefHeight="24.0" prefWidth="403.0" />
                                                 <Label id="lblID" styleClass="Labelstext" text="Numero tarjeta" />
-                                                <TextField />
+                                                <TextField fx:id="txtTarjetaNum_Actualizar" />
                                                 <Label id="Labels" styleClass="Labelstext" text="Fecha de expiracion" />
-                                                <DatePicker />
+                                                <DatePicker fx:id="dateFechaExp_Actualizar" />
                                                 <Label styleClass="Labelstext" text="Tipo" />
-                                                <ComboBox prefHeight="24.0" prefWidth="411.0" />
+                                                <ComboBox fx:id="selectTarjetaTipo_Actualizar" prefHeight="24.0" prefWidth="411.0" />
                                                 <Label id="Labels" styleClass="Labelstext" text="Cliente" />
-                                                <ComboBox prefHeight="26.0" prefWidth="550.0" />
+                                                <ComboBox fx:id="selectCliente_Actualizar" prefHeight="26.0" prefWidth="550.0" />
                                                 <Label id="Labels" styleClass="Labelstext" text="Facilitador" />
-                                                <ComboBox prefHeight="26.0" prefWidth="523.0" />
-                                                <Button mnemonicParsing="false" text="Actualizar" />
+                                                <ComboBox fx:id="selectFacilitador_Actualizar" prefHeight="26.0" prefWidth="523.0" />
+                                                <Button mnemonicParsing="false" onAction="#clickActualizarTarjeta" text="Actualizar" />
                                              </children>
                                              <padding>
                                                 <Insets top="80.0" />
@@ -188,8 +188,8 @@
                                           <VBox prefHeight="620.0" prefWidth="403.0" spacing="13.0" stylesheets="@../styles/inputs.css">
                                              <children>
                                                 <Label id="lblID" styleClass="Labelstext" text="ID tarjeta" />
-                                                <ComboBox prefHeight="24.0" prefWidth="411.0" />
-                                                <Button mnemonicParsing="false" prefWidth="169.0" text="Eliminar">
+                                                <ComboBox fx:id="selectTarjeta_Eliminar" prefHeight="24.0" prefWidth="411.0" />
+                                                <Button mnemonicParsing="false" onAction="#clickEliminarTarjeta" prefWidth="169.0" text="Eliminar">
                                                    <VBox.margin>
                                                       <Insets top="400.0" />
                                                    </VBox.margin>
