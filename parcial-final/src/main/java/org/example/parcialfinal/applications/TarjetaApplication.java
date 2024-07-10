@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class TarjetaApplication extends Application {
+public class TarjetaApplication extends Application { // 00300723 Inicia para mostrar crud de tarjeta
     @Override
     public void start(Stage stage) throws IOException { // 00090123 Método start requerido por la clase Application para iniciar la aplicación
         FXMLLoader fxmlLoader = new FXMLLoader(TarjetaApplication.class.getResource("tarjeta.fxml")); // 00090123 Carga el archivo FXML para la interfaz de usuario de tarjeta

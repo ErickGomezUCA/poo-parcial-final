@@ -13,10 +13,9 @@
       <!--00090123 Contenedor horizontal-->
       <HBox prefHeight="282.0" prefWidth="1280.0">
          <children>
-            <ImageView fitHeight="178.0" fitWidth="444.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="178.0" fitWidth="444.0" pickOnBounds="true" preserveRatio="true"> <!-- 00090123 Vista de imagen con altura y ancho definidos, manteniendo la proporción -->
                <image>
                   <Image url="@../../../images/LogoBanco.png" /> <!-- 00090123 Define la imagen a mostrar con la URL especificada -->
-               </image>
                </image>
                <HBox.margin>
                   <Insets bottom="10.0" left="400.0" top="30.0" /> <!-- 00090123 Establece los márgenes del ImageView dentro del HBox -->
@@ -31,26 +30,27 @@
                <children>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true"> <!-- 00090123 Vista de imagen con altura y ancho definidos, manteniendo la proporción -->
                            <VBox.margin>
-                              <Insets top="90.0" />
+                              <Insets top="90.0" /> <!-- 00090123 Márgenes del ImageView dentro del VBox -->
                            </VBox.margin>
                            <image>
-                              <Image url="@../../../images/icons/clientes.png" />
+                              <Image url="@../../../images/icons/clientes.png" /> <!-- 00090123 Define la imagen a mostrar con la URL especificada -->
                            </image>
                         </ImageView>
-                        <Button id="btnClientes" mnemonicParsing="false" onAction="#clickAbrirClientes" prefHeight="50.0" prefWidth="150.0" text="Clientes">
+                        <Button id="btnClientes" mnemonicParsing="false" onAction="#clickAbrirClientes" prefHeight="50.0" prefWidth="150.0" text="Clientes"> <!-- 00090123 Botón con identificador, sin análisis de mnemónicos, acción al hacer clic, altura y ancho preferidos, y texto -->
                            <VBox.margin>
-                              <Insets bottom="10.0" left="20.0" right="20.0" top="50.0" />
+                              <Insets bottom="10.0" left="20.0" right="20.0" top="50.0" /> <!-- 00090123 Márgenes del botón dentro del VBox -->
                            </VBox.margin>
                         </Button>
                      </children>
                      <HBox.margin>
+
                         <Insets left="90.0" />
                      </HBox.margin>
                   </VBox>
                </children>
-           // </HBox>
+            </HBox>
             <HBox prefHeight="531.0" prefWidth="350.0">
                <children>
                   <VBox prefHeight="438.0" prefWidth="150.0">
@@ -71,65 +71,90 @@
                      </children>
                      <HBox.margin>
                         <Insets left="90.0" />
+
                      </HBox.margin>
                   </VBox>
                </children>
             </HBox>
-            <HBox prefHeight="531.0" prefWidth="350.0">
+            <HBox prefHeight="531.0" prefWidth="350.0"> <!-- 00090123 Contenedor horizontal principal con altura y ancho preferidos -->
                <children>
-                  <VBox prefHeight="200.0" prefWidth="100.0">
+                  <VBox prefHeight="438.0" prefWidth="150.0"> <!-- 00090123 Contenedor vertical con altura y ancho preferidos -->
                      <children>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true"> <!-- 00090123 Vista de imagen con altura y ancho definidos, manteniendo la proporción -->
                            <VBox.margin>
-                              <Insets top="90.0" />
+                              <Insets top="90.0" /> <!-- 00090123 Márgenes del ImageView dentro del VBox -->
                            </VBox.margin>
                            <image>
-                              <Image url="@../../../images/icons/compras.png" />
+                              <Image url="@../../../images/icons/tarjetas.png" /> <!-- 00090123 Define la imagen a mostrar con la URL especificada -->
                            </image>
                         </ImageView>
-                        <Button id="btnCompras" mnemonicParsing="false" onAction="#clickAbrirCompras" prefHeight="50.0" prefWidth="150.0" text="Compras">
+                        <Button id="btnTarjetas" mnemonicParsing="false" onAction="#clickAbrirTarjetas" prefHeight="50.0" prefWidth="150.0" text="Tarjetas"> <!-- 00090123 Botón con identificador, sin análisis de mnemónicos, acción al hacer clic, altura y ancho preferidos, y texto -->
                            <VBox.margin>
-                              <Insets bottom="10.0" left="20.0" right="20.0" top="50.0" />
+                              <Insets bottom="10.0" left="20.0" right="20.0" top="50.0" /> <!-- 00090123 Márgenes del botón dentro del VBox -->
                            </VBox.margin>
                         </Button>
                      </children>
                      <HBox.margin>
-                        <Insets left="90.0" />
+                        <Insets left="90.0" /> <!-- 00090123 Márgenes del VBox dentro del HBox -->
+                     </HBox.margin>
+                  </VBox>
+               </children>
+            </HBox> //DESDE AQUI
+            <HBox prefHeight="531.0" prefWidth="350.0"> <!-- 00090123 Contenedor horizontal con altura y ancho preferidos -->
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0"> <!-- 00090123 Contenedor vertical con altura y ancho preferidos -->
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true"> <!-- 00090123 Vista de imagen con altura y ancho definidos, manteniendo la proporción -->
+                           <VBox.margin>
+                              <Insets top="90.0" /> <!-- 00090123 Márgenes del ImageView dentro del VBox -->
+                           </VBox.margin>
+                           <image>
+                              <Image url="@../../../images/icons/compras.png" /> <!-- 00090123 Define la imagen a mostrar con la URL especificada -->
+                           </image>
+                        </ImageView>
+                        <Button id="btnCompras" mnemonicParsing="false" onAction="#clickAbrirCompras" prefHeight="50.0" prefWidth="150.0" text="Compras"> <!-- 00090123 Botón con identificador, sin análisis de mnemónicos, acción al hacer clic, altura y ancho preferidos, y texto -->
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="20.0" right="20.0" top="50.0" /> <!-- 00090123 Márgenes del botón dentro del VBox -->
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="90.0" /><!-- 00090123 Márgenes del VBox dentro del HBox -->
                      </HBox.margin>
                   </VBox>
                </children>
             </HBox>
-            <HBox prefHeight="531.0" prefWidth="350.0">
+            <HBox prefHeight="531.0" prefWidth="350.0"> <!-- 00090123 Contenedor horizontal con altura y ancho preferidos -->
                <children>
-                  <VBox prefHeight="200.0" prefWidth="100.0">
+                  <VBox prefHeight="200.0" prefWidth="100.0"> <!-- 00090123 Contenedor vertical con altura y ancho preferidos -->
                      <children>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true"> <!-- 00090123 Vista de imagen con altura y ancho definidos, manteniendo la proporción -->
                            <VBox.margin>
-                              <Insets top="90.0" />
+                              <Insets top="90.0" /> <!-- 00090123 Márgenes del ImageView dentro del VBox -->
                            </VBox.margin>
                            <image>
-                              <Image url="@../../../images/icons/reportes.png" />
+                              <Image url="@../../../images/icons/reportes.png" /> <!-- 00090123 Define la imagen a mostrar con la URL especificada -->
                            </image>
                         </ImageView>
-                        <Button id="btnReportes" mnemonicParsing="false" onAction="#clickAbrirReportes" prefHeight="50.0" prefWidth="150.0" text="Reportes">
+                        <Button id="btnReportes" mnemonicParsing="false" onAction="#clickAbrirReportes" prefHeight="50.0" prefWidth="150.0" text="Reportes"> <!-- 00090123 Botón con identificador, sin análisis de mnemónicos, acción al hacer clic, altura y ancho preferidos, y texto -->
                            <VBox.margin>
-                              <Insets bottom="10.0" left="20.0" right="20.0" top="50.0" />
+                              <Insets bottom="10.0" left="20.0" right="20.0" top="50.0" /> <!-- 00090123 Márgenes del botón dentro del VBox -->
                            </VBox.margin>
                         </Button>
                      </children>
                      <HBox.margin>
-                        <Insets left="90.0" />
+                        <Insets left="90.0" /><!-- 00090123 Márgenes del VBox dentro del HBox -->
                      </HBox.margin>
                   </VBox>
                </children>
             </HBox>
          </children>
       </HBox>
-      <HBox prefHeight="413.0" prefWidth="1280.0">
+      <HBox prefHeight="413.0" prefWidth="1280.0"> <!-- 00090123 Contenedor horizontal con altura y ancho preferidos -->
          <children>
-            <Button id="btnexit" mnemonicParsing="false" onAction="#clickSalir" prefHeight="50.0" prefWidth="150.0" text="EXIT">
+            <Button id="btnexit" mnemonicParsing="false" onAction="#clickSalir" prefHeight="50.0" prefWidth="150.0" text="EXIT"> <!-- 00090123 Botón con identificador, sin análisis de mnemónicos, acción al hacer clic, altura y ancho preferidos, y texto -->
                <HBox.margin>
-                  <Insets bottom="50.0" left="570.0" right="50.0" top="50.0" />
+                  <Insets bottom="50.0" left="570.0" right="50.0" top="50.0" />  <!-- 00090123 Márgenes del botón dentro del HBox -->
                </HBox.margin>
             </Button>
          </children>
