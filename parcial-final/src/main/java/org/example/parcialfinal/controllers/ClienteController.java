@@ -150,6 +150,7 @@ public class ClienteController {
             st.setString(2, txtDireccionActualizarCliente.getText());
             st.setString(3, txtNumTelefonoActualizarCliente.getText());
             st.setInt(4, selectIdActualizarCliente.getValue().getId());
+            st.executeUpdate();
 
             alerta.mostrarMensaje("Clientes", "Cliente actualizado en el sistema");
             mostrarClientesTodos();
