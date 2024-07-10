@@ -35,12 +35,12 @@
                                           <VBox prefHeight="620.0" prefWidth="403.0" spacing="13.0" stylesheets="@../styles/inputs.css">
                                              <children>
                                                 <Label id="lblID" styleClass="Labelstext" text="Nombre" />
-                                                <TextField />
+                                                <TextField fx:id="txtNombreCompletoAgregarCliente" />
                                                 <Label id="Labels" styleClass="Labelstext" text="Direccion" />
-                                                <TextField />
+                                                <TextField fx:id="txtDireccionAgregarCliente" />
                                                 <Label styleClass="Labelstext" text="Telefono" />
-                                                <TextField />
-                                                <Button mnemonicParsing="false" onAction="#clickCrearCliente" prefWidth="169.0" text="Crear cliente">
+                                                <TextField fx:id="txtNumTelefonoAgregarCliente" />
+                                                <Button fx:id="btnCrearCliente" mnemonicParsing="false" onAction="#clickCrearCliente" prefWidth="169.0" text="Crear cliente">
                                                    <VBox.margin>
                                                       <Insets bottom="40.0" top="112.0" />
                                                    </VBox.margin>
@@ -72,8 +72,8 @@
                                           <VBox prefHeight="620.0" prefWidth="403.0" spacing="13.0" stylesheets="@../styles/inputs.css">
                                              <children>
                                                 <Label id="lblID" styleClass="Labelstext" text="ID cliente" />
-                                                <ComboBox prefHeight="24.0" prefWidth="407.0" />
-                                                <Button mnemonicParsing="false" onAction="#clickBuscarCliente" prefWidth="169.0" text="Buscar cliente">
+                                                <ComboBox fx:id="selectIdBuscarCliente" prefHeight="24.0" prefWidth="407.0" />
+                                                <Button fx:id="btnBuscarCliente" mnemonicParsing="false" onAction="#clickBuscarCliente" prefWidth="169.0" text="Buscar cliente">
                                                    <VBox.margin>
                                                       <Insets top="400.0" />
                                                    </VBox.margin>
@@ -94,7 +94,7 @@
                         </AnchorPane>
                      </content>
                   </Tab>
-                  <Tab text="Actualizar">
+                  <Tab fx:id="btnActualizarCliente" text="Actualizar">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -111,13 +111,13 @@
                                              </HBox.margin>
                                              <children>
                                                 <Label id="lblID" styleClass="Labelstext" text="ID cliente" />
-                                                <ComboBox prefHeight="24.0" prefWidth="407.0" />
+                                                <ComboBox fx:id="selectIdActualizarCliente" prefHeight="24.0" prefWidth="407.0" />
                                                 <Label id="lblID" styleClass="Labelstext" text="Nombre" />
-                                                <TextField />
+                                                <TextField fx:id="txtNombreCompletoActualizarCliente" />
                                                 <Label id="Labels" styleClass="Labelstext" text="Direccion" />
-                                                <TextField />
+                                                <TextField fx:id="txtDireccionActualizarCliente" />
                                                 <Label styleClass="Labelstext" text="Telefono" />
-                                                <TextField />
+                                                <TextField fx:id="txtNumTelefonoActualizarCliente" />
                                                 <Button mnemonicParsing="false" onAction="#clickActualizarCliente" prefWidth="169.0" text="Actualizar Cliente" />
                                              </children>
                                           </VBox>
@@ -140,8 +140,8 @@
                                           <VBox prefHeight="620.0" prefWidth="403.0" spacing="13.0" stylesheets="@../styles/inputs.css">
                                              <children>
                                                 <Label id="lblID" styleClass="Labelstext" text="ID cliente" />
-                                                <ComboBox prefHeight="24.0" prefWidth="411.0" />
-                                                <Button mnemonicParsing="false" onAction="#clickEliminarCliente" prefWidth="169.0" text="Eliminar Cliente">
+                                                <ComboBox fx:id="selectIdEliminarCliente" prefHeight="24.0" prefWidth="411.0" />
+                                                <Button fx:id="btnEliminarCliente" mnemonicParsing="false" onAction="#clickEliminarCliente" prefWidth="169.0" text="Eliminar Cliente">
                                                    <VBox.margin>
                                                       <Insets top="400.0" />
                                                    </VBox.margin>
@@ -164,10 +164,12 @@
                   </Tab>
                </tabs>
             </TabPane>
-            <TableView prefHeight="690.0" prefWidth="643.0">
+            <TableView fx:id="tableCliente" prefHeight="690.0" prefWidth="643.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
+                <TableColumn fx:id="colId" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="colNombreCompleto" prefWidth="205.0" text="Nombre Completo" />
+                  <TableColumn fx:id="colDireccion" minWidth="0.0" prefWidth="185.0" text="Direccion" />
+                  <TableColumn fx:id="colNumTelefono" prefWidth="174.0" text="Num. Telefono" />
               </columns>
                <HBox.margin>
                   <Insets />
