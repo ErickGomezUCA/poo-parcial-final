@@ -73,6 +73,11 @@ public class TarjetaController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        actualizarInputs();
+        mostrarTarjetasTodas();
+    }
+
+    private void actualizarInputs() {
         ObservableList<String> tipos = FXCollections.observableArrayList("Credito", "Debito");
         ObservableList<Cliente> clientes = FXCollections.observableArrayList(DatabaseUtils.obtenerClientes());
         ObservableList<Facilitador> facilitadores = FXCollections.observableArrayList(DatabaseUtils.obtenerFacilitadores());
@@ -82,8 +87,6 @@ public class TarjetaController implements Initializable {
         prepararBuscar(tarjetas);
         prepararActualizar(tarjetas, tipos, clientes, facilitadores);
         prepararEliminar(tarjetas);
-
-        mostrarTarjetasTodas();
     }
 
     private void mostrarTarjetasTodas() {
@@ -144,6 +147,7 @@ public class TarjetaController implements Initializable {
             psComprasInteligentes.executeUpdate();
             alerta.mostrarMensaje("Tarjetas", "Tarjeta creada en el sistema");
             mostrarTarjetasTodas();
+            actualizarInputs();
             connection.closeConnection();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -187,6 +191,7 @@ public class TarjetaController implements Initializable {
             alerta.mostrarMensaje("Tarjetas", "Tarjeta actualizada en el sistema");
             connection.closeConnection();
             mostrarTarjetasTodas();
+            actualizarInputs();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -201,6 +206,7 @@ public class TarjetaController implements Initializable {
             alerta.mostrarMensaje("Tarjetas", "Tarjeta eliminada en el sistema");
             connection.closeConnection();
             mostrarTarjetasTodas();
+            actualizarInputs();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
