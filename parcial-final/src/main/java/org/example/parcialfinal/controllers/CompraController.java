@@ -2,12 +2,14 @@ package org.example.parcialfinal.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.example.parcialfinal.LobbyApplication;
 import org.example.parcialfinal.backend.Compra;
+import org.example.parcialfinal.backend.Tarjeta;
 import org.example.parcialfinal.backend.database.DBConnection;
 
-import java.awt.event.ActionEvent;
+import javafx.event.ActionEvent;
 import java.io.IOException;
 import java.sql.*;
 import java.time.format.DateTimeFormatter;
@@ -15,44 +17,36 @@ import java.util.ArrayList;
 
 public class CompraController {
     DBConnection connection = DBConnection.getInstance();
+    @FXML
+    private VBox main;
 
     @FXML
     private DatePicker dtFechaAgregarCompra;
-
     @FXML
     private Spinner<Double> spinnerMontoAgregarCompra;
+    @FXML
+    private ComboBox<Tarjeta> selectAgregarTarjeta;
+    @FXML
+    private TextArea txtDescripcionAgregarCompra;
 
     @FXML
-        private TextArea txtDescripcionAgregarCompra;
+    private ComboBox<Compra> selectBuscarCompra;
 
     @FXML
-    //cambiar a combobox todo
-    private TextField txtIdTarjetaAgregarCompra;
-
-
-    //camniar a combobox todo
-    @FXML
-    private TextField txtIdBuscarCompra;
+    private ComboBox<Compra> selectEliminarCompra;
 
     //cambiar a combobox todo
     @FXML
-    private TextField txtIdEliminarCompra;
-
-    //cambiar a combobox todo
-    @FXML
-    private TextField txtIdActualizarCompra;
-
+    private ComboBox<Compra> selectActualizarCompra;
     @FXML
     private DatePicker dtFechaActualizarCompra;
-
     @FXML
     private Spinner<Double> spinnerMontoActualizarCompra;
-
+    @FXML
+    private ComboBox<Tarjeta> selectActualizarTarjeta;
     @FXML
     private TextField txtDescripcionActualizarCompra;
 
-    @FXML
-    private TextField txtIdTarjetaActualizarCompra;
 
 
     @FXML
@@ -89,7 +83,7 @@ public class CompraController {
         String fecha = dtFechaAgregarCompra.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         Double monto = spinnerMontoAgregarCompra.getValue();
         String descripcion = txtDescripcionAgregarCompra.getText();
-        int idTarjeta = Integer.parseInt(txtIdTarjetaAgregarCompra.getText());
+        int idTarjeta = selectAgregarTarjeta.getValue().getId();
 
         try {
             PreparedStatement st = connection.getConnection().prepareStatement("INSERT INTO Compra VALUES (?, ?, ?, ?)");
@@ -105,7 +99,6 @@ public class CompraController {
                 dtFechaAgregarCompra.setValue(null);
                 spinnerMontoAgregarCompra.getValueFactory().setValue(0.0);
                 txtDescripcionAgregarCompra.clear();
-                txtIdTarjetaAgregarCompra.clear();
 
                 cargarCompras();
             }
@@ -118,7 +111,7 @@ public class CompraController {
     @FXML
     public void buscarCompra() {
         txtMensajeBuscarCompra.clear();
-        int id = Integer.parseInt(txtIdBuscarCompra.getText());
+        int id =(selectBuscarCompra.getValue().getId());
 
         try {
             PreparedStatement st = connection.getConnection().prepareStatement("SELECT * FROM Compra WHERE id = ?");
@@ -146,7 +139,7 @@ public class CompraController {
     @FXML
     public void eliminarCompra() {
         txtMensajeEliminarCompra.clear();
-        int id = Integer.parseInt(txtIdEliminarCompra.getText());
+        int id = selectEliminarCompra.getValue().getId();
 
         try {
             PreparedStatement st = connection.getConnection().prepareStatement("DELETE FROM Compra WHERE id = ?");
@@ -170,11 +163,11 @@ public class CompraController {
     public void actualizarCompra() {
         txtMensajeActualizarCompra.clear();
 
-        int id = Integer.parseInt(txtIdActualizarCompra.getText());
+        int id = selectActualizarCompra.getValue().getId();
         String fecha = dtFechaActualizarCompra.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         Double monto = spinnerMontoAgregarCompra.getValue();
         String descripcion = txtDescripcionActualizarCompra.getText();
-        int idTarjeta = Integer.parseInt(txtIdTarjetaActualizarCompra.getText());
+        int idTarjeta = selectActualizarTarjeta.getValue().getId();
 
         try {
             PreparedStatement st = connection.getConnection().prepareStatement("UPDATE Compra SET ?, ?, ?, ? WHERE id = ?");
@@ -188,11 +181,9 @@ public class CompraController {
             if (filas > 0) {
                 txtMensajeActualizarCompra.setText("Compra actualizada con exito");
 
-                txtIdActualizarCompra.clear();
                 dtFechaActualizarCompra.setValue(null);
                 spinnerMontoAgregarCompra.getValueFactory().setValue(0.0);
                 txtDescripcionActualizarCompra.clear();
-                txtIdTarjetaActualizarCompra.clear();
 
                 cargarCompras();
             } else {
@@ -242,6 +233,6 @@ public class CompraController {
 
     @FXML
     private void cerrar() {
-        ((Stage)txtIdActualizarCompra.getScene().getWindow()).close();
+        ((Stage)main.getScene().getWindow()).close();
     }
 }
