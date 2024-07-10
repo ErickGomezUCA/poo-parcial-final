@@ -53,7 +53,7 @@ public class Tarjeta { // 00090123 Declaración de la clase Tarjeta
     }
 
     @Override
-    public String toString() {
-        return "ID: " + id + ", Numero: " + numeroTarjeta;
+    public String toString() { //00167523 Metodo para imprimir en una string las variables de la clase
+        return "ID: " + id + ", Numero: " + numeroTarjeta; //00167523 Retorna como string concatenada el id y numero de tarjeta
     }
 }
