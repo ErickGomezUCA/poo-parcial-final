@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.example.parcialfinal.LobbyApplication;
 import org.example.parcialfinal.backend.Cliente;
@@ -22,6 +23,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ReportesController implements Initializable {
+    @FXML
+    private VBox main;
+
     @FXML
     private ComboBox<Cliente> selectCliente_RA;
     @FXML

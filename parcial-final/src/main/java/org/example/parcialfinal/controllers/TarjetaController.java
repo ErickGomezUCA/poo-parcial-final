@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.example.parcialfinal.LobbyApplication;
 import org.example.parcialfinal.backend.Cliente;
@@ -24,6 +25,9 @@ public class TarjetaController implements Initializable {
 
     DBConnection connection = DBConnection.getInstance();
     Alerta alerta = new Alerta();
+
+    @FXML
+    private VBox main;
 
     @FXML
     private TextField txtTarjetaNum_Crear;
