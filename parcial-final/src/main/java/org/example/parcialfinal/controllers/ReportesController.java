@@ -31,7 +31,7 @@ public class ReportesController implements Initializable {
     @FXML
     private ComboBox<Cliente> selectCliente_RB;
     @FXML
-    private ComboBox<Mes> selectMes_RB;
+        private ComboBox<Mes> selectMes_RB;
     @FXML
     private Spinner<Integer> spinnerYear_RB;
 
