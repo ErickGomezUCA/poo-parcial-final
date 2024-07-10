@@ -126,21 +126,21 @@
                         </AnchorPane>
                      </content>
                   </Tab>
-                  <!-- 00090124 Tab "Actualizar" -->
+                  <!-- 00090123 Tab "Actualizar" -->
                   <Tab text="Actualizar">
                      <content>
-                        <!-- 00090124 AnchorPane -->
+                        <!-- 00090123 AnchorPane -->
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <!-- 00090124 HBox principal -->
+                              <!-- 00090123 HBox principal -->
                               <HBox prefHeight="662.0" prefWidth="1284.0">
                                  <children>
-                                    <!-- 00090124 HBox secundario -->
+                                    <!-- 00090123 HBox secundario -->
                                     <HBox prefHeight="662.0" prefWidth="669.0">
                                        <children>
-                                          <!-- 00090124 VBox con elementos de actualización -->
+                                          <!-- 00090123 VBox con elementos de actualización -->
                                           <VBox prefHeight="620.0" prefWidth="403.0" spacing="13.0" stylesheets="@../styles/inputs.css">
-                                             <!-- 00090124 Padding y márgenes -->
+                                             <!-- 00090123 Padding y márgenes -->
                                              <padding>
                                                 <Insets top="80.0" />
                                              </padding>
@@ -148,23 +148,23 @@
                                                 <Insets bottom="10.0" left="100.0" right="10.0" top="10.0" />
                                              </HBox.margin>
                                              <children>
-                                                <!-- 00090124 Label "ID cliente" -->
+                                                <!-- 00090123 Label "ID cliente" -->
                                                 <Label id="lblID" styleClass="Labelstext" text="ID cliente" />
-                                                <!-- 00090124 ComboBox para selección de cliente -->
+                                                <!-- 00090123 ComboBox para selección de cliente -->
                                                 <ComboBox prefHeight="24.0" prefWidth="407.0" />
-                                                <!-- 00090124 Label "Nombre" -->
+                                                <!-- 00090123 Label "Nombre" -->
                                                 <Label id="lblID" styleClass="Labelstext" text="Nombre" />
-                                                <!-- 00090124 Campo de texto para el nombre -->
+                                                <!-- 00090123 Campo de texto para el nombre -->
                                                 <TextField />
-                                                <!-- 00090124 Label "Direccion" -->
+                                                <!-- 00090123 Label "Direccion" -->
                                                 <Label id="Labels" styleClass="Labelstext" text="Direccion" />
-                                                <!-- 00090124 Campo de texto para la dirección -->
+                                                <!-- 00090123 Campo de texto para la dirección -->
                                                 <TextField />
-                                                <!-- 00090124 Label "Telefono" -->
+                                                <!-- 00090123 Label "Telefono" -->
                                                 <Label styleClass="Labelstext" text="Telefono" />
-                                                <!-- 00090124 Campo de texto para el teléfono -->
+                                                <!-- 00090123 Campo de texto para el teléfono -->
                                                 <TextField />
-                                                <!-- 00090124 Botón "Actualizar Cliente" -->
+                                                <!-- 00090123 Botón "Actualizar Cliente" -->
                                                 <Button mnemonicParsing="false" onAction="#clickActualizarCliente" prefWidth="169.0" text="Actualizar Cliente" />
                                              </children>
                                           </VBox>
@@ -176,22 +176,21 @@
                         </AnchorPane>
                      </content>
                   </Tab>
-                  //DESDE AQUI
-                  <!-- 00090127 Tab "Eliminar" -->
+                  <!-- 00090123 Tab "Eliminar" -->
                   <Tab text="Eliminar">
                      <content>
-                        <!-- 00090127 AnchorPane -->
+                        <!-- 00090123 AnchorPane -->
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="689.0" prefWidth="1047.0">
                            <children>
-                              <!-- 00090127 HBox principal -->
+                              <!-- 00090123 HBox principal -->
                               <HBox prefHeight="662.0" prefWidth="1284.0">
                                  <children>
-                                    <!-- 00090127 HBox secundario -->
+                                    <!-- 00090123 HBox secundario -->
                                     <HBox prefHeight="662.0" prefWidth="669.0">
                                        <children>
-                                          <!-- 00090127 VBox con elementos de eliminación -->
+                                          <!-- 00090123 VBox con elementos de eliminación -->
                                           <VBox prefHeight="620.0" prefWidth="403.0" spacing="13.0" stylesheets="@../styles/inputs.css">
-                                             <!-- 00090127 Padding y márgenes -->
+                                             <!-- 00090123 Padding y márgenes -->
                                              <padding>
                                                 <Insets top="80.0" />
                                              </padding>
@@ -199,11 +198,11 @@
                                                 <Insets bottom="10.0" left="100.0" right="10.0" top="10.0" />
                                              </HBox.margin>
                                              <children>
-                                                <!-- 00090127 Label "ID cliente" -->
+                                                <!-- 00090123 Label "ID cliente" -->
                                                 <Label id="lblID" styleClass="Labelstext" text="ID cliente" />
-                                                <!-- 00090127 ComboBox para selección de cliente -->
+                                                <!-- 00090123 ComboBox para selección de cliente -->
                                                 <ComboBox prefHeight="24.0" prefWidth="411.0" />
-                                                <!-- 00090127 Botón "Eliminar Cliente" -->
+                                                <!-- 00090123 Botón "Eliminar Cliente" -->
                                                 <Button mnemonicParsing="false" onAction="#clickEliminarCliente" prefWidth="169.0" text="Eliminar Cliente">
                                                    <VBox.margin>
                                                       <Insets top="400.0" />
@@ -221,16 +220,16 @@
                   </Tab>
                </tabs>
             </TabPane>
-            <!-- 00090127 TableView -->
+            <!-- 00090123 TableView -->
             <TableView prefHeight="690.0" prefWidth="643.0">
-               <!-- 00090127 Columnas -->
+               <!-- 00090123 Columnas -->
                <columns>
-                  <!-- 00090127 TableColumn "C1" -->
+                  <!-- 00090123 TableColumn "C1" -->
                   <TableColumn prefWidth="75.0" text="C1" />
-                  <!-- 00090127 TableColumn "C2" -->
+                  <!-- 00090123 TableColumn "C2" -->
                   <TableColumn prefWidth="75.0" text="C2" />
                </columns>
-               <!-- 00090127 Márgenes -->
+               <!-- 00090123 Márgenes -->
                <HBox.margin>
                   <Insets />
                </HBox.margin>

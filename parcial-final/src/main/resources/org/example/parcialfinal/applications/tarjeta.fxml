@@ -14,46 +14,75 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
+        <!-- 00090123 VBox principal -->
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../styles/inputs.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+    <!-- 00090123 VBox hijos -->
     <children>
+        <!-- 00090123 Botón Regresar -->
         <VBox prefHeight="59.0" prefWidth="1280.0">
             <children>
                 <Button mnemonicParsing="false" text="Regresar" />
             </children>
         </VBox>
+        <!-- 00090123 HBox principal -->
         <HBox prefHeight="722.0" prefWidth="1280.0">
             <children>
+                <!-- 00090123 TabPane -->
                 <TabPane prefHeight="696.0" prefWidth="640.0" tabClosingPolicy="UNAVAILABLE">
+                    <!-- 00090123 Tabs -->
                     <tabs>
+                        <!-- 00090123 Tab Crear -->
                         <Tab text="Crear">
+                            <!-- 00090123 Contenido del tab -->
                             <content>
+                                <!-- 00090123 AnchorPane dentro del tab -->
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <!-- 00090123 Hijos del AnchorPane -->
                                     <children>
+                                        <!-- 00090123 HBox dentro del AnchorPane -->
                                         <HBox layoutY="-1.0" prefHeight="662.0" prefWidth="1284.0">
+                                            <!-- 00090123 Hijos del HBox -->
                                             <children>
+                                                <!-- 00090123 HBox secundario -->
                                                 <HBox prefHeight="662.0" prefWidth="669.0">
+                                                    <!-- 00090123 Hijos del HBox secundario -->
                                                     <children>
+                                                        <!-- 00090123 VBox dentro del HBox secundario -->
                                                         <VBox prefHeight="620.0" prefWidth="403.0" spacing="13.0" stylesheets="@../styles/inputs.css">
+                                                            <!-- 00090123 Hijos del VBox -->
                                                             <children>
+                                                                <!-- 00090123 Label Numero tarjeta -->
                                                                 <Label id="lblID" styleClass="Labelstext" text="Numero tarjeta" />
+                                                                <!-- 00090123 TextField Numero tarjeta -->
                                                                 <TextField />
+                                                                <!-- 00090123 Label Fecha de expiracion -->
                                                                 <Label id="Labels" styleClass="Labelstext" text="Fecha de expiracion" />
+                                                                <!-- 00090123 DatePicker Fecha de expiracion -->
                                                                 <DatePicker prefHeight="24.0" prefWidth="418.0" />
+                                                                <!-- 00090123 Label Tipo -->
                                                                 <Label styleClass="Labelstext" text="Tipo" />
+                                                                <!-- 00090123 ComboBox Tipo -->
                                                                 <ComboBox prefHeight="24.0" prefWidth="411.0" />
+                                                                <!-- 00090123 Label Cliente -->
                                                                 <Label id="Labels" styleClass="Labelstext" text="Cliente" />
+                                                                <!-- 00090123 ComboBox Cliente -->
                                                                 <ComboBox prefHeight="26.0" prefWidth="550.0" />
+                                                                <!-- 00090123 Label Facilitador -->
                                                                 <Label id="Labels" styleClass="Labelstext" text="Facilitador" />
+                                                                <!-- 00090123 ComboBox Facilitador -->
                                                                 <ComboBox prefHeight="26.0" prefWidth="523.0" />
+                                                                <!-- 00090123 Button Crear tarjeta -->
                                                                 <Button mnemonicParsing="false" prefWidth="169.0" text="Crear tarjeta">
                                                                     <VBox.margin>
                                                                         <Insets bottom="40.0" top="112.0" />
                                                                     </VBox.margin>
                                                                 </Button>
                                                             </children>
+                                                            <!-- 00090123 Padding del VBox -->
                                                             <padding>
                                                                 <Insets top="80.0" />
                                                             </padding>
+                                                            <!-- 00090123 Margen del HBox dentro del VBox -->
                                                             <HBox.margin>
                                                                 <Insets bottom="10.0" left="100.0" right="10.0" top="10.0" />
                                                             </HBox.margin>
@@ -66,27 +95,42 @@
                                 </AnchorPane>
                             </content>
                         </Tab>
+                        <!-- 00090123 Tab Buscar -->
                         <Tab text="Buscar">
+                            <!-- 00090123 Contenido del tab -->
                             <content>
+                                <!-- 00090123 AnchorPane dentro del tab -->
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <!-- 00090123 Hijos del AnchorPane -->
                                     <children>
+                                        <!-- 00090123 HBox dentro del AnchorPane -->
                                         <HBox prefHeight="662.0" prefWidth="1284.0">
+                                            <!-- 00090123 Hijos del HBox -->
                                             <children>
+                                                <!-- 00090123 HBox secundario -->
                                                 <HBox prefHeight="662.0" prefWidth="669.0">
+                                                    <!-- 00090123 Hijos del HBox secundario -->
                                                     <children>
+                                                        <!-- 00090123 VBox dentro del HBox secundario -->
                                                         <VBox prefHeight="620.0" prefWidth="403.0" spacing="13.0" stylesheets="@../styles/inputs.css">
+                                                            <!-- 00090123 Hijos del VBox -->
                                                             <children>
+                                                                <!-- 00090123 Label ID tarjeta -->
                                                                 <Label id="lblID" styleClass="Labelstext" text="ID tarjeta" />
+                                                                <!-- 00090123 ComboBox ID tarjeta -->
                                                                 <ComboBox prefHeight="24.0" prefWidth="407.0" />
+                                                                <!-- 00090123 Button Buscar -->
                                                                 <Button mnemonicParsing="false" prefWidth="169.0" text="Buscar">
                                                                     <VBox.margin>
                                                                         <Insets top="400.0" />
                                                                     </VBox.margin>
                                                                 </Button>
                                                             </children>
+                                                            <!-- 00090123 Padding del VBox -->
                                                             <padding>
                                                                 <Insets top="80.0" />
                                                             </padding>
+                                                            <!-- 00090123 Margen del HBox dentro del VBox -->
                                                             <HBox.margin>
                                                                 <Insets bottom="10.0" left="100.0" right="10.0" top="10.0" />
                                                             </HBox.margin>
@@ -99,33 +143,58 @@
                                 </AnchorPane>
                             </content>
                         </Tab>
+                        <!-- 00090123 Tab Actualizar -->
                         <Tab text="Actualizar">
+                            <!-- 00090123 Contenido del tab -->
                             <content>
+                                <!-- 00090123 AnchorPane dentro del tab -->
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <!-- 00090123 Hijos del AnchorPane -->
                                     <children>
+                                        <!-- 00090123 HBox dentro del AnchorPane -->
                                         <HBox prefHeight="662.0" prefWidth="1284.0">
+                                            <!-- 00090123 Hijos del HBox -->
                                             <children>
+                                                <!-- 00090123 HBox secundario -->
                                                 <HBox prefHeight="662.0" prefWidth="669.0">
+                                                    <!-- 00090123 Hijos del HBox secundario -->
                                                     <children>
+                                                        <!-- 00090123 VBox dentro del HBox secundario -->
                                                         <VBox prefHeight="299.0" prefWidth="403.0" spacing="13.0" stylesheets="@../styles/inputs.css">
+                                                            <!-- 00090123 Hijos del VBox -->
                                                             <children>
+                                                                <!-- 00090123 Label ID de tarjeta -->
                                                                 <Label id="lblID" styleClass="Labelstext" text="ID de tarjeta" />
+                                                                <!-- 00090123 ComboBox ID de tarjeta -->
                                                                 <ComboBox prefHeight="24.0" prefWidth="403.0" />
+                                                                <!-- 00090123 Label Numero tarjeta -->
                                                                 <Label id="lblID" styleClass="Labelstext" text="Numero tarjeta" />
+                                                                <!-- 00090123 TextField Numero tarjeta -->
                                                                 <TextField />
+                                                                <!-- 00090123 Label Fecha de expiracion -->
                                                                 <Label id="Labels" styleClass="Labelstext" text="Fecha de expiracion" />
+                                                                <!-- 00090123 DatePicker Fecha de expiracion -->
                                                                 <DatePicker prefHeight="24.0" prefWidth="404.0" />
+                                                                <!-- 00090123 Label Tipo -->
                                                                 <Label styleClass="Labelstext" text="Tipo" />
+                                                                <!-- 00090123 ComboBox Tipo -->
                                                                 <ComboBox prefHeight="24.0" prefWidth="411.0" />
+                                                                <!-- 00090123 Label Cliente -->
                                                                 <Label id="Labels" styleClass="Labelstext" text="Cliente" />
+                                                                <!-- 00090123 ComboBox Cliente -->
                                                                 <ComboBox prefHeight="26.0" prefWidth="550.0" />
+                                                                <!-- 00090123 Label Facilitador -->
                                                                 <Label id="Labels" styleClass="Labelstext" text="Facilitador" />
+                                                                <!-- 00090123 ComboBox Facilitador -->
                                                                 <ComboBox prefHeight="26.0" prefWidth="523.0" />
+                                                                <!-- 00090123 Button Actualizar -->
                                                                 <Button mnemonicParsing="false" text="Actualizar" />
                                                             </children>
+                                                            <!-- 00090123 Padding del VBox -->
                                                             <padding>
                                                                 <Insets top="80.0" />
                                                             </padding>
+                                                            <!-- 00090123 Margen del HBox dentro del VBox -->
                                                             <HBox.margin>
                                                                 <Insets bottom="10.0" left="100.0" right="10.0" top="10.0" />
                                                             </HBox.margin>
@@ -138,27 +207,43 @@
                                 </AnchorPane>
                             </content>
                         </Tab>
+                        <!-- 00090123 Tab Eliminar -->
                         <Tab text="Eliminar">
+                            <!-- 00090123 Contenido del tab -->
                             <content>
+                                <!-- 00090123 AnchorPane dentro del tab -->
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="689.0" prefWidth="1047.0">
+                                    <!-- 00090123 Hijos del AnchorPane -->
                                     <children>
+                                        <!-- 00090123 HBox dentro del AnchorPane -->
                                         <HBox prefHeight="662.0" prefWidth="1284.0">
+                                            <!-- 00090123 Hijos del HBox -->
                                             <children>
+                                                <!-- 00090123 HBox secundario -->
                                                 <HBox prefHeight="662.0" prefWidth="669.0">
+                                                    <!-- 00090123 Hijos del HBox secundario -->
                                                     <children>
+                                                        <!-- 00090123 VBox dentro del HBox secundario -->
                                                         <VBox prefHeight="620.0" prefWidth="403.0" spacing="13.0" stylesheets="@../styles/inputs.css">
+                                                            <!-- 00090123 Hijos del VBox -->
                                                             <children>
+                                                                <!-- 00090123 Label ID tarjeta -->
                                                                 <Label id="lblID" styleClass="Labelstext" text="ID tarjeta" />
+                                                                <!-- 00090123 ComboBox ID tarjeta -->
                                                                 <ComboBox prefHeight="24.0" prefWidth="411.0" />
+                                                                <!-- 00090123 Button Eliminar -->
                                                                 <Button mnemonicParsing="false" prefWidth="169.0" text="Eliminar">
+                                                                    <!-- 00090123 Margen del Button Eliminar -->
                                                                     <VBox.margin>
                                                                         <Insets top="400.0" />
                                                                     </VBox.margin>
                                                                 </Button>
                                                             </children>
+                                                            <!-- 00090123 Padding del VBox -->
                                                             <padding>
                                                                 <Insets top="80.0" />
                                                             </padding>
+                                                            <!-- 00090123 Margen del HBox dentro del VBox -->
                                                             <HBox.margin>
                                                                 <Insets bottom="10.0" left="100.0" right="10.0" top="10.0" />
                                                             </HBox.margin>
@@ -171,11 +256,16 @@
                                 </AnchorPane>
                             </content>
                         </Tab>
+
                     </tabs>
                 </TabPane>
+                <!-- 00090123 TableView -->
                 <TableView prefHeight="690.0" prefWidth="639.0">
+                    <!-- 00090123 Columnas de la TableView -->
                     <columns>
+                        <!-- 00090123 Primera columna -->
                         <TableColumn prefWidth="75.0" text="C1" />
+                        <!-- 00090123 Segunda columna -->
                         <TableColumn prefWidth="75.0" text="C2" />
                     </columns>
                 </TableView>

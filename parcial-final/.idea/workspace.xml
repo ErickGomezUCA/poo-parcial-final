@@ -7,6 +7,7 @@
     <list default="true" id="325bb22e-9ff5-4229-8988-a06f744f5a4d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/parcialfinal/applications/cliente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/parcialfinal/applications/cliente.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/parcialfinal/applications/tarjeta.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/parcialfinal/applications/tarjeta.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
