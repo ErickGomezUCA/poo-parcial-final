@@ -164,13 +164,13 @@
                   </Tab>
                </tabs>
             </TabPane>
-            <TableView prefHeight="690.0" prefWidth="644.0">
+            <TableView prefHeight="690.0" prefWidth="643.0">
               <columns>
                 <TableColumn prefWidth="75.0" text="C1" />
                 <TableColumn prefWidth="75.0" text="C2" />
               </columns>
                <HBox.margin>
-                  <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                  <Insets />
                </HBox.margin>
             </TableView>
          </children>
