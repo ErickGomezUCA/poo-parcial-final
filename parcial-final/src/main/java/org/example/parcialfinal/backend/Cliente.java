@@ -28,32 +28,32 @@ public class Cliente { // 00300723 Clase para guardar los registros de la tabla 
         this.id = id; // 00300723 Establece el id del cliente
     }
 
-    public String getNombreCompleto() { // 00300723 Meotod para obtener el nombre completo del cliente
+    public String getNombreCompleto() { // 00300723 Metodo para obtener el nombre completo del cliente
         return nombreCompleto; // 00300723 Devuelve el valor del nombre completo del cliente
     }
 
-    public void setNombreCompleto(String nombreCompleto) {
-        this.nombreCompleto = nombreCompleto;
+    public void setNombreCompleto(String nombreCompleto) { // 00090123 Método para establecer el nombre completo del cliente
+        this.nombreCompleto = nombreCompleto;// 00090123 Asigna el valor del nombre completo al campo correspondiente
     }
 
-    public String getDireccion() {
-        return direccion;
+    public String getDireccion() { // 00090123 Método para obtener la dirección del cliente
+        return direccion;// 00090123 Devuelve el valor de la dirección del cliente
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setDireccion(String direccion) {// 00090123 Método para establecer la dirección del cliente
+        this.direccion = direccion;// 00090123 Asigna el valor de la dirección al campo correspondiente
     }
 
-    public String getNumeroTelefono() {
-        return numeroTelefono;
+    public String getNumeroTelefono() { // 00090123 Método para obtener el número de teléfono del cliente
+        return numeroTelefono;// 00090123 Devuelve el valor del número de teléfono del cliente
     }
 
-    public void setNumeroTelefono(String numeroTelefono) {
-        this.numeroTelefono = numeroTelefono;
+    public void setNumeroTelefono(String numeroTelefono) { // 00090123 Método para establecer el número de teléfono del cliente
+        this.numeroTelefono = numeroTelefono;// 00090123 Asigna el valor del número de teléfono al campo correspondiente
     }
 
     @Override
-    public String toString() {
-        return "ID: " + id + ", Nombre: " + nombreCompleto;
+    public String toString() {// 00090123 Método para obtener la representación en cadena del cliente
+        return "ID: " + id + ", Nombre: " + nombreCompleto;// 00090123 Devuelve una cadena que representa el ID y el nombre completo del cliente
     }
 }
