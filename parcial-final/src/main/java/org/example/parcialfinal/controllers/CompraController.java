@@ -13,60 +13,60 @@ public class CompraController {
     DBConnection connection = DBConnection.getInstance();
 
     @FXML
-    private DatePicker dtFechaAgregarCompra;
+    private DatePicker dtFechaAgregarCompra;//00167523
 
     @FXML
-    private Spinner<Double> spinnerMontoAgregarCompra;
+    private Spinner<Double> spinnerMontoAgregarCompra;//00167523
 
     @FXML
-        private TextArea txtDescripcionAgregarCompra;
+        private TextArea txtDescripcionAgregarCompra;//00167523
 
     @FXML
     //cambiar a combobox todo
-    private TextField txtIdTarjetaAgregarCompra;
+    private TextField txtIdTarjetaAgregarCompra;//00167523
 
 
     //camniar a combobox todo
     @FXML
-    private TextField txtIdBuscarCompra;
+    private TextField txtIdBuscarCompra;//00167523
 
     //cambiar a combobox todo
     @FXML
-    private TextField txtIdEliminarCompra;
+    private TextField txtIdEliminarCompra;//00167523
 
     //cambiar a combobox todo
     @FXML
-    private TextField txtIdActualizarCompra;
+    private TextField txtIdActualizarCompra;//00167523
 
     @FXML
-    private DatePicker dtFechaActualizarCompra;
+    private DatePicker dtFechaActualizarCompra;//00167523
 
     @FXML
-    private Spinner<Double> spinnerMontoActualizarCompra;
+    private Spinner<Double> spinnerMontoActualizarCompra;//00167523
 
     @FXML
-    private TextField txtDescripcionActualizarCompra;
+    private TextField txtDescripcionActualizarCompra;//00167523
 
     @FXML
-    private TextField txtIdTarjetaActualizarCompra;
+    private TextField txtIdTarjetaActualizarCompra;//00167523
 
 
     @FXML
-    private TextArea txtMensajeAgregarCompra;
+    private TextArea txtMensajeAgregarCompra;//00167523
 
     @FXML
-    private TextArea txtMensajeBuscarCompra;
+    private TextArea txtMensajeBuscarCompra;//00167523
 
     @FXML
-    private TextArea txtMensajeMostrarTodosCompra;
+    private TextArea txtMensajeMostrarTodosCompra;//00167523
 
     @FXML
-    private TextArea txtMensajeEliminarCompra;
+    private TextArea txtMensajeEliminarCompra;//00167523
 
     @FXML
-    private TextArea txtMensajeActualizarCompra;
+    private TextArea txtMensajeActualizarCompra;//00167523
 
-    private ArrayList<Compra> compras = new ArrayList<>();
+    private ArrayList<Compra> compras = new ArrayList<>();//00167523
 
 
     @FXML
