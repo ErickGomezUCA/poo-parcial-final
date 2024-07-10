@@ -15,46 +15,46 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../styles/inputs.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.parcialfinal.controllers.ReportesController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../styles/inputs.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.parcialfinal.controllers.ReportesController"> <!-- 00090123 Contenedor vertical principal con controlador especificado y hojas de estilo -->
    <children>
-      <VBox prefHeight="53.0" prefWidth="1280.0">
+      <VBox prefHeight="53.0" prefWidth="1280.0"> <!-- 00090123 Contenedor vertical con altura y ancho preferidos -->
          <children>
-            <Button mnemonicParsing="false" text="Regresar" />
+            <Button mnemonicParsing="false" text="Regresar" /> <!-- 00090123 Botón con texto 'Regresar' y sin análisis de mnemónicos -->
          </children>
       </VBox>
-      <HBox prefHeight="720.0" prefWidth="1280.0">
+      <HBox prefHeight="720.0" prefWidth="1280.0"> <!-- 00090123 Contenedor horizontal con altura y ancho preferidos -->
          <children>
-            <TabPane prefHeight="690.0" prefWidth="640.0" stylesheets="@../styles/inputs.css" tabClosingPolicy="UNAVAILABLE">
+            <TabPane prefHeight="690.0" prefWidth="640.0" stylesheets="@../styles/inputs.css" tabClosingPolicy="UNAVAILABLE"> <!-- 00090123 Panel de pestañas con altura y ancho preferidos, hojas de estilo y política de cierre de pestañas deshabilitada -->
                <tabs>
-                  <Tab text="Crear">
+                  <Tab text="Crear"> <!-- 00090123 Pestaña con texto 'Crear' -->
                      <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="689.0" prefWidth="1046.0">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="689.0" prefWidth="1046.0"> <!-- 00090123 Pane anclado con altura y ancho preferidos -->
                            <children>
-                              <HBox layoutX="2.0" layoutY="-5.0" prefHeight="694.0" prefWidth="1276.0">
+                              <HBox layoutX="2.0" layoutY="-5.0" prefHeight="694.0" prefWidth="1276.0"> <!-- 00090123 Contenedor horizontal con disposición específica y dimensiones preferidas -->
                                  <children>
-                                    <HBox prefHeight="694.0" prefWidth="637.0" styleClass="fondoreporte">
+                                    <HBox prefHeight="694.0" prefWidth="637.0" styleClass="fondoreporte"> <!-- 00090123 Contenedor horizontal con altura y ancho preferidos y clase de estilo -->
                                        <children>
-                                          <VBox prefHeight="674.0" prefWidth="397.0" spacing="13.0" stylesheets="@../styles/inputs.css">
+                                          <VBox prefHeight="674.0" prefWidth="397.0" spacing="13.0" stylesheets="@../styles/inputs.css"> <!-- 00090123 Contenedor vertical con altura y ancho preferidos, espacio entre elementos y hojas de estilo -->
                                              <children>
-                                                <Label id="lblID" styleClass="Labelstext" text="Fecha de compra" />
-                                                <DatePicker prefHeight="24.0" prefWidth="403.0" />
-                                                <Label id="Labels" styleClass="Labelstext" text="Monto" />
-                                                <Spinner prefHeight="24.0" prefWidth="411.0" />
-                                                <Label id="Labels" styleClass="Labelstext" text="Tarjeta" />
-                                                <ComboBox prefHeight="24.0" prefWidth="428.0" />
-                                                <Label styleClass="Labelstext" text="Descripcion" />
-                                                <TextArea prefHeight="80.0" prefWidth="230.0" />
-                                                <Button mnemonicParsing="false" prefWidth="169.0" text="Crear">
+                                                <Label id="lblID" styleClass="Labelstext" text="Fecha de compra" /> <!-- 00090123 Etiqueta con id, clase de estilo y texto -->
+                                                <DatePicker prefHeight="24.0" prefWidth="403.0" /> <!-- 00090123 Selector de fecha con altura y ancho preferidos -->
+                                                <Label id="Labels" styleClass="Labelstext" text="Monto" /> <!-- 00090123 Etiqueta con id, clase de estilo y texto -->
+                                                <Spinner prefHeight="24.0" prefWidth="411.0" /> <!-- 00090123 Selector de valor con altura y ancho preferidos -->
+                                                <Label id="Labels" styleClass="Labelstext" text="Tarjeta" /> <!-- 00090123 Etiqueta con id, clase de estilo y texto -->
+                                                <ComboBox prefHeight="24.0" prefWidth="428.0" /> <!-- 00090123 Cuadro combinado con altura y ancho preferidos -->
+                                                <Label styleClass="Labelstext" text="Descripcion" /> <!-- 00090123 Etiqueta con clase de estilo y texto -->
+                                                <TextArea prefHeight="80.0" prefWidth="230.0" /> <!-- 00090123 Área de texto con altura y ancho preferidos -->
+                                                <Button mnemonicParsing="false" prefWidth="169.0" text="Crear"> <!-- 00090123 Botón con texto 'Crear' y sin análisis de mnemónicos -->
                                                    <VBox.margin>
-                                                      <Insets top="130.0" />
+                                                      <Insets top="130.0" /> <!-- 00090123 Márgenes superiores del botón dentro del VBox -->
                                                    </VBox.margin>
                                                 </Button>
                                              </children>
                                              <HBox.margin>
-                                                <Insets bottom="10.0" left="100.0" right="10.0" top="10.0" />
+                                                <Insets bottom="10.0" left="100.0" right="10.0" top="10.0" /> <!-- 00090123 Márgenes del VBox dentro del HBox -->
                                              </HBox.margin>
                                              <padding>
-                                                <Insets top="80.0" />
+                                                <Insets top="80.0" /> <!-- 00090123 Relleno superior del VBox -->
                                              </padding>
                                           </VBox>
                                        </children>
@@ -65,29 +65,29 @@
                         </AnchorPane>
                      </content>
                   </Tab>
-                  <Tab text="Buscar">
+                  <Tab text="Buscar"> <!-- 00090123 Pestaña con texto 'Buscar' -->
                      <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"> <!-- 00090123 Pane anclado con altura y ancho preferidos -->
                            <children>
-                              <HBox layoutY="3.0" prefHeight="686.0" prefWidth="1278.0">
+                              <HBox layoutY="3.0" prefHeight="686.0" prefWidth="1278.0"> <!-- 00090123 Contenedor horizontal con disposición específica y dimensiones preferidas -->
                                  <children>
-                                    <HBox prefHeight="686.0" prefWidth="630.0" styleClass="fondoreporte">
+                                    <HBox prefHeight="686.0" prefWidth="630.0" styleClass="fondoreporte"> <!-- 00090123 Contenedor horizontal con altura y ancho preferidos y clase de estilo -->
                                        <children>
-                                          <VBox prefHeight="674.0" prefWidth="426.0" spacing="13.0">
+                                          <VBox prefHeight="674.0" prefWidth="426.0" spacing="13.0"> <!-- 00090123 Contenedor vertical con altura y ancho preferidos y espacio entre elementos -->
                                              <children>
-                                                <Label id="Labels" styleClass="Labelstext" text="ID Compra" />
-                                                <ComboBox prefHeight="24.0" prefWidth="439.0" />
-                                                <Button mnemonicParsing="false" text="Buscar">
+                                                <Label id="Labels" styleClass="Labelstext" text="ID Compra" /> <!-- 00090123 Etiqueta con id, clase de estilo y texto -->
+                                                <ComboBox prefHeight="24.0" prefWidth="439.0" /> <!-- 00090123 Cuadro combinado con altura y ancho preferidos -->
+                                                <Button mnemonicParsing="false" text="Buscar"> <!-- 00090123 Botón con texto 'Buscar' y sin análisis de mnemónicos -->
                                                    <VBox.margin>
-                                                      <Insets top="410.0" />
+                                                      <Insets top="410.0" /> <!-- 00090123 Márgenes superiores del botón dentro del VBox -->
                                                    </VBox.margin>
                                                 </Button>
                                              </children>
                                              <padding>
-                                                <Insets top="80.0" />
+                                                <Insets top="80.0" /> <!-- 00090123 Relleno superior del VBox -->
                                              </padding>
                                              <HBox.margin>
-                                                <Insets left="100.0" />
+                                                <Insets left="100.0" /> <!-- 00090123 Márgenes del VBox dentro del HBox -->
                                              </HBox.margin>
                                           </VBox>
                                        </children>
@@ -98,91 +98,158 @@
                         </AnchorPane>
                      </content>
                   </Tab>
+                  <!-- 00090123 Inicia el Tab "Actualizar" -->
                   <Tab text="Actualizar">
+                     <!-- 00090123 Inicia el contenido del Tab "Actualizar" -->
                      <content>
+                        <!-- 00090123 Inicia el AnchorPane -->
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <!-- 00090123 Inician los hijos del AnchorPane -->
                            <children>
+                              <!-- 00090123 Inicia el HBox -->
                               <HBox layoutY="3.0" prefHeight="686.0" prefWidth="1278.0">
+                                 <!-- 00090123 Inician los hijos del HBox -->
                                  <children>
+                                    <!-- 00090123 Inicia el HBox con clase de estilo "fondoreporte" -->
                                     <HBox prefHeight="686.0" prefWidth="630.0" styleClass="fondoreporte">
+                                       <!-- 00090123 Inician los hijos del HBox con clase de estilo "fondoreporte" -->
                                        <children>
+                                          <!-- 00090123 Inicia el VBox -->
                                           <VBox prefHeight="674.0" prefWidth="426.0" spacing="13.0">
+                                             <!-- 00090123 Inician los hijos del VBox -->
                                              <children>
+                                                <!-- 00090123 Inicia el Label con id "Labels" y clase de estilo "Labelstext" -->
                                                 <Label id="Labels" styleClass="Labelstext" text="ID Compra" />
+                                                <!-- 00090123 Inicia el ComboBox -->
                                                 <ComboBox prefHeight="24.0" prefWidth="440.0" />
+                                                <!-- 00090123 Inicia el Label con clase de estilo "Labelstext" -->
                                                 <Label styleClass="Labelstext" text="Fecha de compra" />
+                                                <!-- 00090123 Inicia el DatePicker -->
                                                 <DatePicker prefHeight="24.0" prefWidth="427.0" />
+                                                <!-- 00090123 Inicia el Label con clase de estilo "Labelstext" -->
                                                 <Label styleClass="Labelstext" text="Monto" />
+                                                <!-- 00090123 Inicia el Spinner -->
                                                 <Spinner prefHeight="24.0" prefWidth="428.0" />
+                                                <!-- 00090123 Inicia el Label con clase de estilo "Labelstext" -->
                                                 <Label styleClass="Labelstext" text="Tarjeta" />
+                                                <!-- 00090123 Inicia el ComboBox -->
                                                 <ComboBox prefHeight="24.0" prefWidth="434.0" />
+                                                <!-- 00090123 Inicia el Label con clase de estilo "Labelstext" -->
                                                 <Label styleClass="Labelstext" text="Descripcion" />
+                                                <!-- 00090123 Inicia el TextArea -->
                                                 <TextArea prefHeight="80.0" prefWidth="230.0" />
+                                                <!-- 00090123 Inicia el Button -->
                                                 <Button mnemonicParsing="false" text="Actualizar">
+                                                   <!-- 00090123 Inicia el VBox.margin del Button -->
                                                    <VBox.margin>
                                                       <Insets top="50.0" />
                                                    </VBox.margin>
+                                                   <!-- 00090123 Termina el VBox.margin del Button -->
                                                 </Button>
                                              </children>
+                                             <!-- 00090123 Termina los hijos del VBox -->
+                                             <!-- 00090123 Inicia el padding del VBox -->
                                              <padding>
                                                 <Insets top="80.0" />
                                              </padding>
+                                             <!-- 00090123 Termina el padding del VBox -->
+                                             <!-- 00090123 Inicia el HBox.margin del VBox -->
                                              <HBox.margin>
                                                 <Insets left="100.0" />
                                              </HBox.margin>
+                                             <!-- 00090123 Termina el HBox.margin del VBox -->
                                           </VBox>
                                        </children>
+                                       <!-- 00090123 Terminan los hijos del HBox con clase de estilo "fondoreporte" -->
                                     </HBox>
                                  </children>
+                                 <!-- 00090123 Terminan los hijos del HBox -->
                               </HBox>
                            </children>
+                           <!-- 00090123 Terminan los hijos del AnchorPane -->
                         </AnchorPane>
                      </content>
+                     <!-- 00090123 Termina el contenido del Tab "Actualizar" -->
                   </Tab>
+                  <!-- 00090123 Inicia el Tab "Eliminar" -->
                   <Tab text="Eliminar">
+                     <!-- 00090123 Inicia el contenido del Tab "Eliminar" -->
                      <content>
+                        <!-- 00090123 Inicia el AnchorPane -->
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <!-- 00090123 Inician los hijos del AnchorPane -->
                            <children>
+                              <!-- 00090123 Inicia el HBox -->
                               <HBox layoutY="3.0" prefHeight="686.0" prefWidth="1278.0">
+                                 <!-- 00090123 Inician los hijos del HBox -->
                                  <children>
+                                    <!-- 00090123 Inicia el HBox con clase de estilo "fondoreporte" -->
                                     <HBox prefHeight="686.0" prefWidth="630.0" styleClass="fondoreporte">
+                                       <!-- 00090123 Inician los hijos del HBox con clase de estilo "fondoreporte" -->
                                        <children>
+                                          <!-- 00090123 Inicia el VBox -->
                                           <VBox prefHeight="674.0" prefWidth="426.0" spacing="13.0">
+                                             <!-- 00090123 Inician los hijos del VBox -->
                                              <children>
+                                                <!-- 00090123 Inicia el Label con id "Labels" y clase de estilo "Labelstext" -->
                                                 <Label id="Labels" styleClass="Labelstext" text="ID de compra" />
+                                                <!-- 00090123 Inicia el ComboBox -->
                                                 <ComboBox prefHeight="24.0" prefWidth="386.0" />
+                                                <!-- 00090123 Inicia el Button -->
                                                 <Button mnemonicParsing="false" text="Eliminar">
+                                                   <!-- 00090123 Inicia el VBox.margin del Button -->
                                                    <VBox.margin>
                                                       <Insets top="410.0" />
                                                    </VBox.margin>
+                                                   <!-- 00090123 Termina el VBox.margin del Button -->
                                                 </Button>
                                              </children>
+                                             <!-- 00090123 Terminan los hijos del VBox -->
+                                             <!-- 00090123 Inicia el padding del VBox -->
                                              <padding>
                                                 <Insets top="80.0" />
                                              </padding>
+                                             <!-- 00090123 Termina el padding del VBox -->
+                                             <!-- 00090123 Inicia el HBox.margin del VBox -->
                                              <HBox.margin>
                                                 <Insets left="100.0" />
                                              </HBox.margin>
+                                             <!-- 00090123 Termina el HBox.margin del VBox -->
                                           </VBox>
                                        </children>
+                                       <!-- 00090123 Terminan los hijos del HBox con clase de estilo "fondoreporte" -->
                                     </HBox>
                                  </children>
+                                 <!-- 00090123 Terminan los hijos del HBox -->
                               </HBox>
                            </children>
+                           <!-- 00090123 Terminan los hijos del AnchorPane -->
                         </AnchorPane>
                      </content>
+                     <!-- 00090123 Termina el contenido del Tab "Eliminar" -->
                   </Tab>
+                  <!-- 00090123 Termina el Tab "Eliminar" -->
                </tabs>
             </TabPane>
+            <!-- 00090123 Inicia el TableView -->
             <TableView prefHeight="690.0" prefWidth="656.0">
-              <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
-              </columns>
+               <!-- 00090123 Inician las columnas del TableView -->
+               <columns>
+                  <!-- 00090123 Inicia la primera TableColumn -->
+                  <TableColumn prefWidth="75.0" text="C1" />
+                  <!-- 00090123 Termina la primera TableColumn -->
+                  <!-- 00090123 Inicia la segunda TableColumn -->
+                  <TableColumn prefWidth="75.0" text="C2" />
+                  <!-- 00090123 Termina la segunda TableColumn -->
+               </columns>
+               <!-- 00090123 Terminan las columnas del TableView -->
+               <!-- 00090123 Inicia el HBox.margin del TableView -->
                <HBox.margin>
                   <Insets />
                </HBox.margin>
+               <!-- 00090123 Termina el HBox.margin del TableView -->
             </TableView>
+            <!-- 00090123 Termina el TableView -->
          </children>
       </HBox>
    </children>
