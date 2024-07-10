@@ -11,7 +11,7 @@ public class TarjetaApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(TarjetaApplication.class.getResource("tarjeta.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 600);
+        Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
         stage.setTitle("Tarjeta CRUD");
         stage.setScene(scene);
         stage.show();
