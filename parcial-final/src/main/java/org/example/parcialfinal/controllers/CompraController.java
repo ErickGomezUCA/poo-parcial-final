@@ -136,7 +136,7 @@ public class CompraController {
         int idTarjeta = selectAgregarTarjeta.getValue().getId();
 
         try {
-            PreparedStatement st = connection.getConnection().prepareStatement("INSERT INTO Compra() VALUES (?, ?, ?, ?)");
+            PreparedStatement st = connection.getConnection().prepareStatement("INSERT INTO Compra(fecha_compra, monto, descripcion, id_tarjeta_C) VALUES (?, ?, ?, ?)");
             st.setString(1, fecha);
             st.setDouble(2, monto);
             st.setString(3, descripcion);
