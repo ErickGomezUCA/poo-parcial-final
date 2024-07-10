@@ -11,7 +11,6 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -38,15 +37,11 @@
                                           <VBox prefHeight="674.0" prefWidth="397.0" spacing="13.0" stylesheets="@styles/inputs.css">
                                              <children>
                                                 <Label id="lblID" styleClass="Labelstext" text="Fecha de compra" />
-                                                <TextField>
-                                                   <VBox.margin>
-                                                      <Insets />
-                                                   </VBox.margin>
-                                                </TextField>
-                                                <Label id="Labels" styleClass="Labelstext" text="Monto" />
                                                 <DatePicker prefHeight="24.0" prefWidth="403.0" />
+                                                <Label id="Labels" styleClass="Labelstext" text="Monto" />
+                                                <Spinner prefHeight="24.0" prefWidth="411.0" />
                                                 <Label id="Labels" styleClass="Labelstext" text="Tarjeta" />
-                                                <DatePicker prefHeight="24.0" prefWidth="398.0" />
+                                                <ComboBox prefHeight="24.0" prefWidth="428.0" />
                                                 <Label styleClass="Labelstext" text="Descripcion" />
                                                 <TextArea prefHeight="80.0" prefWidth="230.0" />
                                                 <Button mnemonicParsing="false" prefWidth="169.0" text="Crear">
@@ -81,11 +76,7 @@
                                           <VBox prefHeight="674.0" prefWidth="426.0" spacing="13.0">
                                              <children>
                                                 <Label id="Labels" styleClass="Labelstext" text="ID Compra" />
-                                                <TextField>
-                                                   <VBox.margin>
-                                                      <Insets />
-                                                   </VBox.margin>
-                                                </TextField>
+                                                <ComboBox prefHeight="24.0" prefWidth="439.0" />
                                                 <Button mnemonicParsing="false" text="Buscar">
                                                    <VBox.margin>
                                                       <Insets top="410.0" />
@@ -118,11 +109,7 @@
                                           <VBox prefHeight="674.0" prefWidth="426.0" spacing="13.0">
                                              <children>
                                                 <Label id="Labels" styleClass="Labelstext" text="ID Compra" />
-                                                <TextField prefHeight="24.0" prefWidth="403.0">
-                                                   <VBox.margin>
-                                                      <Insets />
-                                                   </VBox.margin>
-                                                </TextField>
+                                                <ComboBox prefHeight="24.0" prefWidth="440.0" />
                                                 <Label styleClass="Labelstext" text="Fecha de compra" />
                                                 <DatePicker prefHeight="24.0" prefWidth="427.0" />
                                                 <Label styleClass="Labelstext" text="Monto" />
@@ -193,7 +180,7 @@
                 <TableColumn prefWidth="75.0" text="C2" />
               </columns>
                <HBox.margin>
-                  <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                  <Insets />
                </HBox.margin>
             </TableView>
          </children>
