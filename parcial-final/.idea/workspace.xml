@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e4a738b-9cdc-45d8-9e74-6828bc22b47c" name="Changes" comment="">
+    <list default="true" id="325bb22e-9ff5-4229-8988-a06f744f5a4d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/parcialfinal/lobby.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/parcialfinal/lobby.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,46 +15,9 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Gradle.parcial-final [:ClienteApplication.main()].executor": "Run",
-    "Gradle.parcial-final [:ReportesApplication.main()].executor": "Run",
-    "git-widget-placeholder": "PaolaLopez",
-    "node.js.selected.package.tslint": "(autodetect)"
+    "git-widget-placeholder": "Fernanda__Valencia"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.ReportesApplication">
-    <configuration name="ClienteApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.parcialfinal.applications.ClienteApplication" />
-      <module name="parcial-final.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.parcialfinal.applications.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ReportesApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.parcialfinal.applications.ReportesApplication" />
-      <module name="parcial-final.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.parcialfinal.applications.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.ReportesApplication" />
-        <item itemvalue="Application.ClienteApplication" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="TaskManager">
     <servers />
   </component>

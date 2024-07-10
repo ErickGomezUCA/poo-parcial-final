@@ -6,11 +6,11 @@ public class Cliente { // 00300723 Clase para guardar los registros de la tabla 
     private String direccion; // 00300723 Contiene la direccion de los registros de los clientes
     private String numeroTelefono; // 00300723 Contiene el numero de telefono de los registros de los clientes
 
-    public Cliente() {
-        id = 0;
-        nombreCompleto = "";
-        direccion = "";
-        numeroTelefono = "";
+    public Cliente() { // 00090123 Constructor por defecto de la clase Cliente
+        id = 0; // 00090123 Inicializa el ID del cliente como 0
+        nombreCompleto = ""; // 00090123 Inicializa el nombre completo del cliente como cadena vacía
+        direccion = ""; // 00090123 Inicializa la dirección del cliente como cadena vacía
+        numeroTelefono = ""; // 00090123 Inicializa el número de teléfono del cliente como cadena vacía
     }
 
     public Cliente(int id, String nombreCompleto, String direccion, String numeroTelefono) { // 00300723 Constructor para los objetos de Cliente
