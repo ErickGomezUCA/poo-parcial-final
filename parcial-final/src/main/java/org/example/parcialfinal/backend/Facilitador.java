@@ -4,6 +4,11 @@ public class Facilitador {
     private int id;
     private String facilitador;
 
+    public Facilitador() {
+        id = 0;
+        facilitador = "";
+    }
+
     public Facilitador(int id, String facilitador) {
         this.id = id;
         this.facilitador = facilitador;

@@ -3,6 +3,7 @@ package org.example.parcialfinal.reports;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Control;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextArea;
 import org.example.parcialfinal.backend.Cliente;
 import org.example.parcialfinal.backend.reportes.ReporteUtils;
 
@@ -32,7 +33,7 @@ public class ReporteA extends Reporte {
                                                                                     "INNER JOIN Compra cmpr " +
                                                                                     "ON t.id = cmpr.id_tarjeta_C " +
                                                                                     "WHERE clnt.id =  " + idCliente +
-                                                                                    " AND cmpr.fecha_compra BETWEEN " + primeraFecha + "AND" + segundaFecha);
+                                                                                    " AND cmpr.fecha_compra BETWEEN " + primeraFecha + " AND " + segundaFecha);
 
             ResultSet rs = st.executeQuery();
 
@@ -49,6 +50,7 @@ public class ReporteA extends Reporte {
                         + "\ndescripcion: " + descripcion
                         + "\nnumero tarjeta: " + numTarjeta + "\n");
             }
+            ((TextArea)controlResultado).setText(contenidoReporte);
             ReporteUtils.generarReporte('A', contenidoReporte);
             connection.closeConnection();
         } catch (SQLException e) {
