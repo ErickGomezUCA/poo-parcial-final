@@ -4,9 +4,8 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import org.example.parcialfinal.backend.Cliente;
 import org.example.parcialfinal.backend.Facilitador;
 import org.example.parcialfinal.backend.Tarjeta;
@@ -51,6 +50,18 @@ public class TarjetaController implements Initializable {
     @FXML
     private ComboBox<Tarjeta> selectTarjeta_Eliminar;
 
+    @FXML
+    private TableView<Tarjeta> tableTarjeta;
+    @FXML
+    private TableColumn<Tarjeta, Integer> colId;
+    @FXML
+    private TableColumn<Tarjeta, String> colNumero;
+    @FXML
+    private TableColumn<Tarjeta, String> colTipo;
+    @FXML
+    private TableColumn<Tarjeta, String> colFecha;
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObservableList<String> tipos = FXCollections.observableArrayList("Credito", "Debito");
@@ -62,6 +73,17 @@ public class TarjetaController implements Initializable {
         prepararBuscar(tarjetas);
         prepararActualizar(tarjetas, tipos, clientes, facilitadores);
         prepararEliminar(tarjetas);
+
+        mostrarTarjetas();
+    }
+
+    private void mostrarTarjetas() {
+        ObservableList<Tarjeta> tarjetas = FXCollections.observableArrayList(DatabaseUtils.obtenerTarjetas());
+        tableTarjeta.setItems(tarjetas);
+        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colNumero.setCellValueFactory(new PropertyValueFactory<>("numero"));
+        colTipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
+        colFecha.setCellValueFactory(new PropertyValueFactory<>("fecha"));
     }
 
     private void prepararCrear(ObservableList<String> tipos, ObservableList<Cliente> clientes, ObservableList<Facilitador> facilitadores) {

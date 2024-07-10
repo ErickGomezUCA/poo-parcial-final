@@ -64,8 +64,10 @@
                                        <children>
                                           <TableView fx:id="tableTarjeta" prefHeight="662.0" prefWidth="672.0">
                                              <columns>
-                                                <TableColumn prefWidth="75.0" text="C1" />
-                                                <TableColumn prefWidth="75.0" text="C2" />
+                                                <TableColumn fx:id="colId" prefWidth="75.0" text="ID" />
+                                                <TableColumn fx:id="colNumero" prefWidth="75.0" text="Numero" />
+                                                <TableColumn fx:id="colFecha" prefWidth="75.0" text="Fecha expiracion" />
+                                                <TableColumn fx:id="colTipo" prefWidth="75.0" text="Tipo" />
                                              </columns>
                                              <HBox.margin>
                                                 <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
