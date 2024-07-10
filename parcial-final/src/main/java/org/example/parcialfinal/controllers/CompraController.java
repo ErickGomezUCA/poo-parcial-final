@@ -144,9 +144,9 @@ public class CompraController {
 
             int filas = st.executeUpdate();
             if (filas > 0) {
-                alerta.mostrarMensaje("Compras", "Compra agregada con exito");
                 mostrarTodasCompras();
                 actualizarInputs();
+                alerta.mostrarMensaje("Compras", "Compra agregada con exito");
 
 
                 dtFechaAgregarCompra.setValue(null);
@@ -173,13 +173,12 @@ public class CompraController {
 
             if (rs.next()) {
                 compras.add(new Compra(rs.getInt("id"), rs.getString("fecha_compra"), rs.getDouble("monto"), rs.getString("descripcion"), rs.getInt("id_tarjeta_C")));
-                alerta.mostrarMensaje("Compras", "Compra encontrada");
-
-                } else {
+            } else {
                 alerta.mostrarError("Compras error","Compra no encontrado en base de datos", "");
             }
 
             mostrarCompra(compras);
+            alerta.mostrarMensaje("Compras", "Compra encontrada");
 
             connection.closeConnection();
         } catch (Exception e) {
@@ -197,7 +196,6 @@ public class CompraController {
 
             int filas = st.executeUpdate();
             if (filas > 0) {
-                alerta.mostrarMensaje("Compras", "Compra eliminada con exito");
                 cargarCompras();
             } else {
                 alerta.mostrarError("Compra error", "Compra no encontrada en base de datos", "");
@@ -205,6 +203,7 @@ public class CompraController {
 
             mostrarTodasCompras();
             actualizarInputs();
+            alerta.mostrarMensaje("Compras", "Compra eliminada con exito");
             connection.closeConnection();
         } catch (Exception e) {
             e.printStackTrace();
@@ -229,7 +228,6 @@ public class CompraController {
 
             int filas = st.executeUpdate();
             if (filas > 0) {
-                alerta.mostrarMensaje("Compra", "Compra actualizada con exito");
 
                 dtFechaActualizarCompra.setValue(null);
                 spinnerMontoAgregarCompra.getValueFactory().setValue(0.0);
@@ -241,6 +239,7 @@ public class CompraController {
             }
             mostrarTodasCompras();
             actualizarInputs();
+            alerta.mostrarMensaje("Compra", "Compra actualizada con exito");
             connection.closeConnection();
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());

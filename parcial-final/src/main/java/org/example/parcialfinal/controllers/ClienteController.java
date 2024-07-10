@@ -115,9 +115,9 @@ public class ClienteController {
             st.setString(3, txtNumTelefonoAgregarCliente.getText());
             st.executeUpdate();
 
-            alerta.mostrarMensaje("Clientes", "Cliente creado en el sistema");
             mostrarClientesTodos();
             actualizarInputs();
+            alerta.mostrarMensaje("Clientes", "Cliente creado en el sistema");
             connection.closeConnection();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -134,8 +134,8 @@ public class ClienteController {
             while (rs.next()) {
                 clientes.add(new Cliente(rs.getInt("id"), rs.getString("nombre_completo"), rs.getString("direccion"), rs.getString("num_telefono")));
             }
-            alerta.mostrarMensaje("Clientes", "Cliente encontrado en el sistema");
             mostrarCliente(clientes);
+            alerta.mostrarMensaje("Clientes", "Cliente encontrado en el sistema");
             connection.closeConnection();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -152,9 +152,9 @@ public class ClienteController {
             st.setInt(4, selectIdActualizarCliente.getValue().getId());
             st.executeUpdate();
 
-            alerta.mostrarMensaje("Clientes", "Cliente actualizado en el sistema");
             mostrarClientesTodos();
             actualizarInputs();
+            alerta.mostrarMensaje("Clientes", "Cliente actualizado en el sistema");
             connection.closeConnection();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -168,9 +168,9 @@ public class ClienteController {
             st.setInt(1, selectIdEliminarCliente.getValue().getId());
             st.executeUpdate();
 
-            alerta.mostrarMensaje("Clientes", "Cliente eliminado en el sistema");
             mostrarClientesTodos();
             actualizarInputs();
+            alerta.mostrarMensaje("Clientes", "Cliente eliminado en el sistema");
             connection.closeConnection();
         } catch (SQLException e) {
             throw new RuntimeException();

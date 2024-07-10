@@ -145,9 +145,9 @@ public class TarjetaController implements Initializable {
             psComprasInteligentes.setInt(2, selectCliente_Crear.getValue().getId());
             psComprasInteligentes.setInt(3, selectFacilitador_Crear.getValue().getId());
             psComprasInteligentes.executeUpdate();
-            alerta.mostrarMensaje("Tarjetas", "Tarjeta creada en el sistema");
             mostrarTarjetasTodas();
             actualizarInputs();
+            alerta.mostrarMensaje("Tarjetas", "Tarjeta creada en el sistema");
             connection.closeConnection();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -164,8 +164,8 @@ public class TarjetaController implements Initializable {
             while (rs.next()) {
                 tarjetas.add(new Tarjeta(rs.getInt("id"), rs.getString("num_tarjeta"), rs.getString("fecha_expiracion"), rs.getString("tipo_tarjeta")));
             }
-            alerta.mostrarMensaje("Tarjetas", "Tarjeta encontrada en el sistema");
             mostrarTarjeta(tarjetas);
+            alerta.mostrarMensaje("Tarjetas", "Tarjeta encontrada en el sistema");
             connection.closeConnection();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -188,10 +188,10 @@ public class TarjetaController implements Initializable {
             psComprasInteligentes.setInt(2, selectFacilitador_Actualizar.getValue().getId());
             psComprasInteligentes.setInt(3, selectTarjeta_Actualizar.getValue().getId());
             psComprasInteligentes.executeUpdate();
-            alerta.mostrarMensaje("Tarjetas", "Tarjeta actualizada en el sistema");
-            connection.closeConnection();
             mostrarTarjetasTodas();
             actualizarInputs();
+            alerta.mostrarMensaje("Tarjetas", "Tarjeta actualizada en el sistema");
+            connection.closeConnection();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -203,10 +203,10 @@ public class TarjetaController implements Initializable {
             PreparedStatement ps = connection.getConnection().prepareStatement("DELETE FROM Tarjeta WHERE id = ?");
             ps.setInt(1, selectTarjeta_Eliminar.getValue().getId());
             ps.executeUpdate();
-            alerta.mostrarMensaje("Tarjetas", "Tarjeta eliminada en el sistema");
-            connection.closeConnection();
             mostrarTarjetasTodas();
             actualizarInputs();
+            alerta.mostrarMensaje("Tarjetas", "Tarjeta eliminada en el sistema");
+            connection.closeConnection();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
