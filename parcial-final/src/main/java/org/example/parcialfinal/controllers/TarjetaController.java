@@ -76,11 +76,15 @@ public class TarjetaController implements Initializable {
         prepararActualizar(tarjetas, tipos, clientes, facilitadores);
         prepararEliminar(tarjetas);
 
-        mostrarTarjetas();
+        mostrarTarjetasTodas();
     }
 
-    private void mostrarTarjetas() {
+    private void mostrarTarjetasTodas() {
         ObservableList<Tarjeta> tarjetas = FXCollections.observableArrayList(DatabaseUtils.obtenerTarjetas());
+        mostrarTarjeta(tarjetas);
+    }
+
+    private void mostrarTarjeta(ObservableList<Tarjeta> tarjetas) {
         tableTarjeta.setItems(tarjetas);
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
         colNumero.setCellValueFactory(new PropertyValueFactory<>("numeroTarjeta"));
@@ -119,7 +123,6 @@ public class TarjetaController implements Initializable {
                 psTarjeta.setDate(2 , Date.valueOf(dateFechaExp_Crear.getValue()));
             psTarjeta.setString(3 , selectTarjetaTipo_Crear.getValue());
             psTarjeta.executeUpdate();
-            System.out.println("Tarjeta creada en el sistema");
 
             // Obtener ultimo ID del autoincrement
             ResultSet rs = connection.getConnection().createStatement().executeQuery("SELECT LAST_INSERT_ID() FROM Tarjeta");
@@ -132,7 +135,8 @@ public class TarjetaController implements Initializable {
             psComprasInteligentes.setInt(2, selectCliente_Crear.getValue().getId());
             psComprasInteligentes.setInt(3, selectFacilitador_Crear.getValue().getId());
             psComprasInteligentes.executeUpdate();
-            System.out.println("Compras inteligentes registrada");
+            alerta.mostrarMensaje("Tarjetas", "Tarjeta creada en el sistema");
+            mostrarTarjetasTodas();
             connection.closeConnection();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -141,16 +145,16 @@ public class TarjetaController implements Initializable {
 
     @FXML
     void clickBuscarTarjeta(ActionEvent event) {
+        ObservableList<Tarjeta> tarjetas = FXCollections.observableArrayList();
         try {
             Statement stmt = connection.getConnection().createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM Tarjeta WHERE id = " + selectTarjeta_Buscar.getValue().getId() + ";");
 
             while (rs.next()) {
-                System.out.println("id: " + rs.getString("id")
-                        + "\nnumero de tarjeta: " + rs.getString("num_tarjeta")
-                        + "\nfecha de expiracion: " + rs.getString("fecha_expiracion")
-                        + "\ntipo de tarjeta: " + rs.getString("tipo_tarjeta") + "\n");
+                tarjetas.add(new Tarjeta(rs.getInt("id"), rs.getString("num_tarjeta"), rs.getString("fecha_expiracion"), rs.getString("tipo_tarjeta")));
             }
+            alerta.mostrarMensaje("Tarjetas", "Tarjeta encontrada en el sistema");
+            mostrarTarjeta(tarjetas);
             connection.closeConnection();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -166,7 +170,6 @@ public class TarjetaController implements Initializable {
             psTarjeta.setString(3, selectTarjetaTipo_Actualizar.getValue());
             psTarjeta.setInt(4, selectTarjeta_Actualizar.getValue().getId());
             psTarjeta.executeUpdate();
-            System.out.println("Registro de tarjeta actualizado");
             connection.closeConnection();
 
             PreparedStatement psComprasInteligentes = connection.getConnection().prepareStatement("UPDATE Compras_Inteligentes SET id_cliente_CI = ?, id_facilitador_CI = ? WHERE id_tarjeta_CI = ?");
@@ -174,8 +177,9 @@ public class TarjetaController implements Initializable {
             psComprasInteligentes.setInt(2, selectFacilitador_Actualizar.getValue().getId());
             psComprasInteligentes.setInt(3, selectTarjeta_Actualizar.getValue().getId());
             psComprasInteligentes.executeUpdate();
-            System.out.println("Registro de compras inteligentes actualizado");
+            alerta.mostrarMensaje("Tarjetas", "Tarjeta actualizada en el sistema");
             connection.closeConnection();
+            mostrarTarjetasTodas();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -187,8 +191,9 @@ public class TarjetaController implements Initializable {
             PreparedStatement ps = connection.getConnection().prepareStatement("DELETE FROM Tarjeta WHERE id = ?");
             ps.setInt(1, selectTarjeta_Eliminar.getValue().getId());
             ps.executeUpdate();
-            System.out.println("Tarjeta eliminada en el sistema");
+            alerta.mostrarMensaje("Tarjetas", "Tarjeta eliminada en el sistema");
             connection.closeConnection();
+            mostrarTarjetasTodas();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
