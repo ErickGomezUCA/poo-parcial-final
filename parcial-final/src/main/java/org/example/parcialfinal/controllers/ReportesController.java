@@ -119,7 +119,7 @@ public class ReportesController implements Initializable {
     }
 
     @FXML
-    private void clickRegresar(java.awt.event.ActionEvent event) {
+    private void clickRegresar(ActionEvent event) {
         Stage stage = new Stage();
         LobbyApplication lobbyApp = new LobbyApplication();
         try {
