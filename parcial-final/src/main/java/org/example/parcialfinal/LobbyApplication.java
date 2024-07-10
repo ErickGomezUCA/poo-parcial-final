@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class LobbyApplication extends Application {
+public class LobbyApplication extends Application { //00090123 Empezar el programa
     @Override
     public void start(Stage stage) throws IOException { // 00090123 Método start requerido por la clase Application para iniciar la aplicación
         FXMLLoader fxmlLoader = new FXMLLoader(LobbyApplication.class.getResource("lobby.fxml")); // 00090123 Carga el archivo FXML de la interfaz gráfica del lobby
