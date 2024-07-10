@@ -8,6 +8,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import org.example.parcialfinal.LobbyApplication;
 import org.example.parcialfinal.backend.Cliente;
 import org.example.parcialfinal.backend.Tarjeta;
 import org.example.parcialfinal.backend.alertas.Alerta;
@@ -15,12 +18,17 @@ import org.example.parcialfinal.backend.database.DBConnection;
 import org.example.parcialfinal.backend.database.DatabaseUtils;
 
 import javafx.event.ActionEvent;
+
+import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 
 public class ClienteController {
     DBConnection connection = DBConnection.getInstance();
     Alerta alerta = new Alerta();
+
+    @FXML
+    private VBox main;
 
     @FXML
     private TextField txtNombreCompletoAgregarCliente;
@@ -59,11 +67,7 @@ public class ClienteController {
 
     @FXML
     public void initialize() {
-        ObservableList<Cliente> clientes = FXCollections.observableArrayList(DatabaseUtils.obtenerClientes());
-
-        prepararBuscar(clientes);
-        prepararActualizar(clientes);
-        prepararEliminar(clientes);
+        actualizarInputs();
 
         mostrarClientesTodos();
     }
@@ -79,6 +83,14 @@ public class ClienteController {
         colNombreCompleto.setCellValueFactory(new PropertyValueFactory<>("nombreCompleto"));
         colDireccion.setCellValueFactory(new PropertyValueFactory<>("direccion"));
         colNumTelefono.setCellValueFactory(new PropertyValueFactory<>("numeroTelefono"));
+    }
+
+    private void actualizarInputs() {
+        ObservableList<Cliente> clientes = FXCollections.observableArrayList(DatabaseUtils.obtenerClientes());
+
+        prepararBuscar(clientes);
+        prepararActualizar(clientes);
+        prepararEliminar(clientes);
     }
 
     private void prepararBuscar(ObservableList<Cliente> clientes) {
@@ -105,6 +117,7 @@ public class ClienteController {
 
             alerta.mostrarMensaje("Clientes", "Cliente creado en el sistema");
             mostrarClientesTodos();
+            actualizarInputs();
             connection.closeConnection();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -140,6 +153,7 @@ public class ClienteController {
 
             alerta.mostrarMensaje("Clientes", "Cliente actualizado en el sistema");
             mostrarClientesTodos();
+            actualizarInputs();
             connection.closeConnection();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -155,9 +169,28 @@ public class ClienteController {
 
             alerta.mostrarMensaje("Clientes", "Cliente eliminado en el sistema");
             mostrarClientesTodos();
+            actualizarInputs();
             connection.closeConnection();
         } catch (SQLException e) {
             throw new RuntimeException();
         }
+    }
+
+    @FXML
+    private void clickRegresar(ActionEvent event) {
+        Stage stage = new Stage();
+        LobbyApplication lobbyApp = new LobbyApplication();
+        try {
+            lobbyApp.start(stage);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.show();
+        cerrar();
+    }
+
+    @FXML
+    private void cerrar() {
+        ((Stage)main.getScene().getWindow()).close();
     }
 }
