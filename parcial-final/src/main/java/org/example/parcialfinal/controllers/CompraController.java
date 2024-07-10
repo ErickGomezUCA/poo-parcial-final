@@ -1,5 +1,7 @@
 package org.example.parcialfinal.controllers;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
@@ -10,6 +12,8 @@ import org.example.parcialfinal.backend.Tarjeta;
 import org.example.parcialfinal.backend.database.DBConnection;
 
 import javafx.event.ActionEvent;
+import org.example.parcialfinal.backend.database.DatabaseUtils;
+
 import java.io.IOException;
 import java.sql.*;
 import java.time.format.DateTimeFormatter;
@@ -48,21 +52,20 @@ public class CompraController {
     private TextField txtDescripcionActualizarCompra;
 
 
-
     @FXML
-    private TextArea txtMensajeAgregarCompra;
-
+    private TableView<Compra> tableCompra;
     @FXML
-    private TextArea txtMensajeBuscarCompra;
-
+    private TableColumn<Compra, Integer> colId;
     @FXML
-    private TextArea txtMensajeMostrarTodosCompra;
-
+    private TableColumn<Compra, String> colFecha;
     @FXML
-    private TextArea txtMensajeEliminarCompra;
-
+    private TableColumn<Compra, Double> colMonto;
     @FXML
-    private TextArea txtMensajeActualizarCompra;
+    private TableColumn<Compra, Integer> colTarjeta;
+    @FXML
+    private TableColumn<Compra, String> colDescripcion;
+
+
 
     private ArrayList<Compra> compras = new ArrayList<>();
 
@@ -71,11 +74,29 @@ public class CompraController {
     public void initialize() {
         cargarCompras();
 
+        ObservableList<Tarjeta> tarjetas = FXCollections.observableArrayList(DatabaseUtils.obtenerTarjetas());
+        ObservableList<Compra> compras = FXCollections.observableArrayList(DatabaseUtils.obtenerCompras());
+
         SpinnerValueFactory<Double> valueFactoryCrear = new SpinnerValueFactory.DoubleSpinnerValueFactory(0.0, 10000.0, 0.0, 1);
         SpinnerValueFactory<Double> valueFactoryActualizar = new SpinnerValueFactory.DoubleSpinnerValueFactory(0.0, 10000.0, 0.0, 1);
-        spinnerMontoAgregarCompra.setValueFactory(valueFactoryCrear);
         spinnerMontoActualizarCompra.setValueFactory(valueFactoryActualizar);
+
+        prepararCrear(valueFactoryCrear, tarjetas);
+        prepararBuscar(compras);
     }
+
+    private void prepararCrear(SpinnerValueFactory<Double> valueFactoryCrear, ObservableList<Tarjeta> tarjetas) {
+        spinnerMontoAgregarCompra.setValueFactory(valueFactoryCrear);
+        selectAgregarTarjeta.setItems(tarjetas);
+    }
+
+    private void prepararBuscar(ObservableList<Compra> compras) {
+        selectActualizarCompra.setItems(compras);
+    }
+
+    private void prepararActualizar() {}
+
+    private void prepararEliminar() {}
 
     @FXML
     public void agregarCompra() {

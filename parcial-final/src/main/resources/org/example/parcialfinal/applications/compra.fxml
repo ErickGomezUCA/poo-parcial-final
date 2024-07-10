@@ -174,10 +174,13 @@
                   </Tab>
                </tabs>
             </TabPane>
-            <TableView prefHeight="690.0" prefWidth="656.0">
+            <TableView fx:id="tableCompra" prefHeight="690.0" prefWidth="656.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
+                <TableColumn fx:id="colId" prefWidth="58.0" text="ID" />
+                <TableColumn fx:id="colFecha" prefWidth="123.0" text="Fecha" />
+                  <TableColumn fx:id="colMonto" prefWidth="88.0" text="Monto" />
+                  <TableColumn fx:id="colTarjeta" prefWidth="116.0" text="Tarjeta" />
+                  <TableColumn fx:id="colDescripcion" minWidth="0.0" prefWidth="262.0" text="Descripcion" />
               </columns>
                <HBox.margin>
                   <Insets />

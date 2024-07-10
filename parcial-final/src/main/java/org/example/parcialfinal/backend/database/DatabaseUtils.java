@@ -1,6 +1,7 @@
 package org.example.parcialfinal.backend.database;
 
 import org.example.parcialfinal.backend.Cliente;
+import org.example.parcialfinal.backend.Compra;
 import org.example.parcialfinal.backend.Facilitador;
 import org.example.parcialfinal.backend.Tarjeta;
 
@@ -54,5 +55,19 @@ public class DatabaseUtils {
         }
 
         return tarjetas;
+    }
+
+    public static List<Compra> obtenerCompras() {
+        List<Compra> compras = new ArrayList<>();
+        try {
+            ResultSet rs = connection.getConnection().createStatement().executeQuery("SELECT * FROM Compra");
+            while (rs.next()) {
+                compras.add(new Compra(rs.getInt("id"), rs.getString("fecha_compra"), rs.getDouble("monto"), rs.getString("descripcion"), rs.getInt("id_tarjeta_C")));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return compras;
     }
 }
