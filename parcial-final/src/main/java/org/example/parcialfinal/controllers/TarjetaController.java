@@ -61,6 +61,7 @@ public class TarjetaController implements Initializable {
         prepararCrear(tipos, clientes, facilitadores);
         prepararBuscar(tarjetas);
         prepararActualizar(tarjetas, tipos, clientes, facilitadores);
+        prepararEliminar(tarjetas);
     }
 
     private void prepararCrear(ObservableList<String> tipos, ObservableList<Cliente> clientes, ObservableList<Facilitador> facilitadores) {
@@ -78,6 +79,10 @@ public class TarjetaController implements Initializable {
         selectTarjetaTipo_Actualizar.setItems(tipos);
         selectCliente_Actualizar.setItems(clientes);
         selectFacilitador_Actualizar.setItems(facilitadores);
+    }
+
+    private void prepararEliminar(ObservableList<Tarjeta> tarjetas) {
+        selectTarjeta_Eliminar.setItems(tarjetas);
     }
 
     @FXML
