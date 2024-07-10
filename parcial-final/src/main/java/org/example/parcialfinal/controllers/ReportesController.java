@@ -97,7 +97,6 @@ public class ReportesController implements Initializable {
     void clickGenerarReporteA(ActionEvent event) {
         ReporteA reporteA = new ReporteA(txtAreaRes_RA);
         reporteA.generarReporte(selectCliente_RA, dateFechaInicio_RA, dateFechaFinal_RA);
-
     }
 
     @FXML
