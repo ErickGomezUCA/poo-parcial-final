@@ -24,7 +24,7 @@
          <!-- Contenidos del segundo VBox -->
          <children>
             <!-- Botón de regreso -->
-            <Button mnemonicParsing="false" text="Regresar" />
+            <Button mnemonicParsing="false" onAction="#clickRegresar" text="Regresar" />
          </children>
       </VBox>
       <!-- Contenedor horizontal principal -->

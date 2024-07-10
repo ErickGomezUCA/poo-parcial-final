@@ -2,9 +2,13 @@ package org.example.parcialfinal.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
+import org.example.parcialfinal.LobbyApplication;
 import org.example.parcialfinal.backend.Compra;
 import org.example.parcialfinal.backend.database.DBConnection;
 
+import java.awt.event.ActionEvent;
+import java.io.IOException;
 import java.sql.*;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -221,5 +225,23 @@ public class CompraController {
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
+    }
+
+    @FXML
+    private void clickRegresar(ActionEvent event) {
+        Stage stage = new Stage();
+        LobbyApplication lobbyApp = new LobbyApplication();
+        try {
+            lobbyApp.start(stage);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.show();
+        cerrar();
+    }
+
+    @FXML
+    private void cerrar() {
+        ((Stage)txtIdActualizarCompra.getScene().getWindow()).close();
     }
 }

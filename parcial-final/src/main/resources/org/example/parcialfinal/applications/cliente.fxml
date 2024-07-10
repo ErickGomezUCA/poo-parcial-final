@@ -17,7 +17,7 @@
    <children>
       <VBox prefHeight="59.0" prefWidth="1280.0">
          <children>
-            <Button mnemonicParsing="false" text="Regresar" />
+            <Button mnemonicParsing="false" onAction="#clickRegresar" text="Regresar" />
          </children>
       </VBox>
       <HBox prefHeight="722.0" prefWidth="1280.0">

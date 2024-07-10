@@ -4,9 +4,15 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import org.example.parcialfinal.LobbyApplication;
+import org.example.parcialfinal.applications.TarjetaApplication;
 import org.example.parcialfinal.backend.Cliente;
 import org.example.parcialfinal.backend.database.DBConnection;
 
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -206,5 +212,23 @@ public class ClienteController {
         } catch (SQLException e) {
             System.out.println("Error: " + e.getMessage());
         }
+    }
+
+    @FXML
+    private void clickRegresar(ActionEvent event) {
+        Stage stage = new Stage();
+        LobbyApplication lobbyApp = new LobbyApplication();
+        try {
+            lobbyApp.start(stage);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.show();
+        cerrar();
+    }
+
+    @FXML
+    private void cerrar() {
+        ((Stage)txtNombreCompletoAgregarCliente.getScene().getWindow()).close();
     }
 }

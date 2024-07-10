@@ -6,6 +6,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
+import org.example.parcialfinal.LobbyApplication;
 import org.example.parcialfinal.backend.Cliente;
 import org.example.parcialfinal.backend.Facilitador;
 import org.example.parcialfinal.backend.Tarjeta;
@@ -13,6 +15,7 @@ import org.example.parcialfinal.backend.alertas.Alerta;
 import org.example.parcialfinal.backend.database.DBConnection;
 import org.example.parcialfinal.backend.database.DatabaseUtils;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
@@ -197,5 +200,23 @@ public class TarjetaController implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @FXML
+    private void clickRegresar(java.awt.event.ActionEvent event) {
+        Stage stage = new Stage();
+        LobbyApplication lobbyApp = new LobbyApplication();
+        try {
+            lobbyApp.start(stage);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.show();
+        cerrar();
+    }
+
+    @FXML
+    private void cerrar() {
+        ((Stage)main.getScene().getWindow()).close();
     }
 }
